@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should allow attributes to not be updated", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow attributes to not be updated", () => {
         function testHelloComponent(helloComponent) {
             expect(helloComponent.el.querySelector(".name").innerHTML).to.equal(
                 "Frank"
