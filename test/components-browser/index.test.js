@@ -66,7 +66,7 @@ function runHydrateTest(fixture) {
         );
         ssrTemplate
             .render({ components: components, $global: $global })
-            .then(function(html) {
+            .then(html => {
                 var browser = createBrowserWithMarko(__dirname, String(html), {
                     beforeParse(window, browser) {
                         var marko = browser.require("marko/components");
@@ -84,7 +84,7 @@ function runHydrateTest(fixture) {
                             hydrateComponentPath
                         );
                         marko.register(ssrTemplate.meta.id, rootComponent);
-                        components.forEach(function(def) {
+                        components.forEach(def => {
                             Object.keys(def.components).forEach(type => {
                                 marko.register(
                                     type,
@@ -104,9 +104,7 @@ function runHydrateTest(fixture) {
                 browser.window.$initComponents();
                 helpers.isHydrate = true;
 
-                helpers.mount = function() {
-                    return browser.window.components[curInstance++];
-                };
+                helpers.mount = () => browser.window.components[curInstance++];
 
                 if (isAsync) {
                     testFunc(helpers, done);
