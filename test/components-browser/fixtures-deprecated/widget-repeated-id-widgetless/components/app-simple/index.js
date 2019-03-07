@@ -1,10 +1,8 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getTemplateData: function(state, input) {
-        return {
+    getTemplateData: (state, input) => ({
             name: input.name,
             messageCount: input.messageCount
-        };
-    }
+        })
 });
