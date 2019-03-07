@@ -10,9 +10,9 @@ function safeRender(renderFunc, finalData, finalOut, shouldEnd) {
         }
     } catch (err) {
         var actualEnd = finalOut.end;
-        finalOut.end = function() {};
+        finalOut.end = () => {};
 
-        setTimeout(function() {
+        setTimeout(() => {
             finalOut.end = actualEnd;
             finalOut.error(err);
         }, 0);
@@ -41,7 +41,7 @@ module.exports = function(target, renderer) {
             }
 
             if (callback) {
-                out.on("finish", function() {
+                out.on("finish", () => {
                     callback(null, out.toString(), out);
                 }).once("error", callback);
 
@@ -123,7 +123,7 @@ module.exports = function(target, renderer) {
 
             if (callback) {
                 finalOut
-                    .on("finish", function() {
+                    .on("finish", () => {
                         callback(null, finalOut.___getResult());
                     })
                     .once("error", callback);

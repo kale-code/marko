@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should allow attributes to not be updated", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow attributes to not be updated", () => {
         var app = window.app;
         var noUpdateComponent = app.getComponent("no-update-attr");
         var foo = noUpdateComponent.el.getAttribute("data-foo");
@@ -17,7 +17,7 @@ describe(path.basename(__dirname), function() {
         expect(foo).to.equal("server");
     });
 
-    it("should allow a root element to not be updated", function() {
+    it("should allow a root element to not be updated", () => {
         var app = window.app;
         var noUpdateComponent = app.getComponent("no-update-el");
 
@@ -38,7 +38,7 @@ describe(path.basename(__dirname), function() {
         expect(noUpdateComponent.getNoUpdateEl().innerHTML).to.equal("server");
     });
 
-    it("should allow a nested element to not be updated", function() {
+    it("should allow a nested element to not be updated", () => {
         var app = window.app;
         var noUpdateComponent = app.getComponent("no-update-el-nested");
 
@@ -59,7 +59,7 @@ describe(path.basename(__dirname), function() {
         expect(noUpdateComponent.getNoUpdateEl().innerHTML).to.equal("server");
     });
 
-    it("should allow a body element to not be updated", function() {
+    it("should allow a body element to not be updated", () => {
         var app = window.app;
         var noUpdateComponent = app.getComponent("no-update-body-el");
 

@@ -81,15 +81,15 @@ module.exports = function(app) {
     }
 
     // add tests
-    suite.add("real DOM", function() {
+    suite.add("real DOM", () => {
         return toHTML(todomvcDOM);
     });
 
-    suite.add("marko-vdom", function() {
+    suite.add("marko-vdom", () => {
         return toHTML(todomvcDOMVirtual);
     });
 
-    return function() {
+    return () => {
         return app.runSuite(suite);
     };
 };

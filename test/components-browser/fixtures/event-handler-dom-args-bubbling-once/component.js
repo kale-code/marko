@@ -1,9 +1,9 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.buttonClickCalls = [];
     },
 
-    handleButtonClick: function() {
+    handleButtonClick: () => {
         this.buttonClickCalls.push(arguments);
     }
 };

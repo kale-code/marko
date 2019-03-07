@@ -24,7 +24,7 @@ module.exports = {
         this.setState("size", size);
     },
 
-    getSize: function() {
+    getSize: () => {
         return this.state.size;
     }
 };

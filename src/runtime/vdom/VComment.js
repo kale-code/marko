@@ -14,7 +14,7 @@ VComment.prototype = {
         return doc.createComment(nodeValue);
     },
 
-    ___cloneNode: function() {
+    ___cloneNode: () => {
         return new VComment(this.___nodeValue);
     }
 };

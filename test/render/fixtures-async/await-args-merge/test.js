@@ -23,7 +23,7 @@ var users = {
 
 exports.templateData = {
     userInfo: function(arg, done) {
-        setTimeout(function() {
+        setTimeout(() => {
             done(null, users[arg.userId][arg.property]);
         }, 100);
     }

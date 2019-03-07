@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 
 var Component = {
-    onCreate: function() {
+    onCreate: () => {
         this.logOutput = [];
 
         this.name = "app-dom-events";
@@ -12,7 +12,7 @@ var Component = {
         }
 
         this.log = log;
-        this.clearLog = function() {
+        this.clearLog = () => {
             this.logOutput = [];
         };
 
@@ -26,19 +26,19 @@ var Component = {
         expect(this.name).to.equal("app-dom-events");
     },
 
-    handleButtonClick: function() {
+    handleButtonClick: () => {
         this.log("button:click");
     },
 
-    handleRootMouseMove: function() {
+    handleRootMouseMove: () => {
         this.log("el:mousemove");
     },
 
-    handleButtonSpanMouseMove: function() {
+    handleButtonSpanMouseMove: () => {
         this.log("button>span:mousemove");
     },
 
-    handleFooLinkDblClick: function() {
+    handleFooLinkDblClick: () => {
         this.log("#fooLink:dblclick");
     },
 

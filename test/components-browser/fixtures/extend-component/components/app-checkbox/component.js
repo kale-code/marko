@@ -8,7 +8,7 @@ module.exports = {
         };
     },
 
-    isChecked: function() {
+    isChecked: () => {
         return this.state.checked === true;
     },
 
@@ -18,15 +18,15 @@ module.exports = {
         }
     },
 
-    toggle: function() {
+    toggle: () => {
         this.setChecked(!this.state.checked);
     },
 
-    getData: function() {
+    getData: () => {
         return this.state.data;
     },
 
-    handleClick: function() {
+    handleClick: () => {
         var newChecked = !this.state.checked;
 
         var defaultPrevented = false;
@@ -34,7 +34,7 @@ module.exports = {
         this.emit("toggle", {
             checked: newChecked,
             data: this.state.data,
-            preventDefault: function() {
+            preventDefault: () => {
                 defaultPrevented = true;
             }
         });

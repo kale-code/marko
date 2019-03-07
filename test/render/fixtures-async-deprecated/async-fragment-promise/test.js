@@ -1,7 +1,7 @@
 exports.templateData = {
-    promiseData: function() {
+    promiseData: () => {
         return new Promise(function(resolve) {
-            setTimeout(function() {
+            setTimeout(() => {
                 resolve("Test promise");
             }, 100);
         });

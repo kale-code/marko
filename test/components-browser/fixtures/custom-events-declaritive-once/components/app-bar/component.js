@@ -3,7 +3,7 @@ module.exports = {
         this.label = input.label;
     },
 
-    onMount: function() {
+    onMount: () => {
         this.name = "app-bar";
 
         var el = this.el;
@@ -13,7 +13,7 @@ module.exports = {
         };
     },
 
-    emitTestEvent: function() {
+    emitTestEvent: () => {
         this.emit("testEvent", "a", "b");
     }
 };

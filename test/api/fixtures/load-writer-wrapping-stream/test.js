@@ -11,7 +11,7 @@ exports.check = function(marko, markoCompiler, expect, snapshot, done) {
     var runtimeHtml = require("marko/src/html");
 
     var out = runtimeHtml.createWriter(stream);
-    out.on("end", function() {
+    out.on("end", () => {
         snapshot(output);
         done();
     }).on("error", function(e) {

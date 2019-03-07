@@ -14,7 +14,7 @@ autotest("fixtures-deprecated", run);
  */
 function run(fixture) {
     let resolve = fixture.resolve;
-    asyncTestSuite(function() {
+    asyncTestSuite(() => {
         var testFile = resolve("tests.js");
         var templateFile = resolve("template.marko");
         var template = require(templateFile);
@@ -28,7 +28,7 @@ function run(fixture) {
                         browser.require(templateFile);
                     }
                 });
-                after(function() {
+                after(() => {
                     browser.window.close();
                 });
                 return browser;

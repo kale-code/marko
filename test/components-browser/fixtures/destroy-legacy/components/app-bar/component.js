@@ -4,7 +4,7 @@ module.exports = {
         this.label = label;
     },
 
-    onMount: function() {
+    onMount: () => {
         this.name = "app-bar";
 
         var el = this.el;

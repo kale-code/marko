@@ -83,7 +83,7 @@ Node_prototype.c = function(value) {
     return this.___finishChild();
 };
 
-Node_prototype.___appendDocumentFragment = function() {
+Node_prototype.___appendDocumentFragment = () => {
     return this.___appendChild(new VDocumentFragment());
 };
 

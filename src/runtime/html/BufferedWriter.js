@@ -16,7 +16,7 @@ BufferedWriter.prototype = {
         this._buffer += str;
     },
 
-    flush: function() {
+    flush: () => {
         if (this._buffer.length !== 0) {
             this._wrapped.write(this._buffer);
             this._buffer = "";
@@ -26,14 +26,14 @@ BufferedWriter.prototype = {
         }
     },
 
-    end: function() {
+    end: () => {
         this.flush();
         if (!this._wrapped.isTTY) {
             this._wrapped.end();
         }
     },
 
-    clear: function() {
+    clear: () => {
         this._buffer = "";
     }
 };

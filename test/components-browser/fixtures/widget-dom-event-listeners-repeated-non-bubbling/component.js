@@ -1,5 +1,5 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.counter = 0;
     },
 

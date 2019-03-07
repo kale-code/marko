@@ -7,7 +7,7 @@ exports.createApp = function(express, markoExpressPath) {
     return app;
 };
 
-exports.createController = function() {
+exports.createController = () => {
     return function(req, res) {
         res.marko("home");
     };

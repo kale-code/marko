@@ -6,7 +6,7 @@ module.exports = function(helpers, done) {
         label: "Initial Label"
     });
 
-    component.onUpdate = function() {
+    component.onUpdate = () => {
         expect(component.el.className).to.contain("small");
         done();
     };

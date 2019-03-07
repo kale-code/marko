@@ -1,7 +1,7 @@
 exports.templateData = {
-    sharedData: function() {
+    sharedData: () => {
         return new Promise(function(resolve) {
-            setTimeout(function() {
+            setTimeout(() => {
                 resolve({
                     name: "testSharedData"
                 });
@@ -9,7 +9,7 @@ exports.templateData = {
         });
     },
     contextData: function(args, done) {
-        setTimeout(function() {
+        setTimeout(() => {
             done(null, {
                 name: "testContextData"
             });

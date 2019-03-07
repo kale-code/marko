@@ -26,11 +26,11 @@ module.exports = function(app) {
     }
 
     function runForHtmlFile(htmlFile) {
-        return loadScripts(htmlFile).then(function() {
+        return loadScripts(htmlFile).then(() => {
             var suite = new Suite("create-" + htmlFile);
 
             names.forEach(function(name) {
-                suite.add(name, function() {
+                suite.add(name, () => {
                     return window.createBenchmarks[htmlFile + "-" + name]();
                 });
             });
@@ -41,11 +41,11 @@ module.exports = function(app) {
 
     var loadScriptsPromise = loadScripts();
 
-    return function() {
+    return () => {
         var promiseChain = loadScriptsPromise;
 
         htmlFiles.forEach(function(htmlFile) {
-            promiseChain = promiseChain.then(function() {
+            promiseChain = promiseChain.then(() => {
                 return runForHtmlFile(htmlFile);
             });
         });

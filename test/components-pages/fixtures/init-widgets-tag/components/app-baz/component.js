@@ -1,5 +1,5 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         window.bazComponent = this;
     }
 };

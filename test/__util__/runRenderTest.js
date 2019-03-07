@@ -41,7 +41,7 @@ function createAsyncVerifier(main, snapshot, out) {
     addEventListener("await:finish");
 
     var _flush = out.flush;
-    out.flush = function() {
+    out.flush = () => {
         try {
             out.comment("FLUSH");
         } catch (e) {
@@ -207,7 +207,7 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
                             { childrenOnly: true }
                         );
 
-                        process.nextTick(function() {
+                        process.nextTick(() => {
                             callback(null, expectedHtml);
                         });
                     };
@@ -274,12 +274,12 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
 
             out.then(
                 function onFulfilled(result) {
-                    process.nextTick(function() {
+                    process.nextTick(() => {
                         verifyOutput(result);
                     });
                 },
                 function onRejected(err) {
-                    process.nextTick(function() {
+                    process.nextTick(() => {
                         done(err);
                     });
                 }

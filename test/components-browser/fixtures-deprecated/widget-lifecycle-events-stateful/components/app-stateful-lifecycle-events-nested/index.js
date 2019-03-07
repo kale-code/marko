@@ -16,7 +16,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    init: function() {
+    init: () => {
         if (this.INIT_CALLED) {
             throw new Error("Doublie init()");
         }
@@ -35,19 +35,19 @@ module.exports = require("marko/legacy-components").defineComponent({
         );
     },
 
-    onBeforeDestroy: function() {
+    onBeforeDestroy: () => {
         lifecycle.record(this.state.name || this.id, "onBeforeDestroy");
     },
 
-    onDestroy: function() {
+    onDestroy: () => {
         lifecycle.record(this.state.name || this.id, "onDestroy");
     },
 
-    onBeforeUpdate: function() {
+    onBeforeUpdate: () => {
         lifecycle.record(this.state.name || this.id, "onBeforeUpdate");
     },
 
-    onUpdate: function() {
+    onUpdate: () => {
         lifecycle.record(this.state.name || this.id, "onUpdate");
     }
 });

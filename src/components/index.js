@@ -172,7 +172,7 @@ function writeInitComponentsCode(fromOut, targetOut, shouldIncludeAll) {
         "<script" +
             nonceAttr +
             ">" +
-            "(function(){var w=window;w.$components=(w.$components||[]).concat(" +
+            "(() =>{var w=window;w.$components=(w.$components||[]).concat(" +
             safeJSON(warp10.stringify(renderedComponents)) +
             ")||w.$components})()</script>"
     );

@@ -1,11 +1,11 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
+describe(path.basename(__dirname), () => {
     it("should handle ending </script> tag", function(done) {
         var ready = require("marko/ready");
 
-        ready(function() {
+        ready(() => {
             expect(window.fooWidget.state.evil).to.equal(
                 '</script><script>alert("hello")</script>'
             );

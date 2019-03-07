@@ -1,6 +1,6 @@
 module.exports = require("marko/legacy-components").defineRenderer({
     template: require.resolve("./template.marko"),
-    getTemplateData: function() {
+    getTemplateData: () => {
         return {
             buttonLabel: "Initial Button Label"
         };

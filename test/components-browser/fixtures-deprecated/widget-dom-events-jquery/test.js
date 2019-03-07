@@ -5,7 +5,7 @@ module.exports = function(helpers, done) {
     var $el = widget.$();
     var $button = widget.$("#button");
 
-    $el.click(function() {
+    $el.click(() => {
         helpers.log("$el:click");
     });
 

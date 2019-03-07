@@ -3,12 +3,12 @@ module.exports = require("marko-widgets").defineComponent({
 
     getTemplateData: () => ({}),
 
-    init: function() {
+    init: () => {
         window.fooWidget = this;
         this.pressEvent = undefined;
     },
 
-    handleButtonPress: function() {
+    handleButtonPress: () => {
         this.pressEvent = arguments;
     }
 });

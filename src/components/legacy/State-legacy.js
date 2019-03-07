@@ -4,7 +4,7 @@ function ensure(state, propertyName) {
     var proto = state.constructor.prototype;
     if (!(propertyName in proto)) {
         Object.defineProperty(proto, propertyName, {
-            get: function() {
+            get: () => {
                 return this.___raw[propertyName];
             },
             set: function(value) {
@@ -31,7 +31,7 @@ function State(component) {
 }
 
 State.prototype = {
-    ___reset: function() {
+    ___reset: () => {
         var self = this;
 
         self.___dirty = false;
@@ -101,7 +101,7 @@ State.prototype = {
             rawState[name] = value;
         }
     },
-    toJSON: function() {
+    toJSON: () => {
         return this.___raw;
     }
 };

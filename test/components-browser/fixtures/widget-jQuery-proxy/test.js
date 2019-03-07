@@ -14,7 +14,7 @@ module.exports = function(helpers, done) {
         expect(component.$("button").html()).to.equal("Test Button");
         expect(component.$("li", "ul").length).to.equal(3);
 
-        component.$(function() {
+        component.$(() => {
             done();
         });
     } finally {

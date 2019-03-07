@@ -5,18 +5,18 @@ function Widget(config) {
     var self = this;
 
     if (config.channel) {
-        pubsub.channel(config.channel).on("emitTestEvent2", function() {
+        pubsub.channel(config.channel).on("emitTestEvent2", () => {
             self.emitTestEvent2();
         });
     }
 }
 
 Widget.prototype = {
-    emitTestEvent1: function() {
+    emitTestEvent1: () => {
         this.emit("testEvent", "a", "b");
     },
 
-    emitTestEvent2: function() {
+    emitTestEvent2: () => {
         this.emit("testEvent");
     }
 };

@@ -3,7 +3,7 @@ var expect = require("chai").expect;
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    init: function() {
+    init: () => {
         this.logOutput = [];
 
         this.name = "app-dom-events";
@@ -14,14 +14,14 @@ module.exports = require("marko/legacy-components").defineComponent({
         }
 
         this.log = log;
-        this.clearLog = function() {
+        this.clearLog = () => {
             this.logOutput = [];
         };
 
         this.logOutput = [];
     },
 
-    handleFooLinkDblClick: function() {
+    handleFooLinkDblClick: () => {
         this.log("#fooLink:dblclick");
     },
 

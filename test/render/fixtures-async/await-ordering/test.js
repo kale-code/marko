@@ -1,6 +1,6 @@
 function delayedDataProvider(delay, value) {
     return function(args, done) {
-        setTimeout(function() {
+        setTimeout(() => {
             done(null, value);
         }, delay);
     };

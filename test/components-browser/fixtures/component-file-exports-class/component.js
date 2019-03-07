@@ -3,7 +3,7 @@ function Component() {
 }
 
 Component.prototype = {
-    onCreate: function() {
+    onCreate: () => {
         this.state = {
             name: "Frank"
         };

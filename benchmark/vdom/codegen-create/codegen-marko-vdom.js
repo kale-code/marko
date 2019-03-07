@@ -55,7 +55,7 @@ module.exports = function(node) {
     return "return " + code + "\n";
 };
 
-module.exports.generateInitCode = function() {
+module.exports.generateInitCode = () => {
     return `
     var MarkoVDOM = window.MarkoVDOM;
     var createElement = MarkoVDOM.createElement;

@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.name = "app-legacy-button";
 
         var logOutput = (this.logOutput = []);

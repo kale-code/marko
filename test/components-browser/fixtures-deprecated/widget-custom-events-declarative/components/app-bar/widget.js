@@ -10,7 +10,7 @@ function Widget(config) {
 }
 
 Widget.prototype = {
-    emitTestEvent: function() {
+    emitTestEvent: () => {
         this.emit("testEvent", "a", "b");
     }
 };

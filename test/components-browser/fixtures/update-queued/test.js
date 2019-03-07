@@ -11,7 +11,7 @@ module.exports = function(helpers, done) {
 
     expect(component.el.innerHTML).to.contain("Hello Frank!");
 
-    component.onUpdate = function() {
+    component.onUpdate = () => {
         expect(component.el.innerHTML).to.contain("Hello Jane!");
         done();
     };

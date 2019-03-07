@@ -3,16 +3,16 @@ module.exports = require("marko/legacy-components").defineComponent({
 
     getTemplateData: () => ({}),
 
-    init: function() {
+    init: () => {
         this.fooClicked = false;
         this.barClicked = false;
     },
 
-    handleFooClick: function() {
+    handleFooClick: () => {
         this.fooClicked = true;
     },
 
-    handleBarClick: function() {
+    handleBarClick: () => {
         this.barClicked = true;
     }
 });

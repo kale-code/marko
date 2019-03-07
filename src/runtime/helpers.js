@@ -6,7 +6,7 @@ var getComponentsContext = ComponentsContext.___getComponentsContext;
 var ComponentDef = require("../components/ComponentDef");
 var w10NOOP = require("warp10/constants").NOOP;
 var isArray = Array.isArray;
-var RENDER_BODY_TO_JSON = function() {
+var RENDER_BODY_TO_JSON = () => {
     return w10NOOP;
 };
 var FLAG_WILL_RERENDER_IN_BROWSER = 1;

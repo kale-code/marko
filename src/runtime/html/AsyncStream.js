@@ -7,7 +7,7 @@ var RenderResult = require("../RenderResult");
 var attrsHelper = require("./helper-attrs");
 var escapeXml = require("./escape").escapeXml;
 
-var voidWriter = { write: function() {} };
+var voidWriter = { write: () => {} };
 
 function State(root, stream, writer, events) {
     this.root = root;
@@ -90,7 +90,7 @@ AsyncStream.INCLUDE_STACK =
         process.env.NODE_ENV === "development" ||
         process.env.NODE_ENV === "dev");
 
-AsyncStream.enableAsyncStackTrace = function() {
+AsyncStream.enableAsyncStackTrace = () => {
     AsyncStream.INCLUDE_STACK = true;
 };
 
@@ -99,11 +99,11 @@ var proto = (AsyncStream.prototype = {
     ___document: defaultDocument,
     ___isOut: true,
 
-    sync: function() {
+    sync: () => {
         this._sync = true;
     },
 
-    isSync: function() {
+    isSync: () => {
         return this._sync === true;
     },
 
@@ -114,22 +114,22 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    ___getOutput: function() {
+    ___getOutput: () => {
         return this._state.writer.toString();
     },
 
     /**
      * Legacy...
      */
-    getOutput: function() {
+    getOutput: () => {
         return this.___getOutput();
     },
 
-    toString: function() {
+    toString: () => {
         return this._state.writer.toString();
     },
 
-    ___getResult: function() {
+    ___getResult: () => {
         this._result = this._result || new RenderResult(this);
         return this._result;
     },
@@ -193,7 +193,7 @@ var proto = (AsyncStream.prototype = {
         newStream.name = name;
 
         if (timeout > 0) {
-            newStream._timeoutId = setTimeout(function() {
+            newStream._timeoutId = setTimeout(() => {
                 newStream.error(
                     new Error(
                         "Async fragment " +
@@ -216,7 +216,7 @@ var proto = (AsyncStream.prototype = {
         return newStream;
     },
 
-    _doFinish: function() {
+    _doFinish: () => {
         var state = this._state;
 
         state.finished = true;
@@ -285,7 +285,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    _handleChildDone: function() {
+    _handleChildDone: () => {
         var remaining = --this._remaining;
 
         if (remaining === 0) {
@@ -367,7 +367,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    _emitLast: function() {
+    _emitLast: () => {
         var lastArray = this._last;
 
         var i = 0;
@@ -403,13 +403,13 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    removeListener: function() {
+    removeListener: () => {
         var events = this._state.events;
         events.removeListener.apply(events, arguments);
         return this;
     },
 
-    prependListener: function() {
+    prependListener: () => {
         var events = this._state.events;
         events.prependListener.apply(events, arguments);
         return this;
@@ -453,7 +453,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    flush: function() {
+    flush: () => {
         var state = this._state;
 
         if (!state.finished) {
@@ -465,7 +465,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    createOut: function() {
+    createOut: () => {
         var newOut = new AsyncStream(this.global);
         // Forward error events to the parent out.
         newOut.on("error", this.emit.bind(this, "error"));
@@ -494,7 +494,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    endElement: function() {
+    endElement: () => {
         var tagName = this._elStack.pop();
         this.write("</" + tagName + ">");
     },
@@ -518,7 +518,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    ___endFragment: function() {
+    ___endFragment: () => {
         var preserve = this._elStack.pop();
         if (preserve) {
             this.write("<!--F/-->");

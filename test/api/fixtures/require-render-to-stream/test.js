@@ -6,7 +6,7 @@ exports.check = function(marko, markoCompiler, expect, snapshot, done) {
         output += data;
     });
 
-    outStream.on("end", function() {
+    outStream.on("end", () => {
         snapshot(output);
         done();
     });

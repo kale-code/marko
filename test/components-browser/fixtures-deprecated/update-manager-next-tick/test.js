@@ -6,7 +6,7 @@ module.exports = function(helpers, done) {
         label: "Initial Label"
     });
 
-    widget.onUpdate = function() {
+    widget.onUpdate = () => {
         expect(widget.el.className).to.contain("small");
         done();
     };

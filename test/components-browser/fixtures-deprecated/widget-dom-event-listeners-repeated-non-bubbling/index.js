@@ -3,7 +3,7 @@ module.exports = require("marko/legacy-components").defineComponent({
 
     getTemplateData: () => ({}),
 
-    init: function() {
+    init: () => {
         this.counter = 0;
     },
 

@@ -1,9 +1,9 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.mouseMoveEventCalls = [];
     },
 
-    handleButtonMouseMove: function() {
+    handleButtonMouseMove: () => {
         this.mouseMoveEventCalls.push(arguments);
     }
 };

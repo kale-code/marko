@@ -36,12 +36,12 @@ module.exports = {
         this.state.events.push("onInput[" + input.name + "]");
     },
 
-    onMount: function() {
+    onMount: () => {
         var componentsLookup = window.components || (window.components = {});
         componentsLookup["lifecycle-events-component-object"] = this;
     },
 
-    test: function() {
+    test: () => {
         expect(this.state.events).to.deep.equal([
             "onCreate",
             "onInput[Frank]",

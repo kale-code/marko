@@ -14,5 +14,5 @@ module.exports = require("marko/legacy-components").defineComponent({
     setButtonSize: function(size) {
         this.setState("buttonSize", size);
     },
-    init: function() {}
+    init: () => {}
 });

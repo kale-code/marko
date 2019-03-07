@@ -27,19 +27,19 @@ function triggerClick(el) {
     triggerMouseEvent(el, "click");
 }
 
-describe(path.basename(__dirname), function() {
-    it("should mount all components", function() {
+describe(path.basename(__dirname), () => {
+    it("should mount all components", () => {
         var app = window.app;
         expect(app != null).to.equal(true);
         expect(window.hello != null).to.equal(true);
     });
 
-    it("should have correct input", function() {
+    it("should have correct input", () => {
         expect(window.app.input.name).to.equal("App");
         expect(window.hello.input.name).to.equal("Marko");
     });
 
-    it("should attach DOM events", function() {
+    it("should attach DOM events", () => {
         var app = window.app;
         triggerClick(app.el);
         expect(app.clicked).to.equal(true);

@@ -1,5 +1,5 @@
 module.exports = require("marko-widgets").defineWidget({
-    init: function() {
+    init: () => {
         window.appButtonSplit = this;
     },
     setColor: function(color) {

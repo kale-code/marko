@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = () => {
     return `
     var fragment = range.createContextualFragment(html);
     return fragment.childNodes[0];`;

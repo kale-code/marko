@@ -15,7 +15,7 @@ var taglibLoader = require("./taglib-loader");
 var defaults = extend({}, globalConfig);
 
 Object.defineProperty(exports, "defaultOptions", {
-    get: function() {
+    get: () => {
         return globalConfig;
     },
     enumerable: true,
@@ -23,7 +23,7 @@ Object.defineProperty(exports, "defaultOptions", {
 });
 
 Object.defineProperty(exports, "config", {
-    get: function() {
+    get: () => {
         return globalConfig;
     },
     enumerable: true,

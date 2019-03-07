@@ -5,5 +5,5 @@ module.exports = {
             renderId: input.renderId || 0
         };
     },
-    onMount: function() {}
+    onMount: () => {}
 };

@@ -5,7 +5,7 @@ function createCache() {
 
     return {
         get: function(cacheKey, options, callback) {
-            setTimeout(function() {
+            setTimeout(() => {
                 var value = cache[cacheKey];
                 if (value !== undefined) {
                     return callback(null, value);

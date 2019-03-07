@@ -11,7 +11,7 @@ function Widget() {
     }
 
     this.log = log;
-    this.clearLog = function() {
+    this.clearLog = () => {
         this.logOutput = [];
     };
 
@@ -26,19 +26,19 @@ Widget.prototype = {
         expect(this.name).to.equal("app-dom-events");
     },
 
-    handleButtonClick: function() {
+    handleButtonClick: () => {
         this.log("button:click");
     },
 
-    handleRootMouseMove: function() {
+    handleRootMouseMove: () => {
         this.log("el:mousemove");
     },
 
-    handleButtonSpanMouseMove: function() {
+    handleButtonSpanMouseMove: () => {
         this.log("button>span:mousemove");
     },
 
-    handleFooLinkDblClick: function() {
+    handleFooLinkDblClick: () => {
         this.log("#fooLink:dblclick");
     },
 

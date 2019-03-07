@@ -13,7 +13,7 @@ module.exports = {
         });
     },
 
-    reset: function() {
+    reset: () => {
         this.hooksByComponent = {};
     },
 

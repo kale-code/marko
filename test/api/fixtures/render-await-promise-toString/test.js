@@ -6,7 +6,7 @@ exports.check = function(marko, markoCompiler, expect, snapshot, done) {
     template
         .render({
             userPromise: new Promise(resolve => {
-                setTimeout(function() {
+                setTimeout(() => {
                     resolve({ name: "John" });
                 }, 10);
             })

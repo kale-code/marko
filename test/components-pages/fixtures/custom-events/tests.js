@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should invoke event handler method for custom events with extra args", function() {
+describe(path.basename(__dirname), () => {
+    it("should invoke event handler method for custom events with extra args", () => {
         var component = window.fooComponent;
 
         component.pressEvent = null;

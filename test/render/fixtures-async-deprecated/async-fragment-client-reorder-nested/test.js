@@ -3,17 +3,17 @@ var expect = require("chai").expect;
 
 exports.templateData = {
     outer: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 40);
     },
     inner1: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 50);
     },
     inner2: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 60);
     }

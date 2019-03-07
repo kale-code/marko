@@ -1,13 +1,13 @@
 module.exports = require("marko-widgets").defineComponent({
     template: require("./template.marko"),
 
-    getInitialState: function() {
+    getInitialState: () => {
         return {
             name: "app-foo"
         };
     },
 
-    init: function() {
+    init: () => {
         window.fooWidget = this;
     }
 });

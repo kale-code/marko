@@ -4,7 +4,7 @@ module.exports = function(helpers, done) {
     try {
         var component = helpers.mount(require.resolve("./index"), {});
 
-        component.ready(function() {
+        component.ready(() => {
             done();
         });
     } finally {

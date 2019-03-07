@@ -9,7 +9,7 @@ exports.check = function(marko, markoCompiler, expect, helpers, done) {
     out.on("error", function(_error) {
         events.push("error");
         error = _error;
-    }).on("finish", function() {
+    }).on("finish", () => {
         events.push("finish");
 
         expect(events).to.deep.equal(["error", "finish"]);

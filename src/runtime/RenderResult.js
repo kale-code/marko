@@ -17,7 +17,7 @@ function RenderResult(out) {
 module.exports = RenderResult;
 
 var proto = (RenderResult.prototype = {
-    getComponent: function() {
+    getComponent: () => {
         return this.getComponents()[0];
     },
     getComponents: function(selector) {
@@ -53,10 +53,10 @@ var proto = (RenderResult.prototype = {
     getNode: function(doc) {
         return this.___out.___getNode(doc);
     },
-    getOutput: function() {
+    getOutput: () => {
         return this.___out.___getOutput();
     },
-    toString: function() {
+    toString: () => {
         return this.___out.toString();
     },
     document: typeof document != "undefined" && document

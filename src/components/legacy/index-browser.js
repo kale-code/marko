@@ -40,14 +40,14 @@ if (Widget) {
 
 var RenderResult = require("../../runtime/RenderResult");
 
-RenderResult.prototype.getWidget = function() {
+RenderResult.prototype.getWidget = () => {
     // eslint-disable-next-line no-constant-condition
     if ("MARKO_DEBUG") {
         complain("getWidget is deprecated. use getComponent instead.");
     }
     return this.getWidgets()[0];
 };
-RenderResult.prototype.getWidgets = function() {
+RenderResult.prototype.getWidgets = () => {
     // eslint-disable-next-line no-constant-condition
     if ("MARKO_DEBUG") {
         complain("getWidgets is deprecated. use getComponents instead.");

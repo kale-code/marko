@@ -44,7 +44,7 @@ var vdomHelpers = {
     createComment: function(value) {
         return new VComment(value);
     },
-    createDocumentFragment: function() {
+    createDocumentFragment: () => {
         return new VDocumentFragment();
     },
     VElement: VElement,

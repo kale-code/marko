@@ -1,7 +1,7 @@
 exports.templateData = {
-    userInfo: function() {
+    userInfo: () => {
         return new Promise(function(resolve) {
-            setTimeout(function() {
+            setTimeout(() => {
                 resolve({ name: "John" });
             }, 100);
         });

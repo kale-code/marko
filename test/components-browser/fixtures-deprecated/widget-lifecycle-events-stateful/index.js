@@ -17,7 +17,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    init: function() {
+    init: () => {
         this.lifecycleEvents = [];
         lifecycle.record(this.id, "init");
     },
@@ -42,19 +42,19 @@ module.exports = require("marko/legacy-components").defineComponent({
         this.setState("messageCount", newMessageCount);
     },
 
-    onBeforeDestroy: function() {
+    onBeforeDestroy: () => {
         lifecycle.record(this.id, "onBeforeDestroy");
     },
 
-    onDestroy: function() {
+    onDestroy: () => {
         lifecycle.record(this.id, "onDestroy");
     },
 
-    onBeforeUpdate: function() {
+    onBeforeUpdate: () => {
         lifecycle.record(this.id, "onBeforeUpdate");
     },
 
-    onUpdate: function() {
+    onUpdate: () => {
         lifecycle.record(this.id, "onUpdate");
     }
 });

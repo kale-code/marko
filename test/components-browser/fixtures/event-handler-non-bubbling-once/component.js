@@ -1,9 +1,9 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.numOfInvocations = 0;
     },
 
-    onceMouseMove: function() {
+    onceMouseMove: () => {
         this.numOfInvocations++;
     }
 };

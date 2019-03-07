@@ -2,8 +2,8 @@ var path = require("path");
 var expect = require("chai").expect;
 var Component = require("./components/a/index.marko");
 
-describe(path.basename(__dirname), function() {
-    it("should allow diffing html", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow diffing html", () => {
         var parentNode = document.getElementById("test-result");
         var app = window.app;
         app.forceUpdate();

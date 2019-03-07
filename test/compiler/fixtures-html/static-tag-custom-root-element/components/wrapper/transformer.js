@@ -1,6 +1,6 @@
 module.exports = function(el, context) {
     var builder = context.builder;
-    var rootNode = builder.containerNode(function() {
+    var rootNode = builder.containerNode(() => {
         return context.createNodeForEl({
             tagName: "div",
             body: rootNode.body

@@ -14,8 +14,8 @@ function getChildNodes(parentNode) {
 
     return childNodes;
 }
-describe("AsyncVDOMBuilder", function() {
-    it("sync", function() {
+describe("AsyncVDOMBuilder", () => {
+    it("sync", () => {
         var out = new AsyncVDOMBuilder();
         out.element("div", {}, 0);
         var tree = out.___getOutput();
@@ -37,7 +37,7 @@ describe("AsyncVDOMBuilder", function() {
         out.element("div", {}, 0);
         var asyncOut = out.beginAsync();
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.element("span", {}, 0);
             asyncOut.end();
         }, 10);
@@ -85,7 +85,7 @@ describe("AsyncVDOMBuilder", function() {
 
         var asyncOut = out.beginAsync();
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.element("span", {}, 0);
             asyncOut.end();
         }, 10);

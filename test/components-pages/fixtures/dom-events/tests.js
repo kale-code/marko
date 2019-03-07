@@ -27,8 +27,8 @@ function triggerClick(el) {
     triggerMouseEvent(el, "click");
 }
 
-describe(path.basename(__dirname), function() {
-    it("should invoke event handler method for non-bubbling events", function() {
+describe(path.basename(__dirname), () => {
+    it("should invoke event handler method for non-bubbling events", () => {
         window.fooComponent.mouseMoveEvent = null;
         triggerMouseEvent(window.fooComponent.getEl("button"), "mousemove");
         expect(window.fooComponent.mouseMoveEvent != null).to.equal(true);
@@ -41,7 +41,7 @@ describe(path.basename(__dirname), function() {
         );
     });
 
-    it("should invoke event handler method for non-bubbling events with extra args", function() {
+    it("should invoke event handler method for non-bubbling events with extra args", () => {
         window.fooComponent.mouseMoveEvent = null;
 
         triggerMouseEvent(window.fooComponent.getEl("ok"), "mousemove");
@@ -67,7 +67,7 @@ describe(path.basename(__dirname), function() {
         );
     });
 
-    it("should invoke event handler method for bubbling events", function() {
+    it("should invoke event handler method for bubbling events", () => {
         window.fooComponent.clickEvent = null;
         triggerMouseEvent(window.fooComponent.getEl("button"), "click");
         expect(window.fooComponent.clickEvent != null).to.equal(true);
@@ -77,7 +77,7 @@ describe(path.basename(__dirname), function() {
         );
     });
 
-    it("should invoke event handler method for bubbling events with extra args", function() {
+    it("should invoke event handler method for bubbling events with extra args", () => {
         var component = window.fooComponent;
 
         window.fooComponent.clickEvent = null;

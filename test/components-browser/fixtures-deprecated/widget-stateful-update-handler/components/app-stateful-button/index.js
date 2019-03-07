@@ -73,7 +73,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         this.setState("label", label);
     },
 
-    getSize: function() {
+    getSize: () => {
         return this.state.size;
     }
 });

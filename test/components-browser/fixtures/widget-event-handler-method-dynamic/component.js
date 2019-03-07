@@ -1,14 +1,14 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.fooClicked = false;
         this.barClicked = false;
     },
 
-    handleFooClick: function() {
+    handleFooClick: () => {
         this.fooClicked = true;
     },
 
-    handleBarClick: function() {
+    handleBarClick: () => {
         this.barClicked = true;
     }
 };

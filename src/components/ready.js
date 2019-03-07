@@ -1,12 +1,12 @@
 /*
-    jQuery's doc.ready/$(function(){}) should
+    jQuery's doc.ready/$(() =>{}) should
     you wish to use a cross-browser domReady solution
     without opting for a library.
 
     Demo: http://jsfiddle.net/zKLpb/
 
     usage:
-    $(function(){
+    $(() =>{
         // your code
     });
 

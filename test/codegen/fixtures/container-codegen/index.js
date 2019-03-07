@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function(builder) {
-    var containerNode = builder.containerNode("Test", function() {
+    var containerNode = builder.containerNode("Test", () => {
         return builder.htmlElement(
             "div",
             [

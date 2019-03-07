@@ -73,7 +73,7 @@ ComponentDef.prototype = {
     /**
      * Returns the next auto generated unique ID for a nested DOM element or nested DOM component
      */
-    ___nextComponentId: function() {
+    ___nextComponentId: () => {
         return this.id + "-c" + this.___nextIdIndex++;
     },
 

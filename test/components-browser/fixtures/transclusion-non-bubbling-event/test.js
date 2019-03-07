@@ -10,7 +10,7 @@ module.exports = function(helpers) {
     var eventTarget = helpers.targetEl.querySelector("#eventTarget");
     var eventFired = false;
 
-    component.on("eventFired", function() {
+    component.on("eventFired", () => {
         eventFired = true;
     });
 

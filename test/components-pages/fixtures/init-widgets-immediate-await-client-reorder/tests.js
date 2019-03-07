@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should initialize components before ready", function() {
+describe(path.basename(__dirname), () => {
+    it("should initialize components before ready", () => {
         expect(window.afterInitComponents_foo != null).to.equal(true);
         expect(window.afterInitComponents_bar == null).to.equal(true);
 

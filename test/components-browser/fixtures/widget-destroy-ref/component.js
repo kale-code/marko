@@ -1,9 +1,9 @@
 module.exports = {
-    destroyButton1: function() {
+    destroyButton1: () => {
         this.getComponent("button1").destroy();
     },
 
-    getButton1: function() {
+    getButton1: () => {
         return this.getComponent("button1");
     }
 };

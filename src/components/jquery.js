@@ -20,7 +20,7 @@ exports.patchComponent = function(jQuery, proto, delayThrow) {
         if (args.length === 1) {
             //Handle an "ondomready" callback function
             if (typeof arg === "function") {
-                return ready(function() {
+                return ready(() => {
                     arg.call(self);
                 });
             } else if (typeof arg === "string") {

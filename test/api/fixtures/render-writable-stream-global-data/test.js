@@ -9,7 +9,7 @@ exports.check = function(marko, markoCompiler, expect, snapshot, done) {
     });
 
     stream
-        .on("end", function() {
+        .on("end", () => {
             snapshot(output);
             done();
         })

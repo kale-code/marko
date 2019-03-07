@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it.skip("should update correctly", function() {
+describe(path.basename(__dirname), () => {
+    it.skip("should update correctly", () => {
         var component = window.component;
         var originalChild = component.getComponent("child");
 

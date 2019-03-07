@@ -1,7 +1,7 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getValue: function() {
+    getValue: () => {
         return this.getEl("input").value;
     }
 });

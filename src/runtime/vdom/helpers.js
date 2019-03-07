@@ -29,7 +29,7 @@ var helpers = extend(
 
         const: function(id) {
             var i = 0;
-            return function() {
+            return () => {
                 return id + i++;
             };
         },

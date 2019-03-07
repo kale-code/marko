@@ -15,7 +15,7 @@ VText.prototype = {
         return doc.createTextNode(this.___nodeValue);
     },
 
-    ___cloneNode: function() {
+    ___cloneNode: () => {
         return new VText(this.___nodeValue);
     }
 };

@@ -2,7 +2,7 @@ require("./");
 
 exports.r = require("./renderer-legacy");
 
-exports.c = function() {
+exports.c = () => {
     /* no op for defining a component on teh server */
 };
 

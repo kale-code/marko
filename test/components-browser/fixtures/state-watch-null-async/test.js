@@ -8,7 +8,7 @@ module.exports = function(helpers, done) {
 
     helpers.triggerEvent(component.getEl(), "submit");
 
-    setTimeout(function() {
+    setTimeout(() => {
         expect(component.el.innerHTML).to.contain("FATAL ERROR");
         done();
     }, 100);

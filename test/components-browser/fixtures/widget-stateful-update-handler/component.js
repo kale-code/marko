@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function() {
+    onInput: () => {
         this.state = {
             buttonSize: "small",
             buttonLabel: "Initial Label"

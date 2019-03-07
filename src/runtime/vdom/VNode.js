@@ -85,7 +85,7 @@ VNode.prototype = {
         }
     }
 
-    // ,toJSON: function() {
+    // ,toJSON: () => {
     //     var clone = Object.assign({
     //         nodeType: this.nodeType
     //     }, this);

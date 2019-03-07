@@ -215,17 +215,17 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    ___endFragment: function() {
+    ___endFragment: () => {
         this.endElement();
     },
 
-    endElement: function() {
+    endElement: () => {
         var stack = this.___stack;
         stack.pop();
         this.___parent = stack[stack.length - 1];
     },
 
-    end: function() {
+    end: () => {
         this.___parent = undefined;
 
         var remaining = --this.___remaining;
@@ -244,7 +244,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    ___handleChildDone: function() {
+    ___handleChildDone: () => {
         var remaining = --this.___remaining;
 
         if (remaining === 0) {
@@ -259,13 +259,13 @@ var proto = (AsyncVDOMBuilder.prototype = {
         }
     },
 
-    ___doFinish: function() {
+    ___doFinish: () => {
         var state = this.___state;
         state.___finished = true;
         state.___events.emit(EVENT_FINISH, this.___getResult());
     },
 
-    ___emitLast: function() {
+    ___emitLast: () => {
         var lastArray = this._last;
 
         var i = 0;
@@ -331,11 +331,11 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return asyncOut;
     },
 
-    createOut: function() {
+    createOut: () => {
         return new AsyncVDOMBuilder(this.global);
     },
 
-    flush: function() {
+    flush: () => {
         var events = this.___state.___events;
 
         if (events.listenerCount(EVENT_UPDATE)) {
@@ -343,11 +343,11 @@ var proto = (AsyncVDOMBuilder.prototype = {
         }
     },
 
-    ___getOutput: function() {
+    ___getOutput: () => {
         return this.___state.___tree;
     },
 
-    ___getResult: function() {
+    ___getResult: () => {
         return this.___result || (this.___result = new RenderResult(this));
     },
 
@@ -395,17 +395,17 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    removeListener: function() {
+    removeListener: () => {
         var events = this.___state.___events;
         events.removeListener.apply(events, arguments);
         return this;
     },
 
-    sync: function() {
+    sync: () => {
         this.___sync = true;
     },
 
-    isSync: function() {
+    isSync: () => {
         return this.___sync;
     },
 

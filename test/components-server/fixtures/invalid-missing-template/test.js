@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
 
-module.exports = function() {
+module.exports = () => {
     var defineComponent = require("marko/components/legacy").defineComponent;
-    expect(function() {
+    expect(() => {
         defineComponent({
             // template: require.resolve('./template.marko'),
 

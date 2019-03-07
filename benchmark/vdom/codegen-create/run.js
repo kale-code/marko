@@ -8,13 +8,13 @@ function generateCode(name, htmlFile, rootNode, html) {
     var code = generator(rootNode, html);
     var wrappedCode = `window.createBenchmarks[${JSON.stringify(
         htmlFile + "-" + name
-    )}]=function() {\n${code}\n}`;
+    )}]=() => {\n${code}\n}`;
 
     var generateInitCode = generator.generateInitCode;
 
     if (generateInitCode) {
         wrappedCode = `
-(function() {
+(() => {
 ${generateInitCode(rootNode, html)}
 ${wrappedCode}
 }())`;

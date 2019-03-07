@@ -3,12 +3,12 @@ var expect = require("chai").expect;
 
 exports.templateData = {
     userInfoShort: function(done) {
-        setTimeout(function() {
+        setTimeout(() => {
             done(null, {});
         }, 50);
     },
     userInfoLong: function(done) {
-        setTimeout(function() {
+        setTimeout(() => {
             done(null, {});
         }, 200);
     }

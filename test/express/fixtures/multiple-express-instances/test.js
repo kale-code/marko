@@ -12,7 +12,7 @@ exports.test = function(done) {
     var expressMock = { response: {} };
     var _require = module.require;
 
-    module.require = function() {
+    module.require = () => {
         if (arguments[0] === "express") return expressMock;
         return _require.apply(module, arguments);
     };

@@ -112,7 +112,7 @@ function VElement(
 VElement.prototype = {
     ___nodeType: 1,
 
-    ___cloneNode: function() {
+    ___cloneNode: () => {
         return new VElementClone(this);
     },
 
@@ -251,7 +251,7 @@ var proto = (VElementClone.prototype = VElement.prototype);
 
 ["checked", "selected", "disabled"].forEach(function(name) {
     defineProperty(proto, name, {
-        get: function() {
+        get: () => {
             var value = this.___attributes[name];
             return value !== false && value != null;
         }
@@ -259,7 +259,7 @@ var proto = (VElementClone.prototype = VElement.prototype);
 });
 
 defineProperty(proto, "___value", {
-    get: function() {
+    get: () => {
         var value = this.___valueInternal;
         if (value == null) {
             value = this.___attributes.value;

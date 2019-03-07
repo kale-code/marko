@@ -8,7 +8,7 @@ module.exports = function(helpers) {
     var simple = widget.getWidget("simple");
     var simpleDestroyed = false;
 
-    simple.onDestroy = function() {
+    simple.onDestroy = () => {
         simpleDestroyed = true;
     };
 

@@ -1,7 +1,7 @@
 var helloComponent = require("./components/hello");
 
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         var self = this;
         helloComponent.renderToString(
             {

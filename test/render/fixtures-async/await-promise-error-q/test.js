@@ -1,5 +1,5 @@
 var promise = new Promise(function(resolve) {
-    setTimeout(function() {
+    setTimeout(() => {
         resolve({});
     }, 100);
 });

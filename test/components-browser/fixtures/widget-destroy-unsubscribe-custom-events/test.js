@@ -9,7 +9,7 @@ module.exports = function(helpers) {
 
     var receivedEvents = [];
 
-    component.subscribeTo(customEventsComponent).on("testEvent", function() {
+    component.subscribeTo(customEventsComponent).on("testEvent", () => {
         receivedEvents.push(arguments);
     });
 

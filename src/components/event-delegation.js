@@ -83,7 +83,7 @@ function addDelegatedEventHandlerToDoc(eventType, doc) {
                 // Monkey-patch to fix #97
                 var oldStopPropagation = event.stopPropagation;
 
-                event.stopPropagation = function() {
+                event.stopPropagation = () => {
                     oldStopPropagation.call(event);
                     propagationStopped = true;
                 };

@@ -6,5 +6,5 @@ module.exports = require("marko/legacy-components").defineComponent({
             renderId: input.renderId || 0
         };
     },
-    init: function() {}
+    init: () => {}
 });

@@ -31,20 +31,20 @@ var helpers = {
     triggerClick: triggerClick
 };
 
-describe(path.basename(__dirname), function() {
-    it("should allow no args", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow no args", () => {
         window.components["no-args"].test(helpers);
     });
 
-    it("should allow one arg", function() {
+    it("should allow one arg", () => {
         window.components["one-arg"].test(helpers);
     });
 
-    it("should allow one arg as array", function() {
+    it("should allow one arg as array", () => {
         window.components["one-arg-array"].test(helpers);
     });
 
-    it("should allow two args", function() {
+    it("should allow two args", () => {
         window.components["two-args"].test(helpers);
     });
 });

@@ -5,15 +5,15 @@ module.exports = {
         this.label = input.label || "app-fixed-id";
     },
 
-    onMount: function() {
+    onMount: () => {
         this.name = "app-fixed-id";
         window.appFixedId = this;
     },
-    testGetComponent: function() {
+    testGetComponent: () => {
         var helloComponent = this.getComponent("hello");
         expect(helloComponent != null).to.equal(true);
     },
-    testGetEl: function() {
+    testGetEl: () => {
         var wrapperEl = this.getEl("wrapper");
         expect(wrapperEl != null).to.equal(true);
     }

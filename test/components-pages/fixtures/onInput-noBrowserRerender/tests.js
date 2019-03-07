@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should allow return", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow return", () => {
         var component = window.components["onInput-return"];
 
         expect(component.input.name).to.equal("FRANK");
@@ -18,7 +18,7 @@ describe(path.basename(__dirname), function() {
         expect(component.el.querySelector(".name").innerHTML).to.equal("JOHN");
     });
 
-    it("should allow input to be assigned to null", function() {
+    it("should allow input to be assigned to null", () => {
         var component = window.components["onInput-assign-null"];
 
         expect(component.input).to.equal(null);
@@ -43,7 +43,7 @@ describe(path.basename(__dirname), function() {
         expect(component.el.querySelector(".name").innerHTML).to.equal("Henry");
     });
 
-    it("should allow input to be assigned to null with return", function() {
+    it("should allow input to be assigned to null with return", () => {
         var component = window.components["onInput-assign-null-and-return"];
 
         expect(component.input).to.equal(null);
@@ -68,7 +68,7 @@ describe(path.basename(__dirname), function() {
         expect(component.el.querySelector(".name").innerHTML).to.equal("HENRY");
     });
 
-    it("should allow input to be assigned to a new object", function() {
+    it("should allow input to be assigned to a new object", () => {
         var component = window.components["onInput-assign-object"];
 
         expect(component.input.name).to.equal("FRANK");
@@ -93,7 +93,7 @@ describe(path.basename(__dirname), function() {
         expect(component.el.querySelector(".name").innerHTML).to.equal("Henry");
     });
 
-    it("should allow input to be assigned to a new object with return", function() {
+    it("should allow input to be assigned to a new object with return", () => {
         var component = window.components["onInput-assign-object-and-return"];
 
         expect(component.input.name).to.equal("HEATHER");

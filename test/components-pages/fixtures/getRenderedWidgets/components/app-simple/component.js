@@ -15,7 +15,7 @@ module.exports = {
         };
     },
 
-    onMount: function() {
+    onMount: () => {
         window.simpleComponents.push(this);
 
         this.componentConfig = {

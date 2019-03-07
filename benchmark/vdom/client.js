@@ -11,7 +11,7 @@ function loadScript(path) {
     return new Promise(function(resolve, reject) {
         var script = document.createElement("script");
         script.src = path;
-        script.onload = function() {
+        script.onload = () => {
             resolve();
         };
 
@@ -40,13 +40,13 @@ function runSuite(suite) {
         running = true;
 
         suite
-            .on("start", function() {
+            .on("start", () => {
                 resultsEl.innerHTML += 'Running "' + suite.name + '"...\n';
             })
             .on("cycle", function(event) {
                 resultsEl.innerHTML += String(event.target) + "\n";
             })
-            .on("complete", function() {
+            .on("complete", () => {
                 resultsEl.innerHTML +=
                     "Fastest is " +
                     this.filter("fastest").map("name") +
@@ -80,7 +80,7 @@ var vdom = (window.MarkoVDOM = {
     createComment: function(value) {
         return new Comment(value);
     },
-    createDocumentFragment: function() {
+    createDocumentFragment: () => {
         return new DocumentFragment();
     }
 });
@@ -113,7 +113,7 @@ document.body.addEventListener("click", function(event) {
         var benchmarkFunc = benchmarks[benchmarkName];
 
         benchmarkFunc()
-            .then(function() {
+            .then(() => {
                 target.innerHTML = oldButtonLabel;
 
                 resultsEl.innerHTML += "\nDONE!";

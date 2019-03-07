@@ -9,7 +9,7 @@ module.exports = function(helpers) {
 
     var receivedEvents = [];
 
-    widget.subscribeTo(customEventsWidget).on("testEvent", function() {
+    widget.subscribeTo(customEventsWidget).on("testEvent", () => {
         receivedEvents.push(arguments);
     });
 

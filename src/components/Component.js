@@ -281,7 +281,7 @@ Component.prototype = componentProto = {
               })
             : [];
     },
-    destroy: function() {
+    destroy: () => {
         if (this.___destroyed) {
             return;
         }
@@ -306,7 +306,7 @@ Component.prototype = componentProto = {
         this.___keyedElements = {};
     },
 
-    ___destroyShallow: function() {
+    ___destroyShallow: () => {
         if (this.___destroyed) {
             return;
         }
@@ -328,7 +328,7 @@ Component.prototype = componentProto = {
         }
     },
 
-    isDestroyed: function() {
+    isDestroyed: () => {
         return this.___destroyed;
     },
     get state() {
@@ -432,19 +432,19 @@ Component.prototype = componentProto = {
         return newInput;
     },
 
-    forceUpdate: function() {
+    forceUpdate: () => {
         this.___dirty = true;
         this.___queueUpdate();
     },
 
-    ___queueUpdate: function() {
+    ___queueUpdate: () => {
         if (!this.___updateQueued) {
             this.___updateQueued = true;
             updateManager.___queueComponentUpdate(this);
         }
     },
 
-    update: function() {
+    update: () => {
         if (this.___destroyed === true || this.___isDirty === false) {
             return;
         }
@@ -488,7 +488,7 @@ Component.prototype = componentProto = {
         );
     },
 
-    ___reset: function() {
+    ___reset: () => {
         this.___dirty = false;
         this.___updateQueued = false;
         this.___renderInput = null;
@@ -498,7 +498,7 @@ Component.prototype = componentProto = {
         }
     },
 
-    shouldUpdate: function() {
+    shouldUpdate: () => {
         return true;
     },
 
@@ -520,7 +520,7 @@ Component.prototype = componentProto = {
         var input = this.___renderInput || this.___input;
         var globalData = this.___global;
 
-        updateManager.___batchUpdate(function() {
+        updateManager.___batchUpdate(() => {
             var createOut = renderer.createOut || defaultCreateOut;
             var out = createOut(globalData);
             out.sync();
@@ -546,13 +546,13 @@ Component.prototype = componentProto = {
         this.___reset();
     },
 
-    ___detach: function() {
+    ___detach: () => {
         var root = this.___rootNode;
         root.remove();
         return root;
     },
 
-    ___removeDOMEventListeners: function() {
+    ___removeDOMEventListeners: () => {
         var eventListenerHandles = this.___domEventListenerHandles;
         if (eventListenerHandles) {
             eventListenerHandles.forEach(removeListener);

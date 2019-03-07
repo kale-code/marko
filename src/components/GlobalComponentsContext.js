@@ -10,7 +10,7 @@ function GlobalComponentsContext(out) {
 }
 
 GlobalComponentsContext.prototype = {
-    ___createKeySequence: function() {
+    ___createKeySequence: () => {
         return new KeySequence();
     }
 };

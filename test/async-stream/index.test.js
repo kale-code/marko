@@ -33,7 +33,7 @@ function createAsyncStream(options) {
     }
 }
 
-describe("AsyncStream", function() {
+describe("AsyncStream", () => {
     beforeEach(function(done) {
         // for (var k in require.cache) {
         //     if (require.cache.hasOwnProperty(k)) {
@@ -58,7 +58,7 @@ describe("AsyncStream", function() {
         });
     });
 
-    it("should resolve promise upon finish", function() {
+    it("should resolve promise upon finish", () => {
         var out = new AsyncStream();
 
         out.write("1");
@@ -76,7 +76,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut1 = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 100);
@@ -84,7 +84,7 @@ describe("AsyncStream", function() {
         out.write("3");
 
         var asyncOut2 = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut2.write("4");
             asyncOut2.end();
         }, 10);
@@ -102,7 +102,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2");
             asyncOut.end();
         }, 10);
@@ -121,7 +121,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.end("2");
         }, 10);
 
@@ -144,7 +144,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync({ timeout: 100, name: "test" });
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2");
             asyncOut.end();
         }, 200);
@@ -164,11 +164,11 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2a");
 
             var nestedAsyncContext = asyncOut.beginAsync();
-            setTimeout(function() {
+            setTimeout(() => {
                 nestedAsyncContext.write("2b");
                 nestedAsyncContext.end();
             }, 10);
@@ -180,15 +180,15 @@ describe("AsyncStream", function() {
         out.write("3");
 
         var asyncOut2 = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             var nestedAsyncContext = asyncOut2.beginAsync();
-            setTimeout(function() {
+            setTimeout(() => {
                 nestedAsyncContext.write("4a");
                 nestedAsyncContext.end();
             }, 10);
 
             var nestedAsyncContext2 = asyncOut2.beginAsync();
-            setTimeout(function() {
+            setTimeout(() => {
                 nestedAsyncContext2.write("4b");
                 nestedAsyncContext2.end();
             }, 10);
@@ -249,7 +249,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.error(new Error("test"));
         }, 10);
         out.write("3");
@@ -274,7 +274,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         let asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.error(new Error("test"));
         }, 10);
 
@@ -317,7 +317,7 @@ describe("AsyncStream", function() {
             .write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.error(new Error("test"));
         }, 10);
 
@@ -340,7 +340,7 @@ describe("AsyncStream", function() {
             .on("error", function(e) {
                 errors.push(e);
             })
-            .on("finish", function() {
+            .on("finish", () => {
                 expect(errors.length).to.equal(0);
                 expect(output).to.equal("123");
                 done();
@@ -348,7 +348,7 @@ describe("AsyncStream", function() {
             .write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2");
             asyncOut.end();
         }, 10);
@@ -368,7 +368,7 @@ describe("AsyncStream", function() {
             .on("error", function(e) {
                 errors.push(e);
             })
-            .on("end", function() {
+            .on("end", () => {
                 expect(errors.length).to.equal(0);
                 expect(output).to.equal("123");
                 done();
@@ -376,7 +376,7 @@ describe("AsyncStream", function() {
             .write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2");
             asyncOut.end();
         }, 10);
@@ -389,7 +389,7 @@ describe("AsyncStream", function() {
         var out = fs.createWriteStream(outFile, fsReadOptions);
         var errors = [];
 
-        out.on("close", function() {
+        out.on("close", () => {
             var output = fs.readFileSync(outFile, fsReadOptions);
             expect(errors.length).to.equal(0);
             expect(output).to.equal("123");
@@ -401,11 +401,11 @@ describe("AsyncStream", function() {
             .on("error", function(e) {
                 errors.push(e);
             })
-            .on("finish", function() {})
+            .on("finish", () => {})
             .write("1");
 
         var asyncOut = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut.write("2");
             asyncOut.end();
         }, 10);
@@ -459,7 +459,7 @@ describe("AsyncStream", function() {
 
         out.write("2");
 
-        out.on("end", function() {
+        out.on("end", () => {
             expect(outStr).to.equal("1Hello World2");
             done();
         });
@@ -472,7 +472,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut = out.beginAsync({ last: true });
-        out.once("last", function() {
+        out.once("last", () => {
             asyncOut.write("2");
             asyncOut.end();
         });
@@ -493,12 +493,12 @@ describe("AsyncStream", function() {
         var asyncOut = out.beginAsync({ last: true });
         var lastFiredCount = 0;
 
-        out.on("last", function() {
+        out.on("last", () => {
             lastFiredCount++;
         });
 
-        out.once("last", function() {
-            setTimeout(function() {
+        out.once("last", () => {
+            setTimeout(() => {
                 asyncOut.write("2");
                 asyncOut.end();
             }, 10);
@@ -519,7 +519,7 @@ describe("AsyncStream", function() {
         var PassThrough = stream.PassThrough;
         var passthrough = new PassThrough();
 
-        passthrough.on("error", function() {
+        passthrough.on("error", () => {
             done();
         });
 
@@ -548,7 +548,7 @@ describe("AsyncStream", function() {
         out.write("1");
 
         var asyncOut1 = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 20);
@@ -595,7 +595,7 @@ describe("AsyncStream", function() {
             .on("error", function(err) {
                 errors.push(err);
             })
-            .on("end", function() {
+            .on("end", () => {
                 expect(output).to.equal("12");
                 expect(errors.length).to.equal(1);
                 expect(errors[0].toString()).to.contain("timed out");
@@ -608,7 +608,7 @@ describe("AsyncStream", function() {
         var asyncOut1 = out.beginAsync();
         out.beginAsync({ timeout: 50 });
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 100);
@@ -628,7 +628,7 @@ describe("AsyncStream", function() {
             .on("error", function(err) {
                 errors.push(err);
             })
-            .on("end", function() {
+            .on("end", () => {
                 ended = true;
                 expect(output).to.equal("13");
                 done();
@@ -639,13 +639,13 @@ describe("AsyncStream", function() {
 
         var asyncOut1 = out.beginAsync({ timeout: 50 });
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 100);
 
         var asyncOut2 = out.beginAsync();
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut2.write("3");
             asyncOut2.end();
         }, 50);
@@ -665,7 +665,7 @@ describe("AsyncStream", function() {
             .on("error", function(err) {
                 errors.push(err);
             })
-            .on("end", function() {
+            .on("end", () => {
                 ended = true;
                 expect(output).to.equal("12");
                 done();
@@ -676,7 +676,7 @@ describe("AsyncStream", function() {
 
         var asyncOut1 = out.beginAsync();
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 75);
@@ -684,7 +684,7 @@ describe("AsyncStream", function() {
         var asyncOut2 = out.beginAsync({ timeout: 50 });
         // This async fragment will timeout but we will
         // still write to it after it ends
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut2.write("3");
             asyncOut2.end();
         }, 100);
@@ -704,7 +704,7 @@ describe("AsyncStream", function() {
             .on("error", function(err) {
                 errors.push(err);
             })
-            .on("end", function() {
+            .on("end", () => {
                 ended = true;
                 expect(output).to.equal("12");
                 expect(errors.length).to.equal(1);
@@ -716,7 +716,7 @@ describe("AsyncStream", function() {
 
         var asyncOut1 = out.beginAsync();
 
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut1.write("2");
             asyncOut1.end();
         }, 75);
@@ -724,7 +724,7 @@ describe("AsyncStream", function() {
         var asyncOut2 = out.beginAsync();
         // This async fragment will timeout but we will
         // still write to it after it ends
-        setTimeout(function() {
+        setTimeout(() => {
             asyncOut2.error("TEST ERROR");
             asyncOut2.end();
         }, 100);
@@ -744,7 +744,7 @@ describe("AsyncStream", function() {
             }
         }
 
-        out1.on("finish", function() {
+        out1.on("finish", () => {
             if (out1.data.__finishedFlag) {
                 return done(new Error("finished invoked multiple times!"));
             }
@@ -752,7 +752,7 @@ describe("AsyncStream", function() {
             out1.data.__finishedFlag = true;
             handleFinished();
         });
-        out2.on("finish", function() {
+        out2.on("finish", () => {
             if (out2.data.__finishedFlag) {
                 return done(new Error("finished invoked multiple times!"));
             }
@@ -781,9 +781,9 @@ describe("AsyncStream", function() {
 
         out.write("1");
 
-        setTimeout(function() {
+        setTimeout(() => {
             var asyncOut = out.beginAsync({ name: "inner" });
-            setTimeout(function() {
+            setTimeout(() => {
                 asyncOut.write("2");
                 asyncOut.end();
             }, 50);
@@ -806,9 +806,9 @@ describe("AsyncStream", function() {
 
         out.write("1");
 
-        setTimeout(function() {
+        setTimeout(() => {
             var asyncOut = out.beginAsync({ name: "inner" });
-            setTimeout(function() {
+            setTimeout(() => {
                 asyncOut.write("2");
                 asyncOut.end();
             }, 50);
@@ -828,19 +828,19 @@ describe("AsyncStream", function() {
 
         var asyncOut1 = out.beginAsync();
         expect(asyncOut1.stream).to.equal(stream);
-        setTimeout(function() {
+        setTimeout(() => {
             expect(asyncOut1.stream).to.equal(stream);
             asyncOut1.end();
         }, 100);
 
         var asyncOut2 = out.beginAsync();
         expect(asyncOut2.stream).to.equal(stream);
-        setTimeout(function() {
+        setTimeout(() => {
             expect(asyncOut2.stream).to.equal(stream);
             asyncOut2.end();
         }, 50);
 
-        out.on("end", function() {
+        out.on("end", () => {
             expect(out.stream).to.equal(stream);
             expect(asyncOut1.stream).to.equal(stream);
             expect(asyncOut2.stream).to.equal(stream);

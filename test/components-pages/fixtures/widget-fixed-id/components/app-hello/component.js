@@ -3,7 +3,7 @@ module.exports = {
         this.name = input.name;
     },
 
-    onMount: function() {
+    onMount: () => {
         this.type = "app-hello";
     }
 };

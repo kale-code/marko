@@ -7,11 +7,11 @@ function Widget(config) {
 }
 
 Widget.prototype = {
-    testGetWidget: function() {
+    testGetWidget: () => {
         var helloWidget = this.getWidget("hello");
         expect(helloWidget != null).to.equal(true);
     },
-    testGetEl: function() {
+    testGetEl: () => {
         var wrapperEl = this.getEl("wrapper");
         expect(wrapperEl != null).to.equal(true);
     }

@@ -300,7 +300,7 @@ function initServerRendered(renderedComponents, doc) {
             // hydrateComponent will return false if there is not rootNode
             // for the component.  If this is the case, we'll wait until the
             // DOM has fully loaded to attempt to init the component again.
-            doc.addEventListener("DOMContentLoaded", function() {
+            doc.addEventListener("DOMContentLoaded", () => {
                 if (!hydrateComponent(componentDef, doc)) {
                     indexServerComponentBoundaries(doc, runtimeId);
                     hydrateComponent(componentDef, doc);

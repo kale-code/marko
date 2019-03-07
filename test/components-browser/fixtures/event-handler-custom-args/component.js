@@ -1,9 +1,9 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.pressEvent = undefined;
     },
 
-    handleButtonPress: function() {
+    handleButtonPress: () => {
         this.pressEvent = arguments;
     }
 };

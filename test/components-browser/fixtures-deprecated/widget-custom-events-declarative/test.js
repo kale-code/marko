@@ -7,14 +7,14 @@ module.exports = helpers => {
     var received1 = [];
     var received2 = [];
 
-    widget.handleTestEvent1 = function() {
+    widget.handleTestEvent1 = () => {
         received1.push({
             args: arguments,
             widget: arguments[arguments.length - 1]
         });
     };
 
-    widget.handleTestEvent2 = function() {
+    widget.handleTestEvent2 = () => {
         received2.push({
             args: arguments,
             widget: arguments[arguments.length - 1]

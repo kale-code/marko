@@ -3,7 +3,7 @@ module.exports = require("marko-widgets").defineComponent({
 
     getTemplateData: (state, input) => ({ label: input.label }),
 
-    emitPressEvent: function() {
+    emitPressEvent: () => {
         this.emit("press", { widget: this });
     }
 });

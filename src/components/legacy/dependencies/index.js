@@ -24,7 +24,7 @@ function getRootDeps(template, context) {
     });
 
     // these dependencies should be last
-    deps.concat = function() {
+    deps.concat = () => {
         var result = [];
         result = result.concat.apply(result, arguments);
         result.push.apply(result, this);

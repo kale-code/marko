@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should serialize component input down to the browser", function() {
+describe(path.basename(__dirname), () => {
+    it("should serialize component input down to the browser", () => {
         expect(window.fooComponent.input.color).to.equal("#800");
         expect(window.fooComponent.el.textContent).to.equal(
             "The current count is 0"

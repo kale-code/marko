@@ -1,7 +1,7 @@
 function Component() {}
 
 Component.prototype = {
-    onMount: function() {
+    onMount: () => {
         window.appButtonSplitExportClass = this;
     },
     setColor: function(color) {

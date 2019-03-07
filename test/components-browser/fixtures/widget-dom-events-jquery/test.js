@@ -7,7 +7,7 @@ module.exports = function(helpers, done) {
         var $el = component.$();
         var $button = component.$("#button");
 
-        $el.click(function() {
+        $el.click(() => {
             helpers.log("$el:click");
         });
 

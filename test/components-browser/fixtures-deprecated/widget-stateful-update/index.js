@@ -48,7 +48,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    handleClick: function (event) {
+    handleClick: function(event) {
         // Every Widget instance is also an EventEmitter instance.
         // We will emit a custom "click" event when a DOM click event
         // is triggered
@@ -58,19 +58,19 @@ module.exports = require("marko/legacy-components").defineComponent({
     },
 
     // Add any other methods here
-    setVariant: function (variant) {
+    setVariant: function(variant) {
         this.setState("variant", variant);
     },
 
-    setSize: function (size) {
+    setSize: function(size) {
         this.setState("size", size);
     },
 
-    setLabel: function (label) {
+    setLabel: function(label) {
         this.setState("label", label);
     },
 
-    getSize: function () {
+    getSize: () => {
         return this.state.size;
     }
 });

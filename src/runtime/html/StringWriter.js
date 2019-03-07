@@ -15,7 +15,7 @@ StringWriter.prototype = {
      *
      * @returns {String} The built String
      */
-    toString: function() {
+    toString: () => {
         return this.str;
     }
 };

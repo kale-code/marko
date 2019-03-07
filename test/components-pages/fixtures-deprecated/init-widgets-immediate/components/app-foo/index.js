@@ -1,14 +1,14 @@
 module.exports = require("marko-widgets").defineComponent({
     template: require("./template.marko"),
 
-    getInitialState: function() {
+    getInitialState: () => {
         return {
             type: "state",
             name: "foo"
         };
     },
 
-    getWidgetConfig: function() {
+    getWidgetConfig: () => {
         return {
             type: "config",
             name: "foo"

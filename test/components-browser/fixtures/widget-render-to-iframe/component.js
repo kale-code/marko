@@ -2,7 +2,7 @@ var expect = require("chai").expect;
 var iframeContentComponent = require("./components/app-iframe-content");
 
 module.exports = {
-    renderIntoIframe: function() {
+    renderIntoIframe: () => {
         var frameEl = this.getEl("frame");
         return iframeContentComponent
             .renderSync({})
@@ -22,7 +22,7 @@ module.exports = {
 
         var buttonClick = false;
 
-        contentComponent.on("buttonClick", function() {
+        contentComponent.on("buttonClick", () => {
             buttonClick = true;
         });
 

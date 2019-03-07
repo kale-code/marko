@@ -1,15 +1,15 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getTemplateData: function() {
+    getTemplateData: () => {
         return {};
     },
 
-    init: function() {
+    init: () => {
         this.mouseMoved = false;
     },
 
-    handleMouseMove: function() {
+    handleMouseMove: () => {
         this.mouseMoved = true;
     }
 });

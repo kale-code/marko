@@ -117,7 +117,7 @@ module.exports = function assignComponentId(isRepeated) {
         idExpression: idExpression,
         nestedIdExpression: nestedIdExpression,
         idVarNode: null,
-        createIdVarNode: function() {
+        createIdVarNode: () => {
             if (this.idVarNode) {
                 return this.idVarNode;
             }

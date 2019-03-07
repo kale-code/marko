@@ -43,7 +43,7 @@ var fragmentPrototype = {
         }, this);
         return this;
     },
-    remove: function() {
+    remove: () => {
         this.nodes.forEach(function(node) {
             this.detachedContainer.appendChild(node);
         }, this);

@@ -6,21 +6,21 @@ module.exports = {
         this.channel = input.channel;
     },
 
-    onMount: function() {
+    onMount: () => {
         var self = this;
 
         if (this.channel) {
-            pubsub.channel(this.channel).on("emitTestEvent2", function() {
+            pubsub.channel(this.channel).on("emitTestEvent2", () => {
                 self.emitTestEvent2();
             });
         }
     },
 
-    emitTestEvent1: function() {
+    emitTestEvent1: () => {
         this.emit("testEvent", "a", "b");
     },
 
-    emitTestEvent2: function() {
+    emitTestEvent2: () => {
         this.emit("testEvent");
     }
 };

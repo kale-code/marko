@@ -50,7 +50,7 @@ function requestData(provider, timeout) {
     }
 
     if (timeout > 0) {
-        let timeoutId = setTimeout(function() {
+        let timeoutId = setTimeout(() => {
             timeoutId = null;
             var error = new Error("Timed out after " + timeout + "ms");
             error.code = "ERR_AWAIT_TIMEDOUT";
@@ -58,7 +58,7 @@ function requestData(provider, timeout) {
             asyncValue.___reject(error);
         }, timeout);
 
-        asyncValue.___done(function() {
+        asyncValue.___done(() => {
             if (timeoutId != null) {
                 clearTimeout(timeoutId);
             }
@@ -205,7 +205,7 @@ module.exports = function awaitTag(input, out) {
             // this event until after the code to move
             // the async fragment into place has been written
             let asyncLastOut = asyncOut.beginAsync(LAST_OPTIONS);
-            asyncOut.onLast(function() {
+            asyncOut.onLast(() => {
                 var oldWriter = asyncOut.writer;
                 // We swap out the writer so that writing will happen to our `asyncLastOut`
                 // even though we are still passing along the original `asyncOut`. We have

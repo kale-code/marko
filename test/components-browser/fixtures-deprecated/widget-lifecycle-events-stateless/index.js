@@ -8,7 +8,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    init: function() {
+    init: () => {
         this.lifecycleEvents = [];
 
         this.recordWidgetLifecycleEvent("init");
@@ -20,19 +20,19 @@ module.exports = require("marko/legacy-components").defineComponent({
         );
     },
 
-    onBeforeDestroy: function() {
+    onBeforeDestroy: () => {
         this.recordWidgetLifecycleEvent("onBeforeDestroy");
     },
 
-    onDestroy: function() {
+    onDestroy: () => {
         this.recordWidgetLifecycleEvent("onDestroy");
     },
 
-    onBeforeUpdate: function() {
+    onBeforeUpdate: () => {
         this.recordWidgetLifecycleEvent("onBeforeUpdate");
     },
 
-    onUpdate: function() {
+    onUpdate: () => {
         this.recordWidgetLifecycleEvent("onUpdate");
     },
 

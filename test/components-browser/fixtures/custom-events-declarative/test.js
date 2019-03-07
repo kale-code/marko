@@ -7,14 +7,14 @@ module.exports = function(helpers) {
     var received1 = [];
     var received2 = [];
 
-    component.handleTestEvent1 = function() {
+    component.handleTestEvent1 = () => {
         received1.push({
             args: arguments,
             component: arguments[arguments.length - 1]
         });
     };
 
-    component.handleTestEvent2 = function() {
+    component.handleTestEvent2 = () => {
         received2.push({
             args: arguments,
             component: arguments[arguments.length - 1]

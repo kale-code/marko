@@ -15,7 +15,7 @@ function VFragment(key, ownerComponent, preserve) {
 
 VFragment.prototype = {
     ___nodeType: 12,
-    ___actualize: function() {
+    ___actualize: () => {
         var fragment = createFragmentNode();
         keysByDOMNode.set(fragment, this.___key);
         vElementByDOMNode.set(fragment, this);

@@ -6,7 +6,7 @@ exports.Widget = function(config) {
 
     var helloWidget = this.getWidget("hello");
 
-    this.test = function() {
+    this.test = () => {
         expect(helloWidget).to.be.an("object");
         expect(helloWidget.name).to.equal("Async");
     };

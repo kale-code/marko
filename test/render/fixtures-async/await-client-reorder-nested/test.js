@@ -3,23 +3,23 @@ var expect = require("chai").expect;
 
 exports.templateData = {
     outer: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 100);
     },
     inner1: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 200);
     },
     inner2: function(callback) {
-        setTimeout(function() {
+        setTimeout(() => {
             callback(null, {});
         }, 300);
     }
 };
 
-exports.checkHtml = function() {};
+exports.checkHtml = () => {};
 exports.checkEvents = function(events, snapshot, out) {
     events = events.map(function(eventInfo) {
         var arg = extend({}, eventInfo.arg);

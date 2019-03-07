@@ -12,12 +12,12 @@ module.exports = require("marko/legacy-components").defineComponent({
             id: state.id
         };
     },
-    init: function() {
+    init: () => {
         // console.log(module.id, 'init()', this.state);
         window.rerenderInitOrder = window.rerenderInitOrder || [];
         window.rerenderInitOrder.push(this.state.id);
     },
-    onUpdate: function() {
+    onUpdate: () => {
         // console.log(module.id, 'init()', this.state);
         window.rerenderInitOrder.push(this.state.id);
     }

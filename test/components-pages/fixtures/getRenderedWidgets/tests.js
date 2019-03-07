@@ -2,8 +2,8 @@ var path = require("path");
 var expect = require("chai").expect;
 var markoComponents = require("marko/components");
 
-describe(path.basename(__dirname), function() {
-    it("should serialize component config down to the browser", function() {
+describe(path.basename(__dirname), () => {
+    it("should serialize component config down to the browser", () => {
         expect(window.simpleComponents).to.deep.equal([]);
 
         var components = window.components;

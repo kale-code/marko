@@ -5,10 +5,10 @@ module.exports = {
             age: input.age
         };
     },
-    getName: function() {
+    getName: () => {
         return this.els[0].innerHTML;
     },
-    getAge: function() {
+    getAge: () => {
         return this.els[1].innerHTML;
     }
 };

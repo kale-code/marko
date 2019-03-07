@@ -3,7 +3,7 @@
 const jQuery = require("jquery");
 const createBrowser = require("jsdom-context-require");
 const compiler = require("../../compiler");
-const noop = function() {};
+const noop = () => {};
 const globals = [
     "console",
     "__coverage__",

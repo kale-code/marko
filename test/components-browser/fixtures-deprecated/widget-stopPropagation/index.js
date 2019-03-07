@@ -8,12 +8,12 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    init: function() {
+    init: () => {
         this.divClicked = false;
         this.buttonClicked = false;
     },
 
-    handleDivClick: function() {
+    handleDivClick: () => {
         this.divClicked = true;
     },
 

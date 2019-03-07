@@ -3,7 +3,7 @@ module.exports = function addAsyncTestSuites(fn) {
     var runner = it("").parent;
     var originalDescribe = global.describe;
 
-    before(function() {
+    before(() => {
         // Test init can take a while. (This does not change the timeout of the actual tests, just the lasso compile time).
         this.timeout(20000);
 
@@ -24,7 +24,7 @@ module.exports = function addAsyncTestSuites(fn) {
         return fn();
     });
 
-    after(function() {
+    after(() => {
         // restore the previous describe
         global.describe = originalDescribe;
     });

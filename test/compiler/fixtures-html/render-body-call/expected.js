@@ -25,7 +25,7 @@ function render(input, out, __component, component, state) {
     }, null, out, __component, "4");
 
   marko_dynamicTag(input.template, {
-      y: function() {}
+      y: () => {}
     }, null, out, __component, "5");
 
   marko_dynamicTag({

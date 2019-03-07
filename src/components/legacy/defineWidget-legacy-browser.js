@@ -16,7 +16,7 @@ module.exports = function defineWidget(def, renderer) {
         return def;
     }
 
-    var ComponentClass = function() {};
+    var ComponentClass = () => {};
     var proto;
 
     if (typeof def === "function") {
@@ -53,7 +53,7 @@ module.exports = function defineWidget(def, renderer) {
     proto.constructor = def.constructor = Component;
 
     Object.defineProperty(proto, "__document", {
-        get: function() {
+        get: () => {
             // eslint-disable-next-line no-constant-condition
             if ("MARKO_DEBUG") {
                 complain("__document is deprecated");
@@ -63,7 +63,7 @@ module.exports = function defineWidget(def, renderer) {
     });
 
     Object.defineProperty(proto, "el", {
-        get: function() {
+        get: () => {
             // eslint-disable-next-line no-constant-condition
             if ("MARKO_DEBUG") {
                 complain(
@@ -97,19 +97,19 @@ module.exports = function defineWidget(def, renderer) {
 
     // convert legacy to modern
     var originalUpdate = proto.update;
-    proto.update = function() {
+    proto.update = () => {
         this.___legacyExplicitUpdate = true;
         onBeforeUpdate && onBeforeUpdate.call(this);
         originalUpdate.apply(this, arguments);
         this.___legacyExplicitUpdate = false;
     };
 
-    proto.onMount = function() {
+    proto.onMount = () => {
         var self = this;
         var config = this.widgetConfig;
         if (this.el) {
             Object.defineProperty(this.el, "__widget", {
-                get: function() {
+                get: () => {
                     // eslint-disable-next-line no-constant-condition
                     if ("MARKO_DEBUG") {
                         complain("__widget is deprecated");
@@ -122,7 +122,7 @@ module.exports = function defineWidget(def, renderer) {
         if (onRender) {
             onRender.call(this, { firstRender: true });
         }
-        this.on("___legacyRender", function() {
+        this.on("___legacyRender", () => {
             if (!self.___legacyExplicitUpdate && onBeforeUpdate) {
                 onBeforeUpdate.call(this);
             }
@@ -132,7 +132,7 @@ module.exports = function defineWidget(def, renderer) {
         this.___input = null;
     };
 
-    proto.onUpdate = function() {
+    proto.onUpdate = () => {
         if (onUpdate) onUpdate.call(this);
         if (onRender && this.___didUpdate) onRender.call(this, {});
         this.___didUpdate = false;
@@ -140,7 +140,7 @@ module.exports = function defineWidget(def, renderer) {
     };
 
     if (onBeforeDestroy || onDestroy) {
-        proto.onDestroy = function() {
+        proto.onDestroy = () => {
             if (onBeforeDestroy) onBeforeDestroy.call(this);
             if (onDestroy) onDestroy.call(this);
         };
@@ -196,7 +196,7 @@ module.exports = function defineWidget(def, renderer) {
     }
 
     Object.defineProperty(Component, "_isWidget", {
-        get: function() {
+        get: () => {
             // eslint-disable-next-line no-constant-condition
             if ("MARKO_DEBUG") {
                 complain("_isWidget is deprecated");

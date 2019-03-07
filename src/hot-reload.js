@@ -107,7 +107,7 @@ exports.enable = function(options) {
         var actualRenderFunc;
 
         Object.defineProperty(originalTemplate, "_", {
-            get: function() {
+            get: () => {
                 return actualRenderFunc;
             },
 

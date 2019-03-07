@@ -1,9 +1,9 @@
 module.exports = {
-    onMount: function() {
+    onMount: () => {
         this.mouseMoved = false;
     },
 
-    handleMouseMove: function() {
+    handleMouseMove: () => {
         this.mouseMoved = true;
     }
 };
