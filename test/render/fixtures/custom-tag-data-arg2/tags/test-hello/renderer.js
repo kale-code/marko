@@ -1,4 +1,4 @@
-exports.render = function(input, out) {
+exports.render = (input, out) => {
     out.write("Hello " + input.name + "!");
     if (input.adult === true) {
         out.write(" (adult)");
