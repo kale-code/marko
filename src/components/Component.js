@@ -102,7 +102,7 @@ function processUpdateHandlers(component, stateChanges, oldState) {
         // Otherwise, there are handlers for all of the changed properties
         // so apply the updates using those handlers
 
-        handlers.forEach(function(handler) {
+        handlers.forEach(handler => {
             var propertyName = handler[0];
             handlerMethod = handler[1];
 
@@ -179,7 +179,7 @@ function Component(id) {
 Component.prototype = componentProto = {
     ___isComponent: true,
 
-    subscribeTo: function(target) {
+    subscribeTo: target => {
         if (!target) {
             throw TypeError();
         }
@@ -195,7 +195,7 @@ Component.prototype = componentProto = {
         return subscriptions.subscribeTo(target, subscribeToOptions);
     },
 
-    emit: function(eventType) {
+    emit: eventType => {
         var customEvents = this.___customEvents;
         var target;
 
@@ -221,10 +221,10 @@ Component.prototype = componentProto = {
             return emit.apply(this, arguments);
         }
     },
-    getElId: function(key, index) {
+    getElId: (key, index) => {
         return resolveComponentIdHelper(this, key, index);
     },
-    getEl: function(key, index) {
+    getEl: (key, index) => {
         if (key) {
             var resolvedKey = resolveKeyHelper(key, index);
             var keyedElement = this.___keyedElements["@" + resolvedKey];
@@ -248,7 +248,7 @@ Component.prototype = componentProto = {
             return this.el;
         }
     },
-    getEls: function(key) {
+    getEls: key => {
         key = key + "[]";
 
         var els = [];
@@ -260,7 +260,7 @@ Component.prototype = componentProto = {
         }
         return els;
     },
-    getComponent: function(key, index) {
+    getComponent: (key, index) => {
         var rootNode = this.___keyedElements[resolveKeyHelper(key, index)];
         if (/\[\]$/.test(key)) {
             // eslint-disable-next-line no-constant-condition
@@ -273,10 +273,10 @@ Component.prototype = componentProto = {
         }
         return rootNode && componentsByDOMNode.get(rootNode);
     },
-    getComponents: function(key) {
+    getComponents: key => {
         var lookup = this.___keyedElements[key + "[]"];
         return lookup
-            ? Object.keys(lookup).map(function(key) {
+            ? Object.keys(lookup).map(key => {
                   return componentsByDOMNode.get(lookup[key]);
               })
             : [];
@@ -291,7 +291,7 @@ Component.prototype = componentProto = {
 
         this.___destroyShallow();
 
-        nodes.forEach(function(node) {
+        nodes.forEach(node => {
             destroyNodeRecursive(node);
 
             if (eventDelegation.___handleNodeDetach(node) !== false) {
@@ -354,7 +354,7 @@ Component.prototype = componentProto = {
             this.___state = null;
         }
     },
-    setState: function(name, value) {
+    setState: (name, value) => {
         var state = this.___state;
 
         if (typeof name == "object") {
@@ -370,7 +370,7 @@ Component.prototype = componentProto = {
         }
     },
 
-    setStateDirty: function(name, value) {
+    setStateDirty: (name, value) => {
         var state = this.___state;
 
         if (arguments.length == 1) {
@@ -385,7 +385,7 @@ Component.prototype = componentProto = {
         );
     },
 
-    replaceState: function(newState) {
+    replaceState: newState => {
         this.___state.___replace(newState);
     },
 
@@ -400,7 +400,7 @@ Component.prototype = componentProto = {
         }
     },
 
-    ___setInput: function(newInput, onInput, out) {
+    ___setInput: (newInput, onInput, out) => {
         onInput = onInput || this.onInput;
         var updatedInput;
 
@@ -502,11 +502,11 @@ Component.prototype = componentProto = {
         return true;
     },
 
-    ___emitLifecycleEvent: function(eventType, eventArg1, eventArg2) {
+    ___emitLifecycleEvent: (eventType, eventArg1, eventArg2) => {
         emitLifecycleEvent(this, eventType, eventArg1, eventArg2);
     },
 
-    ___rerender: function(isRerenderInBrowser) {
+    ___rerender: isRerenderInBrowser => {
         var self = this;
         var renderer = self.___renderer;
 
@@ -565,11 +565,11 @@ Component.prototype = componentProto = {
         return state && state.___raw;
     },
 
-    ___setCustomEvents: function(customEvents, scope) {
+    ___setCustomEvents: (customEvents, scope) => {
         var finalCustomEvents = (this.___customEvents = {});
         this.___scope = scope;
 
-        customEvents.forEach(function(customEvent) {
+        customEvents.forEach(customEvent => {
             var eventType = customEvent[0];
             var targetMethodName = customEvent[1];
             var isOnce = customEvent[2];

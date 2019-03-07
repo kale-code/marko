@@ -53,7 +53,7 @@ function transformTreeHelper(node, context) {
      *       The checks to prevent transformers from being applied multiple times makes
      *       sure that this is not a problem.
      */
-    node.forEachChild(function(childNode) {
+    node.forEachChild(childNode => {
         transformTreeHelper(childNode, context);
     });
 }

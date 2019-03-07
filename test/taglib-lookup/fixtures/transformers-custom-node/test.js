@@ -1,10 +1,10 @@
-exports.check = function(markoCompiler, expect) {
+exports.check = (markoCompiler, expect) => {
     var taglibLookup = markoCompiler.taglibLookup;
     var transformers = [];
 
     var lookup = taglibLookup.buildLookup(__dirname);
 
-    lookup.forEachTagTransformer("else", function(transformer) {
+    lookup.forEachTagTransformer("else", transformer => {
         transformers.push(transformer);
     });
 

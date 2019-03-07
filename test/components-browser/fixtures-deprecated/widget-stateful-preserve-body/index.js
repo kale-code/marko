@@ -5,7 +5,7 @@ module.exports = require("marko/legacy-components").defineComponent({
             buttonLabel: "Initial Button Label"
         };
     },
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             buttonLabel: state.buttonLabel
         };

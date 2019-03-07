@@ -1,5 +1,5 @@
 exports.templateData = {
-    userProvider: function(cb) {
+    userProvider: cb => {
         setTimeout(() => {
             cb(null, { name: "Frank" });
         }, 100);

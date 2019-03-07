@@ -80,7 +80,7 @@ class HtmlAttribute extends Node {
     }
 }
 
-HtmlAttribute.isHtmlAttribute = function(attr) {
+HtmlAttribute.isHtmlAttribute = attr => {
     return attr instanceof HtmlAttribute;
 };
 

@@ -57,17 +57,17 @@ var proto = (AsyncVDOMBuilder.prototype = {
     ___isOut: true,
     ___document: defaultDocument,
 
-    bc: function(component, key, ownerComponent) {
+    bc: (component, key, ownerComponent) => {
         var vComponent = new VComponent(component, key, ownerComponent);
         return this.___beginNode(vComponent, 0, true);
     },
 
-    ___preserveComponent: function(component, key, ownerComponent) {
+    ___preserveComponent: (component, key, ownerComponent) => {
         var vComponent = new VComponent(component, key, ownerComponent, true);
         this.___beginNode(vComponent, 0);
     },
 
-    ___beginNode: function(child, childCount, pushToStack) {
+    ___beginNode: (child, childCount, pushToStack) => {
         this.___parent.___appendChild(child);
         if (pushToStack === true) {
             this.___stack.push(child);
@@ -118,7 +118,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this.___beginNode(element, childCount);
     },
 
-    n: function(node, component) {
+    n: (node, component) => {
         // NOTE: We do a shallow clone since we assume the node is being reused
         //       and a node can only have one parent node.
         var clone = node.___cloneNode();
@@ -128,12 +128,12 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    node: function(node) {
+    node: node => {
         this.___parent.___appendChild(node);
         return this;
     },
 
-    text: function(text) {
+    text: text => {
         var type = typeof text;
 
         if (type != "string") {
@@ -152,11 +152,11 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    comment: function(comment) {
+    comment: comment => {
         return this.node(new VComment(comment));
     },
 
-    html: function(html) {
+    html: html => {
         if (html != null) {
             var vdomNode = virtualizeHTML(html, this.___document || document);
             this.node(vdomNode);
@@ -209,7 +209,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    ___beginFragment: function(key, component, preserve) {
+    ___beginFragment: (key, component, preserve) => {
         var fragment = new VFragment(key, component, preserve);
         this.___beginNode(fragment, null, true);
         return this;
@@ -285,7 +285,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         next();
     },
 
-    error: function(e) {
+    error: e => {
         try {
             this.emit("error", e);
         } finally {
@@ -299,7 +299,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    beginAsync: function(options) {
+    beginAsync: options => {
         if (this.___sync) {
             throw Error(
                 "Tried to render async while in sync mode. Note: Client side await is not currently supported in re-renders (Issue: #942)."
@@ -351,7 +351,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this.___result || (this.___result = new RenderResult(this));
     },
 
-    on: function(event, callback) {
+    on: (event, callback) => {
         var state = this.___state;
 
         if (event === EVENT_FINISH && state.___finished) {
@@ -365,7 +365,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    once: function(event, callback) {
+    once: (event, callback) => {
         var state = this.___state;
 
         if (event === EVENT_FINISH && state.___finished) {
@@ -379,7 +379,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    emit: function(type, arg) {
+    emit: (type, arg) => {
         var events = this.___state.___events;
         switch (arguments.length) {
             case 1:
@@ -409,7 +409,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this.___sync;
     },
 
-    onLast: function(callback) {
+    onLast: callback => {
         var lastArray = this._last;
 
         if (lastArray === undefined) {
@@ -421,7 +421,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return this;
     },
 
-    ___getNode: function(doc) {
+    ___getNode: doc => {
         var node = this.___vnode;
         if (!node) {
             var vdomTree = this.___getOutput();
@@ -433,7 +433,7 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return node;
     },
 
-    toString: function(doc) {
+    toString: doc => {
         var docFragment = this.___getNode(doc);
         var html = "";
 
@@ -454,10 +454,10 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return html;
     },
 
-    then: function(fn, fnErr) {
+    then: (fn, fnErr) => {
         var out = this;
-        var promise = new Promise(function(resolve, reject) {
-            out.on("error", reject).on(EVENT_FINISH, function(result) {
+        var promise = new Promise((resolve, reject) => {
+            out.on("error", reject).on(EVENT_FINISH, result => {
                 resolve(result);
             });
         });
@@ -465,13 +465,13 @@ var proto = (AsyncVDOMBuilder.prototype = {
         return Promise.resolve(promise).then(fn, fnErr);
     },
 
-    catch: function(fnErr) {
+    catch: fnErr => {
         return this.then(undefined, fnErr);
     },
 
     isVDOM: true,
 
-    c: function(componentDef, key, customEvents) {
+    c: (componentDef, key, customEvents) => {
         this.___assignedComponentDef = componentDef;
         this.___assignedKey = key;
         this.___assignedCustomEvents = customEvents;

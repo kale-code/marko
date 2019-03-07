@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     var widget = helpers.mount(require.resolve("./index"), {});
     var $el = widget.$();
     var $button = widget.$("#button");
@@ -9,7 +9,7 @@ module.exports = function(helpers, done) {
         helpers.log("$el:click");
     });
 
-    $button.click(function(event) {
+    $button.click(event => {
         event.stopPropagation();
         helpers.log("$button:click");
     });

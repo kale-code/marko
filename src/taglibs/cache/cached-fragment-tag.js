@@ -1,6 +1,6 @@
 "use strict";
 module.exports = {
-    render: function(input, out) {
+    render: (input, out) => {
         var cacheKey = input.cacheKey;
         if (!cacheKey) {
             throw new Error("cache-key is required for <cached-fragment>");
@@ -17,23 +17,21 @@ module.exports = {
         cache.get(
             cacheKey,
             {
-                builder: function(callback) {
+                builder: callback => {
                     var nestedOut = out.createOut();
 
                     if (input.renderBody) {
                         input.renderBody(nestedOut);
                     }
 
-                    nestedOut
-                        .on("error", callback)
-                        .on("finish", function(result) {
-                            callback(null, result.getOutput());
-                        });
+                    nestedOut.on("error", callback).on("finish", result => {
+                        callback(null, result.getOutput());
+                    });
 
                     nestedOut.end();
                 }
             },
-            function(err, result) {
+            (err, result) => {
                 if (err) {
                     return asyncOut.error(err);
                 }

@@ -1,4 +1,4 @@
-module.exports = function(el, context) {
+module.exports = (el, context) => {
     var builder = context.builder;
     var rootNode = builder.containerNode(() => {
         return context.createNodeForEl({

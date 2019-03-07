@@ -56,7 +56,7 @@ var Node_prototype = VNode.prototype;
  * Shorthand method for creating and appending a Text node with a given value
  * @param  {String} value The text value for the new Text node
  */
-Node_prototype.t = function(value) {
+Node_prototype.t = value => {
     var type = typeof value;
     var vdomNode;
 
@@ -78,7 +78,7 @@ Node_prototype.t = function(value) {
  * Shorthand method for creating and appending a Comment node with a given value
  * @param  {String} value The value for the new Comment node
  */
-Node_prototype.c = function(value) {
+Node_prototype.c = value => {
     this.___appendChild(new VComment(value));
     return this.___finishChild();
 };

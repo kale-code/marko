@@ -1,3 +1,3 @@
-module.exports = function(input, out) {
+module.exports = (input, out) => {
     out.write("<span>Hello World</span>");
 };

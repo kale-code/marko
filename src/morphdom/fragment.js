@@ -28,7 +28,7 @@ var fragmentPrototype = {
         nodes.push(current);
         return nodes;
     },
-    insertBefore: function(newChildNode, referenceNode) {
+    insertBefore: (newChildNode, referenceNode) => {
         var actualReference =
             referenceNode == null ? this.endNode : referenceNode;
         return insertBefore(
@@ -37,14 +37,14 @@ var fragmentPrototype = {
             this.startNode.parentNode
         );
     },
-    insertInto: function(newParentNode, referenceNode) {
-        this.nodes.forEach(function(node) {
+    insertInto: (newParentNode, referenceNode) => {
+        this.nodes.forEach(node => {
             insertBefore(node, referenceNode, newParentNode);
         }, this);
         return this;
     },
     remove: () => {
-        this.nodes.forEach(function(node) {
+        this.nodes.forEach(node => {
             this.detachedContainer.appendChild(node);
         }, this);
     }
@@ -66,7 +66,7 @@ function createFragmentNode(startNode, nextNode, parentNode) {
 
 function beginFragmentNode(startNode, parentNode) {
     var fragment = createFragmentNode(startNode, null, parentNode);
-    fragment.___finishFragment = function(nextNode) {
+    fragment.___finishFragment = nextNode => {
         fragment.___finishFragment = null;
         insertBefore(
             fragment.endNode,

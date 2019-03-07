@@ -7,7 +7,7 @@ function indentStr(level) {
     return str;
 }
 
-module.exports = function(node) {
+module.exports = node => {
     function codegenChildNodes(node, level) {
         var curChild = node.firstChild;
         if (!curChild) {

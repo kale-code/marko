@@ -12,7 +12,7 @@ function BufferedWriter(wrappedStream) {
 }
 
 BufferedWriter.prototype = {
-    write: function(str) {
+    write: str => {
         this._buffer += str;
     },
 

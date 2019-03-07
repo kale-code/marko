@@ -14,7 +14,7 @@ module.exports = {
         this.clicked = false;
     },
 
-    handleRootMouseDown: function(event, el) {
+    handleRootMouseDown: (event, el) => {
         this.clicked = true;
         expect(el.getAttribute("class")).to.equal("app-legacy-button");
         this.log("click");

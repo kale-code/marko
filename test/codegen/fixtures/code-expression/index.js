@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
+module.exports = builder => {
     var program = builder.program;
     var ifStatement = builder.ifStatement;
     var assignment = builder.assignment;

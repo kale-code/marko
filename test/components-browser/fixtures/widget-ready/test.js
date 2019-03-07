@@ -1,4 +1,4 @@
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     require("marko/ready").patchComponent();
 
     try {

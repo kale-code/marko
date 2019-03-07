@@ -2,7 +2,7 @@ var path = require("path");
 var expect = require("chai").expect;
 
 describe(path.basename(__dirname), () => {
-    it("should handle ending </script> tag", function(done) {
+    it("should handle ending </script> tag", done => {
         var ready = require("marko/ready");
 
         ready(() => {

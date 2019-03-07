@@ -11,13 +11,13 @@ module.exports = function addAsyncTestSuites(fn) {
         runner.tests.splice(0, 1);
 
         // patch describe to add to the current suite
-        var patchedDescribe = (global.describe = function(name, fn) {
+        var patchedDescribe = (global.describe = (name, fn) => {
             return moveSuite(originalDescribe(name, fn), runner);
         });
-        patchedDescribe.only = function(name, fn) {
+        patchedDescribe.only = (name, fn) => {
             return moveSuite(originalDescribe.only(name, fn), runner);
         };
-        patchedDescribe.skip = function(name, fn) {
+        patchedDescribe.skip = (name, fn) => {
             return moveSuite(originalDescribe.skip(name, fn), runner);
         };
 

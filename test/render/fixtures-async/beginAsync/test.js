@@ -1,5 +1,5 @@
 exports.templateData = {
-    beginAsync: function(out) {
+    beginAsync: out => {
         var asyncOut = out.beginAsync();
         setTimeout(() => {
             asyncOut.write("B");

@@ -1,17 +1,17 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
-    getInitialState: function(input) {
+    getInitialState: input => {
         return {
             colors: input.colors || []
         };
     },
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             colors: state.colors
         };
     },
 
-    addColor: function(color) {
+    addColor: color => {
         this.state.colors.push(color);
         this.setStateDirty("color");
     }

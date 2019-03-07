@@ -21,7 +21,7 @@ const browserExtensions = {
     ".html": compileMarkoModule
 };
 
-module.exports = function(dir, html, options) {
+module.exports = (dir, html, options) => {
     options = options || {};
     return createBrowser({
         dir: dir,
@@ -32,7 +32,7 @@ module.exports = function(dir, html, options) {
             window.global = window;
             jQuery(window);
             browser.require("complain").log = noop;
-            globals.forEach(function(k) {
+            globals.forEach(k => {
                 window[k] = global[k];
             });
             if (options.beforeParse) {

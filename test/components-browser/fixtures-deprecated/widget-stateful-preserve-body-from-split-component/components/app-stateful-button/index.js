@@ -1,6 +1,6 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
-    getInitialState: function(input) {
+    getInitialState: input => {
         return {
             size: input.size || "normal",
             variant: input.variant || "primary",
@@ -9,10 +9,10 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    getInitialBody: function(input) {
+    getInitialBody: input => {
         return input.label || input.renderBody;
     },
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         var rootAttrs = {};
 
         var classParts = ["app-button"];
@@ -51,7 +51,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    handleClick: function(event) {
+    handleClick: event => {
         // Every Component instance is also an EventEmitter instance.
         // We will emit a custom "click" event when a DOM click event
         // is triggered
@@ -61,15 +61,15 @@ module.exports = require("marko/legacy-components").defineComponent({
     },
 
     // Add any other methods here
-    setVariant: function(variant) {
+    setVariant: variant => {
         this.setState("variant", variant);
     },
 
-    setSize: function(size) {
+    setSize: size => {
         this.setState("size", size);
     },
 
-    setLabel: function(label) {
+    setLabel: label => {
         this.setState("label", label);
     },
 

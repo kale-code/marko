@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
       renderBody: function renderBody(out, hello0) {
         var for__1 = 0;
 
-        marko_forEach(input.colors, function(color) {
+        marko_forEach(input.colors, (color) => {
           var keyscope__2 = "[" + ((for__1++) + "]");
 
           hello_foo_nested_tag({

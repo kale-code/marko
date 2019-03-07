@@ -6,7 +6,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out) {
   var data = input;
 
-  marko_forEachProp(myObject, function(k, v) {
+  marko_forEachProp(myObject, (k, v) => {
     console.log("k:", k, "v:", v);
   });
 }

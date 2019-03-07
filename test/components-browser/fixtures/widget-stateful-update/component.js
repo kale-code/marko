@@ -1,12 +1,12 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             size: input.size || "normal",
             variant: input.variant || "primary"
         };
     },
 
-    handleClick: function(event) {
+    handleClick: event => {
         // Every Component instance is also an EventEmitter instance.
         // We will emit a custom "click" event when a DOM click event
         // is triggered
@@ -16,11 +16,11 @@ module.exports = {
     },
 
     // Add any other methods here
-    setVariant: function(variant) {
+    setVariant: variant => {
         this.setState("variant", variant);
     },
 
-    setSize: function(size) {
+    setSize: size => {
         this.setState("size", size);
     },
 

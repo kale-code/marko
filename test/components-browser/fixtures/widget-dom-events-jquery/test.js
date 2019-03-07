@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     require("marko/jquery").patchComponent(window.$);
     try {
         var component = helpers.mount(require.resolve("./index"), {});
@@ -11,7 +11,7 @@ module.exports = function(helpers, done) {
             helpers.log("$el:click");
         });
 
-        $button.click(function(event) {
+        $button.click(event => {
             event.stopPropagation();
             helpers.log("$button:click");
         });

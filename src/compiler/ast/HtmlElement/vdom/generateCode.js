@@ -32,7 +32,7 @@ function checkPropertiesStatic(properties, vdomUtil) {
     return true;
 }
 
-module.exports = function(node, codegen, vdomUtil) {
+module.exports = (node, codegen, vdomUtil) => {
     var body = codegen.generateCode(node.body);
     var tagName = codegen.generateCode(node.tagNameExpression);
     var attributes = codegen.generateCode(node.getAttributes());

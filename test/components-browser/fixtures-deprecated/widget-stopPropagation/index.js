@@ -1,7 +1,7 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getTemplateData: function(state, input) {
+    getTemplateData: (state, input) => {
         return {
             name: input.name,
             messageCount: input.messageCount
@@ -17,7 +17,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         this.divClicked = true;
     },
 
-    handleButtonClick: function(event) {
+    handleButtonClick: event => {
         this.buttonClicked = true;
         event.stopPropagation();
     }

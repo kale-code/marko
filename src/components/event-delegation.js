@@ -77,7 +77,7 @@ function addDelegatedEventHandlerToDoc(eventType, doc) {
     if (!listeners[eventType]) {
         body.addEventListener(
             eventType,
-            (listeners[eventType] = function(event) {
+            (listeners[eventType] = event => {
                 var propagationStopped = false;
 
                 // Monkey-patch to fix #97
@@ -131,8 +131,8 @@ exports.___handleNodeDetach = noop;
 exports.___delegateEvent = delegateEvent;
 exports.___getEventFromEl = getEventFromEl;
 exports.___addDelegatedEventHandler = addDelegatedEventHandler;
-exports.___init = function(doc) {
-    Object.keys(delegatedEvents).forEach(function(eventType) {
+exports.___init = doc => {
+    Object.keys(delegatedEvents).forEach(eventType => {
         addDelegatedEventHandlerToDoc(eventType, doc);
     });
 };

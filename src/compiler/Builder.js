@@ -489,7 +489,7 @@ class Builder {
         return new Property({ key, value, computed });
     }
 
-    renderBodyFunction(body, params) {
+    renderBody(body, params) => {
         let name = "renderBody";
         if (!params) {
             params = [new Identifier({ name: "out" })];
@@ -531,14 +531,14 @@ class Builder {
         });
     }
 
-    selfInvokingFunction(params, args, body) {
+    selfInvoking(params, args, body) => {
         if (arguments.length === 1) {
             body = arguments[0];
             params = null;
             args = null;
         }
 
-        return new SelfInvokingFunction({ params, args, body });
+        return new SelfInvoking({ params, args, body }) =>;
     }
 
     strictEquality(left, right) {

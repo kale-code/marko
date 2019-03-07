@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     require("marko/jquery").patchComponent(window.$);
 
     try {

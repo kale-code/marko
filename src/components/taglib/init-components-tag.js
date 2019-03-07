@@ -37,7 +37,7 @@ module.exports = function render(input, out) {
             // rendered asynchronously, but were outside an `<await>` tag
             // (each `<await>` tag will have its own component initialization block)
             const asyncOut = out.beginAsync({ last: true, timeout: -1 });
-            out.onLast(function(next) {
+            out.onLast(next => {
                 // Write out all of the component init code from the main out
                 writeInitComponentsCode(out, asyncOut, true);
                 asyncOut.end();

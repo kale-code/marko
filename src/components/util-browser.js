@@ -33,7 +33,7 @@ function getComponentForEl(el, doc) {
 
 var lifecycleEventMethods = {};
 
-["create", "render", "update", "mount", "destroy"].forEach(function(eventName) {
+["create", "render", "update", "mount", "destroy"].forEach(eventName => {
     lifecycleEventMethods[eventName] =
         "on" + eventName[0].toUpperCase() + eventName.substring(1);
 });

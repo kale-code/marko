@@ -3,7 +3,7 @@
 var escapeXml = require("../../../../runtime/html/helpers").x;
 var Literal = require("../../Literal");
 
-module.exports = function(node, codegen) {
+module.exports = (node, codegen) => {
     var context = codegen.context;
     var argument = codegen.generateCode(node.argument);
     var escape = node.escape !== false;

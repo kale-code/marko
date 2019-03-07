@@ -20,7 +20,7 @@ function run(fixture) {
         var template = require(templateFile);
         return template
             .render({})
-            .then(function(html) {
+            .then(html => {
                 var browser = createBrowserWithMarko(__dirname, String(html), {
                     beforeParse(window, browser) {
                         browser.require("../../components");
@@ -33,7 +33,7 @@ function run(fixture) {
                 });
                 return browser;
             })
-            .then(function(browser) {
+            .then(browser => {
                 browser.window.document.close();
                 browser.require(testFile);
             });

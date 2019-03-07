@@ -2,7 +2,7 @@ var path = require("path");
 var expect = require("chai").expect;
 
 describe(path.basename(__dirname), () => {
-    it("should initialize components after ready", function(done) {
+    it("should initialize components after ready", done => {
         expect(window.beforeInitComponentsFooComponent).to.equal(undefined);
         expect(window.afterInitComponentsBarComponent).to.equal(undefined);
 
@@ -15,7 +15,7 @@ describe(path.basename(__dirname), () => {
         done();
     });
 
-    it("should assign unique IDs to each component", function(done) {
+    it("should assign unique IDs to each component", done => {
         expect(window.fooComponent.id).to.be.a("string");
         expect(window.barComponent.id).to.be.a("string");
         expect(window.bazComponent.id).to.be.a("string");
@@ -25,7 +25,7 @@ describe(path.basename(__dirname), () => {
         done();
     });
 
-    it("should assign a unique ID to a nested component based on the parent ID", function(done) {
+    it("should assign a unique ID to a nested component based on the parent ID", done => {
         expect(window.bazComponent.id).to.contain(window.fooComponent.id + "-");
         done();
     });

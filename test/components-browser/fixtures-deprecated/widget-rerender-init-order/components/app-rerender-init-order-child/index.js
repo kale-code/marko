@@ -1,12 +1,12 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require("./template.marko"),
-    getInitialState: function(input) {
+    getInitialState: input => {
         return {
             version: input.version,
             id: input.id
         };
     },
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             version: state.version,
             id: state.id

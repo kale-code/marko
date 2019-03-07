@@ -1,8 +1,8 @@
-exports.check = function(marko, markoCompiler, expect, snapshot, done) {
+exports.check = (marko, markoCompiler, expect, snapshot, done) => {
     var defineRenderer = require("marko/defineRenderer");
     var renderer = defineRenderer({
         template: require("./template.marko"),
-        getTemplateData: function(input) {
+        getTemplateData: input => {
             return {
                 fullName: input.firstName + " " + input.lastName
             };

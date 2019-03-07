@@ -3,7 +3,7 @@ function KeySequence() {
 }
 
 KeySequence.prototype = {
-    ___nextKey: function(key) {
+    ___nextKey: key => {
         // var len = key.length;
         // var lastChar = key[len-1];
         // if (lastChar === ']') {

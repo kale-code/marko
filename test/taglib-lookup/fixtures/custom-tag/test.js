@@ -1,4 +1,4 @@
-exports.check = function(markoCompiler, expect) {
+exports.check = (markoCompiler, expect) => {
     var taglibLookup = markoCompiler.taglibLookup;
     var lookup = taglibLookup.buildLookup(__dirname);
     var tag = lookup.getTag("test-hello");

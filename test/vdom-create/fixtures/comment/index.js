@@ -1,4 +1,4 @@
-module.exports = function(helpers) {
+module.exports = helpers => {
     return helpers.vdom
         .createElement(
             "div",

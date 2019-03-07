@@ -5,10 +5,10 @@ var WeakMap =
     function WeakMap() {
         var id = seed + counter++;
         return {
-            get: function(ref) {
+            get: ref => {
                 return ref[id];
             },
-            set: function(ref, value) {
+            set: (ref, value) => {
                 ref[id] = value;
             }
         };

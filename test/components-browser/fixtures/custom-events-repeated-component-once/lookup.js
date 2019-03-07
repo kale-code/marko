@@ -1,6 +1,6 @@
 var componentsById = {};
 
-exports.addComponent = function(itemId, component) {
+exports.addComponent = (itemId, component) => {
     componentsById[itemId] = component;
 };
 

@@ -107,7 +107,7 @@ var proto = (AsyncStream.prototype = {
         return this._sync === true;
     },
 
-    write: function(str) {
+    write: str => {
         if (str != null) {
             this.writer.write(str.toString());
         }
@@ -134,7 +134,7 @@ var proto = (AsyncStream.prototype = {
         return this._result;
     },
 
-    beginAsync: function(options) {
+    beginAsync: options => {
         if (this._sync) {
             throw new Error("beginAsync() not allowed when using renderSync()");
         }
@@ -228,7 +228,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    end: function(data) {
+    end: data => {
         if (this._ended === true) {
             return;
         }
@@ -300,7 +300,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    _flushNext: function(currentWriter) {
+    _flushNext: currentWriter => {
         // It is possible that currentWriter is the
         // last writer in the chain, so let's make
         // sure there is a nextWriter to flush.
@@ -327,7 +327,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    on: function(event, callback) {
+    on: (event, callback) => {
         var state = this._state;
 
         if (event === "finish" && state.finished === true) {
@@ -341,7 +341,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    once: function(event, callback) {
+    once: (event, callback) => {
         var state = this._state;
 
         if (event === "finish" && state.finished === true) {
@@ -355,7 +355,7 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    onLast: function(callback) {
+    onLast: callback => {
         var lastArray = this._last;
 
         if (lastArray === undefined) {
@@ -387,7 +387,7 @@ var proto = (AsyncStream.prototype = {
         next();
     },
 
-    emit: function(type, arg) {
+    emit: (type, arg) => {
         var events = this._state.events;
         switch (arguments.length) {
             case 1:
@@ -415,12 +415,12 @@ var proto = (AsyncStream.prototype = {
         return this;
     },
 
-    pipe: function(stream) {
+    pipe: stream => {
         this._state.stream.pipe(stream);
         return this;
     },
 
-    error: function(e) {
+    error: e => {
         var stack = this._stack;
         var name = this.name;
 
@@ -472,7 +472,7 @@ var proto = (AsyncStream.prototype = {
         return newOut;
     },
 
-    element: function(tagName, elementAttrs, openTagOnly) {
+    element: (tagName, elementAttrs, openTagOnly) => {
         var str = "<" + tagName + attrsHelper(elementAttrs) + ">";
 
         if (openTagOnly !== true) {
@@ -482,7 +482,7 @@ var proto = (AsyncStream.prototype = {
         this.write(str);
     },
 
-    beginElement: function(name, elementAttrs) {
+    beginElement: (name, elementAttrs) => {
         var str = "<" + name + attrsHelper(elementAttrs) + ">";
 
         this.write(str);
@@ -499,15 +499,15 @@ var proto = (AsyncStream.prototype = {
         this.write("</" + tagName + ">");
     },
 
-    comment: function(str) {
+    comment: str => {
         this.write("<!--" + escapeEndingComment(str) + "-->");
     },
 
-    text: function(str) {
+    text: str => {
         this.write(escapeXml(str));
     },
 
-    ___beginFragment: function(key, component, preserve) {
+    ___beginFragment: (key, component, preserve) => {
         if (preserve) {
             this.write("<!--F#" + escapeXml(key) + "-->");
         }
@@ -525,7 +525,7 @@ var proto = (AsyncStream.prototype = {
         }
     },
 
-    ___getNode: function(doc) {
+    ___getNode: doc => {
         var node = this._node;
         var curEl;
         var newBodyEl;
@@ -558,11 +558,11 @@ var proto = (AsyncStream.prototype = {
         return node;
     },
 
-    then: function(fn, fnErr) {
+    then: (fn, fnErr) => {
         var out = this;
-        var promise = new Promise(function(resolve, reject) {
+        var promise = new Promise((resolve, reject) => {
             out.on("error", reject);
-            out.on("finish", function(result) {
+            out.on("finish", result => {
                 resolve(result);
             });
         });
@@ -570,11 +570,11 @@ var proto = (AsyncStream.prototype = {
         return Promise.resolve(promise).then(fn, fnErr);
     },
 
-    catch: function(fnErr) {
+    catch: fnErr => {
         return this.then(undefined, fnErr);
     },
 
-    c: function(componentDef, key, customEvents) {
+    c: (componentDef, key, customEvents) => {
         this.___assignedComponentDef = componentDef;
         this.___assignedKey = key;
         this.___assignedCustomEvents = customEvents;

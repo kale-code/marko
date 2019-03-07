@@ -3,14 +3,14 @@ var lifecycle = require("./lifecycle-recorder");
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getInitialState: function(input) {
+    getInitialState: input => {
         return {
             name: input.name,
             messageCount: input.messageCount
         };
     },
 
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             name: state.name,
             messageCount: state.messageCount
@@ -22,23 +22,23 @@ module.exports = require("marko/legacy-components").defineComponent({
         lifecycle.record(this.id, "init");
     },
 
-    onRender: function(eventArg) {
+    onRender: eventArg => {
         lifecycle.record(
             this.id,
             eventArg.firstRender ? "onRender:firstRender" : "onRender"
         );
     },
 
-    update_messageCount: function(newMessageCount) {
+    update_messageCount: newMessageCount => {
         this.getWidget("nestedStateful").setMessageCount(newMessageCount);
         this.getWidget("nestedStateful").update();
     },
 
-    setName: function(newName) {
+    setName: newName => {
         this.setState("name", newName);
     },
 
-    setMessageCount: function(newMessageCount) {
+    setMessageCount: newMessageCount => {
         this.setState("messageCount", newMessageCount);
     },
 

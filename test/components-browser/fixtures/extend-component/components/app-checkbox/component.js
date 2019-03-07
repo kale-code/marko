@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             checked: input.checked === true,
             className: input["class"],
@@ -12,7 +12,7 @@ module.exports = {
         return this.state.checked === true;
     },
 
-    setChecked: function(newChecked) {
+    setChecked: newChecked => {
         if (newChecked !== this.state.checked) {
             this.setState("checked", !this.state.checked);
         }

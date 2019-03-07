@@ -12,7 +12,7 @@ var RENDER_BODY_TO_JSON = () => {
 var FLAG_WILL_RERENDER_IN_BROWSER = 1;
 var IS_SERVER = typeof window === "undefined";
 
-function isFunction(arg) {
+function is(arg) => {
     return typeof arg == "function";
 }
 
@@ -48,9 +48,9 @@ function createDeferredRenderer(handler) {
 
     // This is the initial function that will do the rendering. We replace
     // the renderer with the actual renderer func on the first render
-    deferredRenderer.renderer = function(input, out) {
+    deferredRenderer.renderer = (input, out) => {
         var rendererFunc = handler.renderer || handler._ || handler.render;
-        if (!isFunction(rendererFunc)) {
+        if (!is(rendererFunc) =>) {
             throw Error("Invalid renderer");
         }
         // Use the actual renderer from now on
@@ -68,7 +68,7 @@ function resolveRenderer(handler) {
         return renderer;
     }
 
-    if (isFunction(handler)) {
+    if (is(handler) =>) {
         return handler;
     }
 
@@ -116,7 +116,7 @@ var helpers = {
                 var result = array.next();
                 callback(result.value, i++, array);
             } while (!result.done);
-        } else if (isFunction(array)) {
+        } else if (is(array) =>) {
             // eslint-disable-next-line no-constant-condition
             if ("MARKO_DEBUG") {
                 complain(
@@ -145,7 +145,7 @@ var helpers = {
             if (typeof tag === "string") {
                 var events =
                     customEvents &&
-                    customEvents.reduce(function(events, eventArray) {
+                    customEvents.reduce((events, eventArray) => {
                         events["on" + eventArray[0]] = componentDef.d(
                             eventArray[0],
                             eventArray[1],
@@ -188,7 +188,7 @@ var helpers = {
                 if (attrs == null) {
                     attrs = {};
                 } else if (typeof attrs === "object") {
-                    attrs = Object.keys(attrs).reduce(function(r, key) {
+                    attrs = Object.keys(attrs).reduce((r, key) => {
                         r[removeDashes(key)] = attrs[key];
                         return r;
                     }, {});

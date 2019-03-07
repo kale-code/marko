@@ -2,7 +2,7 @@ var expect = require("chai").expect;
 
 require("./component");
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var component = helpers.mount(require.resolve("./index"), {});
 
     expect(component.string).to.equal("world");

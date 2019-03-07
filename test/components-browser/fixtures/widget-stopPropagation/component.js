@@ -8,7 +8,7 @@ module.exports = {
         this.divClicked = true;
     },
 
-    handleButtonClick: function(event) {
+    handleButtonClick: event => {
         this.buttonClicked = true;
         event.stopPropagation();
     }

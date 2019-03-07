@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var fields = [
         {
             value: "name",

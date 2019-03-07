@@ -1,6 +1,6 @@
 var defaultCacheManagerPath = require.resolve("./default-cache-manager");
 
-module.exports = function(el, context) {
+module.exports = (el, context) => {
     if (!el.hasAttribute("cache-manager")) {
         var requirePath = context.getRequirePath(defaultCacheManagerPath);
         var defaultCacheManagerVar = context.importModule(

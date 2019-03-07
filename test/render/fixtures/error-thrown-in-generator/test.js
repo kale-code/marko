@@ -2,7 +2,7 @@ var expect = require("chai").expect;
 
 exports.templateData = {};
 
-exports.checkError = function(e) {
+exports.checkError = e => {
     //includes the tag it broke on
     expect(e.message).to.contain("<custom-tag>");
 

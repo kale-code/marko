@@ -21,7 +21,7 @@ function render(input, out, __component, component, state) {
 
     var for__1 = 0;
 
-    marko_forEach(input.colors, function(color) {
+    marko_forEach(input.colors, (color) => {
       var keyscope__2 = "[" + ((for__1++) + "]");
 
       out.w("<li>" +
@@ -39,7 +39,7 @@ function render(input, out, __component, component, state) {
 
     var for__6 = 0;
 
-    marko_forEach(input.colors, function(color) {
+    marko_forEach(input.colors, (color) => {
       var keyscope__7 = "[" + ((for__6++) + "]");
 
       out.w("<li>" +

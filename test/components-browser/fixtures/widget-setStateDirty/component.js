@@ -1,11 +1,11 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             colors: input.colors || []
         };
     },
 
-    addColor: function(color) {
+    addColor: color => {
         this.state.colors.push(color);
         this.setStateDirty("color");
     }

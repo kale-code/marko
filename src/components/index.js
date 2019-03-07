@@ -25,7 +25,7 @@ function addComponentsFromContext(
     if (nestedContexts !== undefined) {
         // We want to initialize any UI components nested inside an async
         // fragment first so we will add components from nested contexts first
-        nestedContexts.forEach(function(nestedContext) {
+        nestedContexts.forEach(nestedContext => {
             addComponentsFromContext(
                 nestedContext,
                 componentsFinal,
@@ -187,7 +187,7 @@ exports.writeInitComponentsCode = writeInitComponentsCode;
  * @param  {ComponentsContext|AsyncWriter} componentsContext A ComponentsContext or an AsyncWriter
  * @return {Object} An object with information about the rendered components that can be serialized to JSON. The object should be treated as opaque
  */
-exports.getRenderedComponents = function(out) {
+exports.getRenderedComponents = out => {
     var renderedComponents = getRenderedComponents(out, true);
     return warp10.stringifyPrepare(renderedComponents);
 };

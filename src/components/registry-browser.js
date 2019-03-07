@@ -71,7 +71,7 @@ function getComponentClass(typeName, isLegacy) {
         var className = classNameMatch
             ? classNameMatch[1]
             : "AnonymousComponent";
-        className = className.replace(/-(.)/g, function(g) {
+        className = className.replace(/-(.)/g, g => {
             return g[1].toUpperCase();
         });
         className = className

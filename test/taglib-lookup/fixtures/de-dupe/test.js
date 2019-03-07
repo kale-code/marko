@@ -1,6 +1,6 @@
 var nodePath = require("path");
 
-exports.check = function(markoCompiler, expect) {
+exports.check = (markoCompiler, expect) => {
     var taglibLookup = markoCompiler.taglibLookup;
     var lookup = taglibLookup.buildLookup(
         nodePath.join(__dirname, "taglib-duplicate")

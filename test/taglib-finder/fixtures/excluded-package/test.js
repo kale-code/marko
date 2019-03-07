@@ -1,9 +1,9 @@
 exports.dir = "a/b/c";
 
-exports.before = function(taglibFinder) {
+exports.before = taglibFinder => {
     taglibFinder.excludePackage("excluded-dependency");
 };
 
-exports.after = function(taglibFinder) {
+exports.after = taglibFinder => {
     taglibFinder.reset();
 };

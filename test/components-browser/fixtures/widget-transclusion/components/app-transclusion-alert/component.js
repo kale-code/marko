@@ -1,12 +1,12 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             type: input.type || "success",
             body: input.message || input.renderBody
         };
     },
 
-    setType: function(newType) {
+    setType: newType => {
         this.setState("type", newType);
     }
 };

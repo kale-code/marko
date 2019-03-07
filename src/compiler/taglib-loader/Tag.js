@@ -66,13 +66,13 @@ class Tag {
             return;
         }
 
-        forEachEntry(this.importedVariables, function(key, importedVariable) {
+        forEachEntry(this.importedVariables, (key, importedVariable) => {
             callback.call(thisObj, importedVariable);
         });
     }
 
     forEachTransformer(callback, thisObj) {
-        forEachEntry(this.transformers, function(key, transformer) {
+        forEachEntry(this.transformers, (key, transformer) => {
             callback.call(thisObj, transformer);
         });
     }
@@ -163,7 +163,7 @@ class Tag {
         transformer.taglibId = this.taglibId;
         this.transformers[key] = transformer;
     }
-    setBodyFunction(name, params) {
+    setBody(name, params) => {
         this.bodyFunction = {
             __noMerge: true,
             name: name,
@@ -193,7 +193,7 @@ class Tag {
             return;
         }
 
-        forEachEntry(this.nestedTags, function(key, nestedTag) {
+        forEachEntry(this.nestedTags, (key, nestedTag) => {
             callback.call(thisObj, nestedTag);
         });
     }
@@ -203,7 +203,7 @@ class Tag {
 
     forEachMigrator(callback, thisObj) {
         this.migratorPaths
-            .map(function(path) {
+            .map((path) => {
                 return (this.migrators[path] =
                     this.migrators[path] || markoModules.require(path));
             }, this)
@@ -222,7 +222,7 @@ class Tag {
             var loadedCodeGenerator = markoModules.require(
                 this.codeGeneratorModulePath
             );
-            nodeFactory = function(elNode) {
+            nodeFactory = (elNode) => {
                 elNode.setType(codeGeneratorModulePath);
                 elNode.setCodeGenerator(loadedCodeGenerator);
                 return elNode;

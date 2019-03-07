@@ -102,7 +102,7 @@ class HtmlJsParser {
         var mergedOptions = Object.assign({}, this.defaultOptions, options);
         var parser = (this.parser = htmljs.createParser(listeners, {
             ignorePlaceholders: mergedOptions.ignorePlaceholders,
-            isOpenTagOnly: function(tagName) {
+            isOpenTagOnly: tagName => {
                 return handlers.isOpenTagOnly(tagName);
             }
         }));

@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             size: input.size || "normal",
             variant: input.variant || "primary"

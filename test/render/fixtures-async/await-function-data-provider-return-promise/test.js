@@ -1,6 +1,6 @@
 exports.templateData = {
     userInfo: () => {
-        return new Promise(function(resolve) {
+        return new Promise(resolve => {
             setTimeout(() => {
                 resolve({
                     name: "John"

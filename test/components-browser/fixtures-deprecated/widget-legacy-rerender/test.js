@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var previousSibling = document.createElement("div");
     helpers.targetEl.appendChild(previousSibling);
 

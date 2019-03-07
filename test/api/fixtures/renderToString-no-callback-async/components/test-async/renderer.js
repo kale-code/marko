@@ -1,4 +1,4 @@
-module.exports = function(input, out) {
+module.exports = (input, out) => {
     var asyncOut = out.beginAsync();
     setTimeout(() => {
         asyncOut.write("[async]");

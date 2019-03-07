@@ -121,7 +121,7 @@ function getInitModule(path, components) {
                 run: true,
                 virtualModule: {
                     path: virtualPath,
-                    read: function(_, callback) {
+                    read: (_, callback) => {
                         // TODO: Check if read can just return string in lasso 2
                         if (callback) {
                             callback(null, code);
@@ -173,7 +173,7 @@ function parseDependencyString(string) {
 }
 
 function patch(Template) {
-    Template.prototype.getDependencies = function(context) {
+    Template.prototype.getDependencies = context => {
         context = context || {};
 
         return getRootDeps(this, context);

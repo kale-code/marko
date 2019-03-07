@@ -137,7 +137,7 @@ function compileFile(filename, options, callback) {
     options.sourceOnly = options.sourceOnly !== false;
 
     if (callback) {
-        fs.readFile(filename, { encoding: "utf8" }, function(err, templateSrc) {
+        fs.readFile(filename, { encoding: "utf8" }, (err, templateSrc) => {
             if (err) {
                 return callback(err);
             }
@@ -293,7 +293,7 @@ function buildTaglibLookup(dirname) {
 
 exports.buildTaglibLookup = buildTaglibLookup;
 
-exports.registerTaglib = function(filePath) {
+exports.registerTaglib = filePath => {
     registerCoreTaglibs();
 
     ok(typeof filePath === "string", '"filePath" should be a string');

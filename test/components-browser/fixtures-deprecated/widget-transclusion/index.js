@@ -1,7 +1,7 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require("./template.marko"),
 
-    getInitialState: function(input) {
+    getInitialState: input => {
         var alertType = input.alertType || "success";
         var alertMessage = input.alertMessage || "Hello World!";
 
@@ -11,7 +11,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         var alertType = state.alertType;
         var alertMessage = state.alertMessage;
 
@@ -21,11 +21,11 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    setAlertType: function(newAlertType) {
+    setAlertType: newAlertType => {
         this.setState("alertType", newAlertType);
     },
 
-    setAlertMessage: function(newAlertMessage) {
+    setAlertMessage: newAlertMessage => {
         this.setState("alertMessage", newAlertMessage);
     }
 });

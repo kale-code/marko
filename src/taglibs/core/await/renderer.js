@@ -22,7 +22,7 @@ function requestData(provider, timeout) {
             );
         }
 
-        var callback = function(err, data) {
+        var callback = (err, data) => {
             if (err) {
                 asyncValue.___reject(err);
             } else {
@@ -134,7 +134,7 @@ module.exports = function awaitTag(input, out) {
         // - await:beforeRender
         // - await:finish
         //
-        asyncOut.emit = function(event) {
+        asyncOut.emit = event => {
             if (event !== "finish" && event !== "error") {
                 // We don't want to proxy the finish and error events since those are
                 // very specific to the AsyncWriter associated with the await instance

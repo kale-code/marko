@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             heading: input.heading || "",
             message: input.message || "",

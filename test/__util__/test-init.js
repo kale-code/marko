@@ -1,5 +1,5 @@
 require("./patch-module");
-require("complain").log = function(message) {
+require("complain").log = message => {
     if (process.env.COMPLAIN_THROWS) {
         throw new Error(message);
     }

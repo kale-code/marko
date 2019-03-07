@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = app => {
     var Suite = window.Benchmark.Suite;
 
     var names = ["dom", "dom-innerHTML", "marko-vdom", "react"];
@@ -10,8 +10,8 @@ module.exports = function(app) {
 
         var scripts = [];
 
-        names.forEach(function(name) {
-            htmlFiles.forEach(function(htmlFile) {
+        names.forEach(name => {
+            htmlFiles.forEach(htmlFile => {
                 scripts.push(
                     "./codegen-create/benchmark-" +
                         htmlFile +
@@ -29,7 +29,7 @@ module.exports = function(app) {
         return loadScripts(htmlFile).then(() => {
             var suite = new Suite("create-" + htmlFile);
 
-            names.forEach(function(name) {
+            names.forEach(name => {
                 suite.add(name, () => {
                     return window.createBenchmarks[htmlFile + "-" + name]();
                 });
@@ -44,7 +44,7 @@ module.exports = function(app) {
     return () => {
         var promiseChain = loadScriptsPromise;
 
-        htmlFiles.forEach(function(htmlFile) {
+        htmlFiles.forEach(htmlFile => {
             promiseChain = promiseChain.then(() => {
                 return runForHtmlFile(htmlFile);
             });

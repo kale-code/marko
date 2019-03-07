@@ -119,7 +119,7 @@ function createNumberExpression(str, errorMessage) {
  * <varName> from <expression> to <expression> step <expression>
  * <init>; <test>; <update>
  */
-module.exports = function(str) {
+module.exports = str => {
     str = removeComments(str);
 
     let depth = 0;

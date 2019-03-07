@@ -1,8 +1,8 @@
 module.exports = {
-    trim: function(str) {
+    trim: str => {
         return str ? str.trim() : str;
     },
-    upperCase: function(str) {
+    upperCase: str => {
         return str ? str.toUpperCase(str) : str;
     }
 };

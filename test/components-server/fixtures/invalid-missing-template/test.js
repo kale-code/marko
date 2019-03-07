@@ -6,7 +6,7 @@ module.exports = () => {
         defineComponent({
             // template: require.resolve('./template.marko'),
 
-            getTemplateData: function(state, input) {
+            getTemplateData: (state, input) => {
                 return {
                     name: input.name,
                     messageCount: input.messageCount

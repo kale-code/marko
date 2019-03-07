@@ -7,7 +7,7 @@ function ensure(state, propertyName) {
             get: () => {
                 return this.___raw[propertyName];
             },
-            set: function(value) {
+            set: value => {
                 this.___set(propertyName, value, false /* ensure:false */);
             }
         });
@@ -36,7 +36,7 @@ State.prototype = {
         self.___forced = null;
     },
 
-    ___replace: function(newState) {
+    ___replace: newState => {
         var state = this;
         var key;
 
@@ -62,7 +62,7 @@ State.prototype = {
             );
         }
     },
-    ___set: function(name, value, shouldEnsure, forceDirty) {
+    ___set: (name, value, shouldEnsure, forceDirty) => {
         var rawState = this.___raw;
 
         if (shouldEnsure) {

@@ -8,7 +8,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out) {
   var data = input;
 
-  marko_forEach(data.colors, function(color) {
+  marko_forEach(data.colors, (color) => {
     out.w(marko_escapeXml(color));
   });
 }

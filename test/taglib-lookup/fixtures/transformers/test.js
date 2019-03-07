@@ -1,11 +1,11 @@
-exports.check = function(markoCompiler, expect) {
+exports.check = (markoCompiler, expect) => {
     var taglibLookup = markoCompiler.taglibLookup;
     var transformers;
     var lookup;
     // lookup = taglibLookup.buildLookup(nodePath.join(__dirname, 'fixtures/nested'));
 
     // transformers = [];
-    // lookup.forEachTagTransformer('nested-foo', function(transformer) {
+    // lookup.forEachTagTransformer('nested-foo', (transformer) => {
     //     transformers.push(transformer);
     // });
 
@@ -14,7 +14,7 @@ exports.check = function(markoCompiler, expect) {
     lookup = taglibLookup.buildLookup(__dirname);
 
     transformers = [];
-    lookup.forEachTagTransformer("transform-foo", function(transformer) {
+    lookup.forEachTagTransformer("transform-foo", transformer => {
         transformers.push(transformer);
     });
 
@@ -26,7 +26,7 @@ exports.check = function(markoCompiler, expect) {
     );
 
     transformers = [];
-    lookup.forEachTagTransformer("transform-bar", function(transformer) {
+    lookup.forEachTagTransformer("transform-bar", transformer => {
         transformers.push(transformer);
     });
 

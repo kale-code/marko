@@ -1,4 +1,4 @@
-module.exports = function(node) {
+module.exports = node => {
     var nextId = 0;
 
     var code = "";

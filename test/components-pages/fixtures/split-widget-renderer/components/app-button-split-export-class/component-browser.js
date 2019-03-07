@@ -4,10 +4,10 @@ Component.prototype = {
     onMount: () => {
         window.appButtonSplitExportClass = this;
     },
-    setColor: function(color) {
+    setColor: color => {
         this.el.style.backgroundColor = color;
     },
-    setLabel: function(label) {
+    setLabel: label => {
         this.el.innerHTML = label;
     }
 };

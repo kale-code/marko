@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     var component = helpers.mount(require.resolve("./index"), {});
     var button = component.getEl("button");
 

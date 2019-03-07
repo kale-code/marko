@@ -5,7 +5,7 @@ function StringWriter() {
 }
 
 StringWriter.prototype = {
-    write: function(str) {
+    write: str => {
         this.str += str;
         return this;
     },

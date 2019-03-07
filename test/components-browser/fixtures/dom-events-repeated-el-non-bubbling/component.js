@@ -1,5 +1,5 @@
 module.exports = {
-    handleColorMouseOver: function(color) {
+    handleColorMouseOver: color => {
         this.color = color;
     }
 };

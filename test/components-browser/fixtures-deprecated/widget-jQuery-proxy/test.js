@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers, done) {
+module.exports = (helpers, done) => {
     var widget = helpers.mount(require.resolve("./index"), {});
 
     expect(widget.$().attr("class")).to.equal("app-jquery-proxy");

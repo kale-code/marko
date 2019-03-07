@@ -2,7 +2,7 @@ var ready = require("./ready");
 
 var idRegExp = /^#(\S+)( .*)?/;
 
-exports.patchComponent = function(jQuery, proto, delayThrow) {
+exports.patchComponent = (jQuery, proto, delayThrow) => {
     /* globals window */
 
     if (!(jQuery || (jQuery = window.$)) && !delayThrow) {

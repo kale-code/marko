@@ -105,7 +105,7 @@ function indexServerComponentBoundaries(node, runtimeId, stack) {
             }
             if (markoProps) {
                 markoProps = JSON.parse(markoProps);
-                Object.keys(markoProps).forEach(function(key) {
+                Object.keys(markoProps).forEach(key => {
                     if (key.slice(0, 2) === "on") {
                         eventDelegation.___addDelegatedEventHandler(
                             key.slice(2)
@@ -132,7 +132,7 @@ function invokeComponentEventHandler(component, targetMethodName, args) {
 function addEventListenerHelper(el, eventType, isOnce, listener) {
     var eventListener = listener;
     if (isOnce) {
-        eventListener = function(event) {
+        eventListener = event => {
             listener(event);
             el.removeEventListener(eventType, eventListener);
         };
@@ -195,7 +195,7 @@ function initComponent(componentDef, doc) {
     if (domEvents) {
         var eventListenerHandles = [];
 
-        domEvents.forEach(function(domEventArgs) {
+        domEvents.forEach(domEventArgs => {
             // The event mapping is for a direct DOM event (not a custom event and not for bubblign dom events)
 
             var eventType = domEventArgs[0];
@@ -257,7 +257,7 @@ function initServerRendered(renderedComponents, doc) {
         renderedComponents = win.$components;
 
         if (renderedComponents && renderedComponents.forEach) {
-            renderedComponents.forEach(function(renderedComponent) {
+            renderedComponents.forEach(renderedComponent => {
                 initServerRendered(renderedComponent, doc);
             });
         }
@@ -288,7 +288,7 @@ function initServerRendered(renderedComponents, doc) {
         delete window.$MG;
     }
 
-    componentDefs.forEach(function(componentDef) {
+    componentDefs.forEach(componentDef => {
         componentDef = ComponentDef.___deserialize(
             componentDef,
             typesArray,

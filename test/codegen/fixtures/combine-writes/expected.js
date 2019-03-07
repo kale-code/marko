@@ -1,6 +1,6 @@
 out.w("<ul>");
 
-forEach(data.colors, function(color) {
+forEach(data.colors, (color) => {
   foo();
 
   out.w("<li>" +

@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var components = [];
 
     function renderComponent() {
@@ -13,7 +13,7 @@ module.exports = function(helpers) {
     renderComponent();
 
     var ids = {};
-    components.forEach(function(component) {
+    components.forEach(component => {
         ids[component.id] = true;
     });
 

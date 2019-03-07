@@ -1,18 +1,18 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             name: input.name,
             age: input.age,
             url: input.url
         };
     },
-    setName: function(newName) {
+    setName: newName => {
         this.setState("name", newName);
     },
-    setAge: function(newAge) {
+    setAge: newAge => {
         this.setState("age", newAge);
     },
-    setUrl: function(newUrl) {
+    setUrl: newUrl => {
         this.setState("url", newUrl);
     }
 };

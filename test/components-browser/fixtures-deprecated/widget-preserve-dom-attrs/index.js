@@ -7,7 +7,7 @@ module.exports = require("marko/legacy-components").defineComponent({
         };
     },
 
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return state;
     }
 });

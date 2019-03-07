@@ -1,19 +1,19 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             name: input.name,
             messageCount: input.messageCount
         };
     },
 
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             name: state.name,
             messageCount: state.messageCount
         };
     },
 
-    setName: function(newName) {
+    setName: newName => {
         this.setState("name", newName);
     }
 };

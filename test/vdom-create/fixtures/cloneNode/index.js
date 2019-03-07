@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var SVG_FLAGS = 1; // SVG
 
     var el = helpers.vdom

@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
+module.exports = builder => {
     var program = builder.program;
     var functionDeclaration = builder.functionDeclaration;
     var functionCall = builder.functionCall;

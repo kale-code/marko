@@ -11,7 +11,7 @@ var classList = commonHelpers.cl;
 
 var helpers = extend(
     {
-        e: function(tagName, attrs, key, component, childCount, flags, props) {
+        e: (tagName, attrs, key, component, childCount, flags, props) => {
             return new VElement(
                 tagName,
                 attrs,
@@ -23,11 +23,11 @@ var helpers = extend(
             );
         },
 
-        t: function(value) {
+        t: value => {
             return new VText(value);
         },
 
-        const: function(id) {
+        const: id => {
             var i = 0;
             return () => {
                 return id + i++;
@@ -42,7 +42,7 @@ var helpers = extend(
          * ca({foo: true, bar: false, baz: true}) ==> ' class="foo baz"'
          * ca(['foo', 'bar']) ==> ' class="foo bar"'
          */
-        ca: function(classNames) {
+        ca: classNames => {
             if (!classNames) {
                 return null;
             }

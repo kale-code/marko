@@ -1,8 +1,8 @@
 var createRendererFunc = require("../../renderer");
 
-module.exports = function(componentProps) {
+module.exports = componentProps => {
     var renderer = createRendererFunc(
-        function(data, out, component, state) {
+        (data, out, component, state) => {
             data.$renderBody(out, component, state);
         },
         componentProps,

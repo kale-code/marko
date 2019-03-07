@@ -14,19 +14,19 @@ const deresolveOptions = {
 // We only need this to make Try Online work :/
 
 var helpers = {
-    require: function(path) {
+    require: path => {
         return nativeRequire(path);
     },
 
-    resolve: function(path) {
+    resolve: path => {
         return nativeRequire.resolve(path);
     },
 
-    resolveFrom: function(from, target) {
+    resolveFrom: (from, target) => {
         return resolveFrom(from, target);
     },
 
-    deresolve: function(targetFilename, from) {
+    deresolve: (targetFilename, from) => {
         return deresolve(targetFilename, from, deresolveOptions);
     }
 };

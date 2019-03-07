@@ -4,7 +4,7 @@ function createCache() {
     var cache = {};
 
     return {
-        get: function(cacheKey, options, callback) {
+        get: (cacheKey, options, callback) => {
             setTimeout(() => {
                 var value = cache[cacheKey];
                 if (value !== undefined) {
@@ -12,7 +12,7 @@ function createCache() {
                 }
 
                 var builder = options.builder;
-                builder(function(err, value) {
+                builder((err, value) => {
                     if (err) {
                         return callback(err);
                     }
@@ -31,7 +31,7 @@ function createCache() {
 }
 
 var myCacheManager = {
-    getCache: function(cacheName) {
+    getCache: cacheName => {
         return caches[cacheName] || (caches[cacheName] = createCache());
     }
 };

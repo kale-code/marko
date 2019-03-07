@@ -91,7 +91,7 @@ exports.am = mergeAttrsHelper;
  * sa({color: 'red', 'font-weight': 'bold'}) ==> ' style="color: red; font-weight: bold"'
  */
 
-exports.sa = function(style) {
+exports.sa = style => {
     style = styleHelper(style);
 
     if (!style) return "";
@@ -107,7 +107,7 @@ exports.sa = function(style) {
  * ca({foo: true, bar: false, baz: true}) ==> ' class="foo baz"'
  * ca(['foo', 'bar']) ==> ' class="foo bar"'
  */
-exports.ca = function(classNames) {
+exports.ca = classNames => {
     if (!classNames) {
         return "";
     }

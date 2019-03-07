@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         var label = input.label || "BAR";
         this.label = label;
     },

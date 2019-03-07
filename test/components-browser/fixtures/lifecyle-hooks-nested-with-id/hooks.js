@@ -1,5 +1,5 @@
 module.exports = {
-    record: function(component, name, args, thisObj) {
+    record: (component, name, args, thisObj) => {
         var hooksByComponent =
             this.hooksByComponent || (this.hooksByComponent = {});
 
@@ -17,10 +17,10 @@ module.exports = {
         this.hooksByComponent = {};
     },
 
-    getHookNames: function(component) {
+    getHookNames: component => {
         var hooksArray = this.hooksByComponent[component];
 
-        return hooksArray.map(function(hook) {
+        return hooksArray.map(hook => {
             return hook.name;
         });
     }

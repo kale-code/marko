@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     helpers.mount(require.resolve("./components/app-checkbox"), {
         checked: true,
         class: "my-checkbox",

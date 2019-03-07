@@ -1,4 +1,4 @@
-module.exports = function(el, context) {
+module.exports = (el, context) => {
     el.detach();
     context.addDependency(eval(el.argument));
 };

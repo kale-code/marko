@@ -6,7 +6,7 @@ function indentStr(level) {
 
     return str;
 }
-module.exports = function(node) {
+module.exports = node => {
     var code = "";
 
     function codegenEl(node, level) {

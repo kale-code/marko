@@ -16,7 +16,7 @@ SpecialElHandlers.prototype = {
      * Needed for IE. Apparently IE doesn't think that "selected" is an
      * attribute when reading over the attributes using selectEl.attributes
      */
-    OPTION: function(fromEl, toEl) {
+    OPTION: (fromEl, toEl) => {
         syncBooleanAttrProp(fromEl, toEl, "selected");
     },
     /**
@@ -25,7 +25,7 @@ SpecialElHandlers.prototype = {
      * "value" property will have no effect since it is only used to the set the
      * initial value.  Similar for the "checked" attribute, and "disabled".
      */
-    INPUT: function(fromEl, toEl) {
+    INPUT: (fromEl, toEl) => {
         syncBooleanAttrProp(fromEl, toEl, "checked");
         syncBooleanAttrProp(fromEl, toEl, "disabled");
 
@@ -38,7 +38,7 @@ SpecialElHandlers.prototype = {
         }
     },
 
-    TEXTAREA: function(fromEl, toEl) {
+    TEXTAREA: (fromEl, toEl) => {
         var newValue = toEl.___value;
         if (fromEl.value != newValue) {
             fromEl.value = newValue;
@@ -60,7 +60,7 @@ SpecialElHandlers.prototype = {
             firstChild.nodeValue = newValue;
         }
     },
-    SELECT: function(fromEl, toEl) {
+    SELECT: (fromEl, toEl) => {
         if (!toEl.___hasAttribute("multiple")) {
             var i = -1;
             var selected = 0;

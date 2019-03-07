@@ -21,7 +21,7 @@ module.exports = function forEachPropertyHelper(o, func) {
                 "Passing a Map to a <for in> loop is deprecated and will be removed in a future version of Marko. Please switch to <for of> instead."
             );
         }
-        o.forEach(function(v, k) {
+        o.forEach((v, k) => {
             func(k, v);
         });
     } else {

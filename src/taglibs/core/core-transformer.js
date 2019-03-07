@@ -3,7 +3,7 @@
 var coreAttrHandlers = [
     [
         "body-only-if",
-        function(attr, node, el) {
+        (attr, node, el) => {
             var argument = attr.argument;
             if (!argument) {
                 return false;
@@ -25,7 +25,7 @@ var coreAttrHandlers = [
     ],
     [
         "marko-preserve-whitespace",
-        function(attr, node, el) {
+        (attr, node, el) => {
             el.setPreserveWhitespace(true);
         }
     ]
@@ -46,7 +46,7 @@ class AttributeTransformer {
     }
 }
 
-coreAttrHandlers.forEach(function(attrHandler) {
+coreAttrHandlers.forEach(attrHandler => {
     var name = attrHandler[0];
     var func = attrHandler[1];
     AttributeTransformer.prototype[name] = func;

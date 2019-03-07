@@ -29,7 +29,7 @@ function render(input, out, __component, component, state) {
   if (input.colors.length) {
     out.be("UL");
 
-    marko_forEach(input.colors, function(color) {
+    marko_forEach(input.colors, (color) => {
       out.e("LI", null, null, null, 1)
         .t(color);
     });

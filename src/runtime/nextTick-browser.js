@@ -9,7 +9,7 @@ if (!setImmediate) {
         var messageName = "si";
         win.addEventListener(
             "message",
-            function(event) {
+            event => {
                 var source = event.source;
                 if (source == win || (!source && event.data === messageName)) {
                     event.stopPropagation();
@@ -22,7 +22,7 @@ if (!setImmediate) {
             true
         );
 
-        setImmediate = function(fn) {
+        setImmediate = fn => {
             queue.push(fn);
             win.postMessage(messageName, "*");
         };

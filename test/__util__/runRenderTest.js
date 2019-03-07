@@ -19,8 +19,8 @@ function createAsyncVerifier(main, snapshot, out) {
     var events = [];
     var eventsByAwaitInstance = {};
 
-    var addEventListener = function(event) {
-        out.on(event, function(arg) {
+    var addEventListener = event => {
+        out.on(event, arg => {
             var name = arg.name;
 
             if (!eventsByAwaitInstance[name]) {
@@ -59,7 +59,7 @@ function createAsyncVerifier(main, snapshot, out) {
             }
 
             // Make sure all of the await instances were correctly ended
-            Object.keys(eventsByAwaitInstance).forEach(function(name) {
+            Object.keys(eventsByAwaitInstance).forEach(name => {
                 var events = eventsByAwaitInstance[name];
                 expect(events).to.deep.equal([
                     "await:begin",
@@ -92,7 +92,7 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
         fsExtra.removeSync(actualDir);
 
         fsExtra.copySync(dir, actualDir, {
-            filter: function(file) {
+            filter: file => {
                 if (
                     file.endsWith(".marko.js") ||
                     file.indexOf(".generated.") !== -1
@@ -112,7 +112,7 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
     let loadOptions = main && main.loadOptions;
 
     var oldDone = done;
-    done = function(err) {
+    done = err => {
         require("marko/compiler").configure();
 
         if (err) {
@@ -164,11 +164,11 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
                 asyncEventsVerifier = createAsyncVerifier(main, snapshot, out);
             }
 
-            var verifyOutput = function(result) {
+            var verifyOutput = result => {
                 var renderOutput = result.getOutput();
 
                 if (isVDOM) {
-                    var getExpectedHtml = function(callback) {
+                    var getExpectedHtml = callback => {
                         var expectedHtml;
                         try {
                             expectedHtml = fs.readFileSync(
@@ -212,7 +212,7 @@ module.exports = function runRenderTest(dir, snapshot, done, options) {
                         });
                     };
 
-                    getExpectedHtml(function(err, expectedHtml) {
+                    getExpectedHtml((err, expectedHtml) => {
                         if (err) {
                             return done(err);
                         }

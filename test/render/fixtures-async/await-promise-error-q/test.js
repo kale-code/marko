@@ -1,4 +1,4 @@
-var promise = new Promise(function(resolve) {
+var promise = new Promise(resolve => {
     setTimeout(() => {
         resolve({});
     }, 100);

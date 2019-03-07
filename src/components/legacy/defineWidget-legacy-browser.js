@@ -171,7 +171,7 @@ module.exports = function defineWidget(def, renderer) {
             var createOut = renderer.createOut;
             if (typeof renderer !== "function") {
                 var rendererObject = renderer;
-                renderer = function(input, out) {
+                renderer = (input, out) => {
                     var rendererFunc =
                         rendererObject.renderer || rendererObject.render;
                     rendererFunc(input, out);
@@ -179,7 +179,7 @@ module.exports = function defineWidget(def, renderer) {
                 renderer.createOut = createOut;
             }
 
-            renderer.render = function(input) {
+            renderer.render = input => {
                 var out = createOut();
                 renderer(input, out);
                 return out.end();

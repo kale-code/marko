@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 
 module.exports = {
-    onCreate: function(input, out) {
+    onCreate: (input, out) => {
         // if (typeof window !== 'undefined') {
         //     throw new Error('onCreate should not be called in the browser');
         // }
@@ -16,7 +16,7 @@ module.exports = {
         this.onCreateOutName = out.global.name;
     },
 
-    onRender: function(out) {
+    onRender: out => {
         // if (typeof window !== 'undefined') {
         //     throw new Error('onRender should not be called in the browser');
         // }
@@ -28,7 +28,7 @@ module.exports = {
         }
     },
 
-    onInput: function(input) {
+    onInput: input => {
         // if (typeof window !== 'undefined') {
         //     throw new Error('onInput should not be called in the browser');
         // }

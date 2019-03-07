@@ -2,20 +2,20 @@ var extend = require("raptor-util/extend");
 var expect = require("chai").expect;
 
 exports.templateData = {
-    userInfoShort: function(done) {
+    userInfoShort: done => {
         setTimeout(() => {
             done(null, {});
         }, 50);
     },
-    userInfoLong: function(done) {
+    userInfoLong: done => {
         setTimeout(() => {
             done(null, {});
         }, 200);
     }
 };
 
-exports.checkEvents = function(events, snapshot) {
-    events = events.map(function(eventInfo) {
+exports.checkEvents = (events, snapshot) => {
+    events = events.map(eventInfo => {
         var arg = extend({}, eventInfo.arg);
         expect(arg.out != null).to.equal(true);
 

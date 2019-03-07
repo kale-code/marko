@@ -149,7 +149,7 @@ class HtmlElementVDOM extends Node {
         if (attributes != null && attributes.length !== 0) {
             let explicitAttrs = null;
             let attrs = [];
-            let addAttr = function(name, value) {
+            let addAttr = (name, value) => {
                 hasNamedAttributes = true;
 
                 if (!SIMPLE_ATTRS[name]) {

@@ -16,7 +16,7 @@ function render(input, out, __component, component, state) {
       "red",
       "green",
       "blue"
-    ], function(color) {
+    ], (color) => {
     out.w(marko_escapeXml(color));
   });
 }

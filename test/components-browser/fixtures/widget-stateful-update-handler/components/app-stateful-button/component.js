@@ -1,16 +1,16 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.state = {
             size: input.size || "normal",
             label: input.label || "(no label)"
         };
     },
 
-    setSize: function(newSize) {
+    setSize: newSize => {
         this.state.size = newSize;
     },
 
-    setLabel: function(newLabel) {
+    setLabel: newLabel => {
         this.state.label = newLabel;
     }
 };

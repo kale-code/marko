@@ -10,7 +10,7 @@ module.exports = {
             .getComponent();
     },
 
-    test: function(helpers) {
+    test: helpers => {
         var contentComponent = this.renderIntoIframe();
         expect(contentComponent.el.ownerDocument).to.equal(
             this.getEl("frame").contentWindow.document

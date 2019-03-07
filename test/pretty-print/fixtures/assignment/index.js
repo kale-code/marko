@@ -1,4 +1,4 @@
-module.exports = function(builder) {
+module.exports = builder => {
     var templateRoot = builder.templateRoot;
     var assignment = builder.assignment;
 

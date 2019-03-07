@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var component1 = helpers.mount(require.resolve("./index"), {});
     var component2 = helpers.mount(require.resolve("./index"), {});
 

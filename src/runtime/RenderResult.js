@@ -20,7 +20,7 @@ var proto = (RenderResult.prototype = {
     getComponent: () => {
         return this.getComponents()[0];
     },
-    getComponents: function(selector) {
+    getComponents: selector => {
         if (this.___components === undefined) {
             throw Error("Not added to DOM");
         }
@@ -29,7 +29,7 @@ var proto = (RenderResult.prototype = {
 
         var components = [];
 
-        componentDefs.forEach(function(componentDef) {
+        componentDefs.forEach(componentDef => {
             var component = componentDef.___component;
             if (!selector || selector(component)) {
                 components.push(component);
@@ -39,7 +39,7 @@ var proto = (RenderResult.prototype = {
         return components;
     },
 
-    afterInsert: function(doc) {
+    afterInsert: doc => {
         var out = this.___out;
         var componentsContext = out.___components;
         if (componentsContext) {
@@ -50,7 +50,7 @@ var proto = (RenderResult.prototype = {
 
         return this;
     },
-    getNode: function(doc) {
+    getNode: doc => {
         return this.___out.___getNode(doc);
     },
     getOutput: () => {

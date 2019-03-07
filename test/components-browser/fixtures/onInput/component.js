@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         expect(input.name).to.eql("Frank");
         this.state = { count: 0 };
         this.setUpTest();

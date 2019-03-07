@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var component = helpers.mount(require.resolve("./index"), {});
     var customEventsComponent = helpers.mount(
         require.resolve("./components/app-custom-events"),

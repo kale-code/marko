@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var component = helpers.mount(require.resolve("./index"), {});
 
     expect(helpers.targetEl.querySelector("h1") != null).to.equal(true);

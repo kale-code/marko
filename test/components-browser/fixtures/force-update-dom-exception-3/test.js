@@ -1,4 +1,4 @@
-module.exports = function(helpers) {
+module.exports = helpers => {
     let changes = [
         [7],
         [9],

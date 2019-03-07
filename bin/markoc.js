@@ -104,7 +104,7 @@ var args = require("argly")
         "Delete all *.marko.js files in the current directory",
         "$0 . --clean"
     )
-    .validate(function(result) {
+    .validate(result => {
         if (result.help) {
             this.printUsage();
             process.exit(0);
@@ -121,7 +121,7 @@ var args = require("argly")
             process.exit(1);
         }
     })
-    .onError(function(err) {
+    .onError(err => {
         this.printUsage();
 
         if (err) {
@@ -229,7 +229,7 @@ function walk(files, options, done) {
         beginAsync: () => {
             pending++;
         },
-        endAsync: function(err) {
+        endAsync: err => {
             if (err) {
                 this.errors.push(err);
             }

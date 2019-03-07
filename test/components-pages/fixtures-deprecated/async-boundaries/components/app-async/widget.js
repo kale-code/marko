@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-exports.Widget = function(config) {
+exports.Widget = config => {
     this.asyncWidget = true;
     this.name = config.name;
 

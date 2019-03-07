@@ -1,6 +1,6 @@
 var nodePath = require("path");
 
-exports.check = function(marko, markoCompiler, expect, helpers, done) {
+exports.check = (marko, markoCompiler, expect, helpers, done) => {
     var template = marko.load(nodePath.join(__dirname, "template.marko"));
     expect(() => {
         template.renderToString({ name: "John" });

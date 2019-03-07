@@ -3,7 +3,7 @@ if (typeof window !== "undefined") {
 }
 
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.type = "component config";
         this.name = input.name;
         this.messageCount = input.messageCount;

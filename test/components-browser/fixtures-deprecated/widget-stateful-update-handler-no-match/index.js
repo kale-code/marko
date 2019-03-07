@@ -6,14 +6,14 @@ module.exports = require("marko/legacy-components").defineComponent({
             buttonLabel: "Initial Label"
         };
     },
-    getTemplateData: function(state) {
+    getTemplateData: state => {
         return {
             buttonSize: state.buttonSize,
             buttonLabel: state.buttonLabel
         };
     },
 
-    update_buttonSize: function(newSize) {
+    update_buttonSize: newSize => {
         var button1Widget = this.getWidget("button1");
         button1Widget.setSize(newSize);
     }

@@ -32,7 +32,7 @@ function render(input, out, __component, component, state) {
       render: input.barRenderer
     }, {}, null, out, __component, "6");
 
-  marko_dynamicTag(function(out) {
+  marko_dynamicTag((out) => {
     input.barRenderer({}, true, out);
   }, {}, null, out, __component, "7");
 
@@ -54,7 +54,7 @@ function render(input, out, __component, component, state) {
 
   var for__13 = 0;
 
-  marko_forRange(0, 9, null, function(i) {
+  marko_forRange(0, 9, null, (i) => {
     var keyscope__14 = "[" + ((for__13++) + "]");
 
     marko_dynamicTag(input.items[i], {}, null, out, __component, "15" + keyscope__14);

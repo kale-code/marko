@@ -4,7 +4,7 @@ exports.templateData = {
     short: "short"
 };
 
-exports.checkError = function(e) {
+exports.checkError = e => {
     expect(Array.isArray(e.errors)).to.equal(true);
     expect(e.errors.length).to.equal(1);
 

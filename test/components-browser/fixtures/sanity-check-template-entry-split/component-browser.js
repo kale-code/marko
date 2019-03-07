@@ -1,5 +1,5 @@
 module.exports = {
-    setName: function(newName) {
+    setName: newName => {
         this.getEl("name").innerHTML = newName;
     }
 };

@@ -1,6 +1,6 @@
 const expect = require("chai").expect;
 
-exports.test = function(done) {
+exports.test = done => {
     // should be able to register for multiple express instances
 
     const express = require("express");

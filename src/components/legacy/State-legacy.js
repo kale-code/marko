@@ -7,7 +7,7 @@ function ensure(state, propertyName) {
             get: () => {
                 return this.___raw[propertyName];
             },
-            set: function(value) {
+            set: value => {
                 if (value === undefined) {
                     // Don't store state properties with an undefined or null value
                     delete this.___raw[propertyName];
@@ -40,7 +40,7 @@ State.prototype = {
         self.___forced = null;
     },
 
-    ___replace: function(newState) {
+    ___replace: newState => {
         var state = this;
         var key;
 
@@ -66,7 +66,7 @@ State.prototype = {
             );
         }
     },
-    ___set: function(name, value, shouldEnsure, forceDirty) {
+    ___set: (name, value, shouldEnsure, forceDirty) => {
         var rawState = this.___raw;
 
         if (shouldEnsure) {

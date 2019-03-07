@@ -30,7 +30,7 @@ function render(input, out, __component, component, state) {
       "red",
       "green",
       "blue"
-    ], function(color) {
+    ], (color) => {
     var keyscope__3 = "[" + ((for__2++) + "]");
 
     marko_dynamicTag(macro_renderButton, {

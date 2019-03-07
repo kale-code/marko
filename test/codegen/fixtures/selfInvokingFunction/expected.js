@@ -1,3 +1,3 @@
-(function(win) {
+((win) => {
   win.foo = "bar";
 })(window)

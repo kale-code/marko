@@ -37,13 +37,13 @@ function ComponentDef(component, componentId, globalComponentsContext) {
 }
 
 ComponentDef.prototype = {
-    ___nextKey: function(key) {
+    ___nextKey: key => {
         var keySequence =
             this.___keySequence || (this.___keySequence = new KeySequence());
         return keySequence.___nextKey(key);
     },
 
-    ___preserveDOMNode: function(key, bodyOnly) {
+    ___preserveDOMNode: (key, bodyOnly) => {
         var lookup =
             this.___preservedDOMNodes || (this.___preservedDOMNodes = {});
         lookup[key] = bodyOnly ? 2 : 1;
@@ -57,7 +57,7 @@ ComponentDef.prototype = {
      * an ID with the current index for the current nestedId.
      * (e.g. "myParentId-foo[0]", "myParentId-foo[1]", etc.)
      */
-    elId: function(nestedId) {
+    elId: nestedId => {
         var id = this.id;
         if (nestedId == null) {
             return id;
@@ -77,7 +77,7 @@ ComponentDef.prototype = {
         return this.id + "-c" + this.___nextIdIndex++;
     },
 
-    d: function(eventName, handlerMethodName, isOnce, extraArgs) {
+    d: (eventName, handlerMethodName, isOnce, extraArgs) => {
         addDelegatedEventHandler(eventName);
         return attachBubblingEvent(this, handlerMethodName, isOnce, extraArgs);
     },
@@ -87,7 +87,7 @@ ComponentDef.prototype = {
     }
 };
 
-ComponentDef.___deserialize = function(o, types, global, registry) {
+ComponentDef.___deserialize = (o, types, global, registry) => {
     var id = o[0];
     var typeName = types[o[1]];
     var input = o[2];
@@ -117,7 +117,7 @@ ComponentDef.___deserialize = function(o, types, global, registry) {
         if (state) {
             var undefinedPropNames = extra.u;
             if (undefinedPropNames) {
-                undefinedPropNames.forEach(function(undefinedPropName) {
+                undefinedPropNames.forEach(undefinedPropName => {
                     state[undefinedPropName] = undefined;
                 });
             }

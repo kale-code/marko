@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = app => {
     var Suite = window.Benchmark.Suite;
     var MarkoVDOM = app.vdom;
 

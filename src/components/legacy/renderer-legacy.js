@@ -129,7 +129,7 @@ function createRendererFunc(templateRenderFunc, componentProps) {
         componentDef.___isExisting = isExisting;
         componentDef.___isLegacy = true;
 
-        componentDef.t = function(typeName) {
+        componentDef.t = typeName => {
             if (typeName) {
                 vComponentNode.___component = this.___component = component = registry.___createComponent(
                     typeName,

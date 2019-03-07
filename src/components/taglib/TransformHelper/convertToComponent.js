@@ -139,7 +139,7 @@ module.exports = function handleComponentBind(options) {
         defineComponentHelper = this.context.helper("defineComponent");
     }
 
-    this.context.on("beforeGenerateCode:TemplateRoot", function(eventArgs) {
+    this.context.on("beforeGenerateCode:TemplateRoot", eventArgs => {
         eventArgs.node.addRenderFunctionParam(
             builder.identifier("__component")
         );

@@ -1,6 +1,6 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require("./template.marko"),
-    getTemplateData: function(state, input) {
+    getTemplateData: (state, input) => {
         return {
             preserveCondition: input.preserveCondition,
             renderId: input.renderId || 0

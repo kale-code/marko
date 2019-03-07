@@ -19,7 +19,7 @@ var Component = {
         this.logOutput = [];
     },
 
-    handleRootClick: function(event, el) {
+    handleRootClick: (event, el) => {
         expect(el.getAttribute("class")).to.equal("app-dom-events");
         expect(event.target.tagName.length > 0).to.equal(true);
         this.log("el:click");
@@ -42,12 +42,12 @@ var Component = {
         this.log("#fooLink:dblclick");
     },
 
-    handleFooLinkMouseOut: function(event, el) {
+    handleFooLinkMouseOut: (event, el) => {
         expect(event.target).to.equal(el);
         this.log("#fooLink:mouseout");
     },
 
-    handleHelloWorldMouseDown: function(event, el) {
+    handleHelloWorldMouseDown: (event, el) => {
         expect(this.getEl("helloWorld")).to.equal(el);
         this.log("#helloWorld:mousedown");
     }

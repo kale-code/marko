@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
+module.exports = builder => {
     return builder.assignment(
         builder.identifier("foo"),
         builder.literal("abc")

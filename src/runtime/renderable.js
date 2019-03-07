@@ -20,7 +20,7 @@ function safeRender(renderFunc, finalData, finalOut, shouldEnd) {
     return finalOut;
 }
 
-module.exports = function(target, renderer) {
+module.exports = (target, renderer) => {
     var renderFunc =
         renderer && (renderer.renderer || renderer.render || renderer);
     var createOut = target.createOut || renderer.createOut || defaultCreateOut;
@@ -28,7 +28,7 @@ module.exports = function(target, renderer) {
     return extend(target, {
         createOut: createOut,
 
-        renderToString: function(data, callback) {
+        renderToString: (data, callback) => {
             var localData = data || {};
             var render = renderFunc || this._;
             var globalData = localData.$global;
@@ -53,7 +53,7 @@ module.exports = function(target, renderer) {
             }
         },
 
-        renderSync: function(data) {
+        renderSync: data => {
             var localData = data || {};
             var render = renderFunc || this._;
             var globalData = localData.$global;
@@ -87,7 +87,7 @@ module.exports = function(target, renderer) {
          * @param  {AsyncStream/AsyncVDOMBuilder} out A Stream, an AsyncStream/AsyncVDOMBuilder instance, or a callback function
          * @return {AsyncStream/AsyncVDOMBuilder} Returns the AsyncStream/AsyncVDOMBuilder instance that the template is rendered to
          */
-        render: function(data, out) {
+        render: (data, out) => {
             var callback;
             var finalOut;
             var finalData;

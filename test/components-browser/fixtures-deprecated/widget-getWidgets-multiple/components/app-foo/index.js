@@ -1,11 +1,11 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require("./template.marko"),
 
-    init: function(widgetConfig) {
+    init: widgetConfig => {
         this.name = widgetConfig.name;
     },
 
-    getWidgetConfig: function(input) {
+    getWidgetConfig: input => {
         return {
             name: input.name
         };

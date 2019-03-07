@@ -12,7 +12,7 @@ function isSameNode(virtualEl, realEl) {
     return false;
 }
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var div = helpers.vdom.createElement(
         "div",
         null,

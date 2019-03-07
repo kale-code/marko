@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         this.label = input.label || "app-fixed-id";
     },
 

@@ -13,7 +13,7 @@ module.exports = require("marko-widgets").defineComponent({
         };
     },
 
-    init: function(widgetConfig) {
+    init: widgetConfig => {
         this.widgetConfig = widgetConfig;
         window.fooWidget = this;
     }

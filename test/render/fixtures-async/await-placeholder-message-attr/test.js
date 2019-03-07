@@ -1,14 +1,14 @@
 var expect = require("chai").expect;
 
 exports.templateData = {
-    testDataProvider: function(done) {
+    testDataProvider: done => {
         setTimeout(() => {
             done(null, { name: "Frank" });
         }, 200);
     }
 };
 
-exports.checkHtml = function(html) {
+exports.checkHtml = html => {
     expect(html).to.contain("Loading main...");
     expect(html).to.contain("Hello Frank");
 };

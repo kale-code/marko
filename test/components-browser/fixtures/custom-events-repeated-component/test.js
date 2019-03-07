@@ -16,7 +16,7 @@ var items = [
     }
 ];
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var component = helpers.mount(require.resolve("./index"), {
         items: items
     });

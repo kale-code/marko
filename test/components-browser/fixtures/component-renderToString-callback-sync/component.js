@@ -7,7 +7,7 @@ module.exports = {
             {
                 name: this.input.name
             },
-            function(error, html) {
+            (error, html) => {
                 if (error) {
                     self.emit("renderError", error);
                 } else {

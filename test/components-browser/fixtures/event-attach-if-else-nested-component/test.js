@@ -1,6 +1,6 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var colors = ["blue", "green", "red"];
     var component = helpers.mount(require.resolve("./index"), {
         color: colors[0]

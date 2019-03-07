@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
+module.exports = builder => {
     var templateRoot = builder.templateRoot;
     var literal = builder.literal;
     var functionDeclaration = builder.functionDeclaration;

@@ -38,10 +38,10 @@ var vdomHelpers = {
             props
         );
     },
-    createText: function(value) {
+    createText: value => {
         return new VText(value);
     },
-    createComment: function(value) {
+    createComment: value => {
         return new VComment(value);
     },
     createDocumentFragment: () => {

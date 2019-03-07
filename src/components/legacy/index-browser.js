@@ -5,7 +5,7 @@ var complain = "MARKO_DEBUG" && require("complain");
 
 // expose legacy
 window.$markoLegacy = exports;
-exports.load = function(typeName) {
+exports.load = typeName => {
     return exports.defineWidget(require(typeName));
 };
 
@@ -24,11 +24,11 @@ exports.initWidgets = modernMarko.init;
 // monkey patch Widget
 if (Widget) {
     var WidgetProto = Widget.prototype;
-    WidgetProto.setProps = function(newInput) {
+    WidgetProto.setProps = newInput => {
         this.___isReceivingNewInput = true;
         this.___setInput(newInput);
     };
-    WidgetProto.rerender = function(newInput) {
+    WidgetProto.rerender = newInput => {
         if (newInput) {
             this.setProps(newInput);
         }
@@ -54,7 +54,7 @@ RenderResult.prototype.getWidgets = () => {
     }
     return RenderResult.prototype.getComponents
         .apply(this, arguments)
-        .filter(function(component) {
+        .filter(component => {
             return component.___isLegacy;
         });
 };

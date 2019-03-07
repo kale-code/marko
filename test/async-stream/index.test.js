@@ -34,7 +34,7 @@ function createAsyncStream(options) {
 }
 
 describe("AsyncStream", () => {
-    beforeEach(function(done) {
+    beforeEach(done => {
         // for (var k in require.cache) {
         //     if (require.cache.hasOwnProperty(k)) {
         //         delete require.cache[k];
@@ -44,14 +44,14 @@ describe("AsyncStream", () => {
         done();
     });
 
-    it("should render a series of sync calls correctly", function(done) {
+    it("should render a series of sync calls correctly", done => {
         var out = new AsyncStream();
         out.write("1");
         out.write("2");
         out.write("3");
         out.write("4");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("1234");
             done();
@@ -71,7 +71,7 @@ describe("AsyncStream", () => {
         });
     });
 
-    it("should render a series of sync and async calls correctly", function(done) {
+    it("should render a series of sync and async calls correctly", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -90,14 +90,14 @@ describe("AsyncStream", () => {
         }, 10);
 
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("1234");
             done();
         });
     });
 
-    it("should allow an async fragment to complete synchronously", function(done) {
+    it("should allow an async fragment to complete synchronously", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -109,14 +109,14 @@ describe("AsyncStream", () => {
 
         out.write("3");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("123");
             done();
         });
     });
 
-    it("should allow the async callback to provide data", function(done) {
+    it("should allow the async callback to provide data", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -127,17 +127,17 @@ describe("AsyncStream", () => {
 
         out.write("3");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("123");
             done();
         });
     });
 
-    it("should handle timeouts correctly", function(done) {
+    it("should handle timeouts correctly", done => {
         var out = new AsyncStream();
         var errors = [];
-        out.on("error", function(e) {
+        out.on("error", e => {
             errors.push(e);
         });
 
@@ -152,14 +152,14 @@ describe("AsyncStream", () => {
         out.write("3");
         out.end();
 
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             expect(errors.length).to.equal(1);
             expect(result.getOutput()).to.equal("13");
             done();
         });
     });
 
-    it("should render nested async calls correctly", function(done) {
+    it("should render nested async calls correctly", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -198,17 +198,17 @@ describe("AsyncStream", () => {
         }, 10);
 
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("12a2b2c34a4b4c");
             done();
         });
     });
 
-    it("should handle odd execution ordering", function(done) {
+    it("should handle odd execution ordering", done => {
         var outA = createAsyncStream({ name: "outA" });
 
-        outA.on("finish", function(result) {
+        outA.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("1234567");
             done();
@@ -239,10 +239,10 @@ describe("AsyncStream", () => {
         outA.end();
     });
 
-    it("should handle sync errors correctly", function(done) {
+    it("should handle sync errors correctly", done => {
         var out = new AsyncStream();
         var errors = [];
-        out.on("error", function(e) {
+        out.on("error", e => {
             errors.push(e);
         });
 
@@ -254,7 +254,7 @@ describe("AsyncStream", () => {
         }, 10);
         out.write("3");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(errors.length).to.equal(1);
             expect(output).to.equal("13");
@@ -262,12 +262,12 @@ describe("AsyncStream", () => {
         });
     });
 
-    it("should catch error in promise catch", function(done) {
+    it("should catch error in promise catch", done => {
         const out = new AsyncStream();
 
         let errors = [];
 
-        out.on("error", function(e) {
+        out.on("error", e => {
             errors.push(e);
         });
 
@@ -286,7 +286,7 @@ describe("AsyncStream", () => {
         });
     });
 
-    it("should catch error in promise catch if `error` listener only set inside mixin", function(done) {
+    it("should catch error in promise catch if `error` listener only set inside mixin", done => {
         const out = new AsyncStream();
 
         out.catch(err => {
@@ -302,13 +302,13 @@ describe("AsyncStream", () => {
         out.write("2");
     });
 
-    it("should support chaining", function(done) {
+    it("should support chaining", done => {
         var errors = [];
         var out = new AsyncStream()
-            .on("error", function(e) {
+            .on("error", e => {
                 errors.push(e);
             })
-            .on("finish", function(result) {
+            .on("finish", result => {
                 var output = result.getOutput();
                 expect(errors.length).to.equal(1);
                 expect(output).to.equal("13");
@@ -324,7 +324,7 @@ describe("AsyncStream", () => {
         out.write("3").end();
     });
 
-    it("should support writing to a through2 stream", function(done) {
+    it("should support writing to a through2 stream", done => {
         var output = "";
         var through2 = require("through2")(function write(
             data,
@@ -337,7 +337,7 @@ describe("AsyncStream", () => {
 
         var errors = [];
         var out = createAsyncStream(through2)
-            .on("error", function(e) {
+            .on("error", e => {
                 errors.push(e);
             })
             .on("finish", () => {
@@ -356,7 +356,7 @@ describe("AsyncStream", () => {
         out.write("3").end();
     });
 
-    it("should support writing to a through stream", function(done) {
+    it("should support writing to a through stream", done => {
         var output = "";
         var through = require("through")(function write(data) {
             output += data;
@@ -365,7 +365,7 @@ describe("AsyncStream", () => {
 
         var errors = [];
         var out = createAsyncStream(through)
-            .on("error", function(e) {
+            .on("error", e => {
                 errors.push(e);
             })
             .on("end", () => {
@@ -384,7 +384,7 @@ describe("AsyncStream", () => {
         out.write("3").end();
     });
 
-    it("should support writing to a file output stream", function(done) {
+    it("should support writing to a file output stream", done => {
         var outFile = nodePath.join(__dirname, "test.out");
         var out = fs.createWriteStream(outFile, fsReadOptions);
         var errors = [];
@@ -398,7 +398,7 @@ describe("AsyncStream", () => {
         });
 
         out = createAsyncStream(out)
-            .on("error", function(e) {
+            .on("error", e => {
                 errors.push(e);
             })
             .on("finish", () => {})
@@ -413,7 +413,7 @@ describe("AsyncStream", () => {
         out.write("3").end();
     });
 
-    it("should support piping to an async writer", function(done) {
+    it("should support piping to an async writer", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -427,14 +427,14 @@ describe("AsyncStream", () => {
 
         out.write("2");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("1Hello World2");
             done();
         });
     });
 
-    it("should support a writer being piped to another stream", function(done) {
+    it("should support a writer being piped to another stream", done => {
         var through = require("through")();
         var outStr = "";
 
@@ -442,7 +442,7 @@ describe("AsyncStream", () => {
             outStr += str;
         });
 
-        through.pipe(out).on("error", function(e) {
+        through.pipe(out).on("error", e => {
             done(e);
         });
 
@@ -467,7 +467,7 @@ describe("AsyncStream", () => {
         out.end();
     });
 
-    it("should allow an async fragment to flush last", function(done) {
+    it("should allow an async fragment to flush last", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -479,14 +479,14 @@ describe("AsyncStream", () => {
 
         out.write("3");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("123");
             done();
         });
     });
 
-    it("should allow an async fragment to flush last asynchronously", function(done) {
+    it("should allow an async fragment to flush last asynchronously", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -506,7 +506,7 @@ describe("AsyncStream", () => {
 
         out.write("3");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             expect(lastFiredCount).to.equal(1);
             var output = result.getOutput();
             expect(output).to.equal("123");
@@ -514,7 +514,7 @@ describe("AsyncStream", () => {
         });
     });
 
-    it("should not crash the program if the underlying stream has an error listener", function(done) {
+    it("should not crash the program if the underlying stream has an error listener", done => {
         var stream = require("stream");
         var PassThrough = stream.PassThrough;
         var passthrough = new PassThrough();
@@ -528,7 +528,7 @@ describe("AsyncStream", () => {
         out.error("test");
     });
 
-    it("should crash the program if the underlying stream does *not* have an error listener", function(done) {
+    it("should crash the program if the underlying stream does *not* have an error listener", done => {
         var stream = require("stream");
         var PassThrough = stream.PassThrough;
         var passthrough = new PassThrough();
@@ -543,7 +543,7 @@ describe("AsyncStream", () => {
         }
     });
 
-    it("should allow multiple onLast calls", function(done) {
+    it("should allow multiple onLast calls", done => {
         var out = new AsyncStream();
         out.write("1");
 
@@ -557,7 +557,7 @@ describe("AsyncStream", () => {
         var onLastCount = 0;
         var lastOutput = [];
 
-        out.onLast(function(next) {
+        out.onLast(next => {
             onLastCount++;
             lastOutput.push("a");
             asyncOut2.write("3");
@@ -566,7 +566,7 @@ describe("AsyncStream", () => {
         });
 
         var asyncOut3 = out.beginAsync({ last: true });
-        out.onLast(function(next) {
+        out.onLast(next => {
             onLastCount++;
             lastOutput.push("b");
             asyncOut3.write("4");
@@ -576,7 +576,7 @@ describe("AsyncStream", () => {
 
         out.write("5");
         out.end();
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("12345");
             expect(onLastCount).to.equal(2);
@@ -585,14 +585,14 @@ describe("AsyncStream", () => {
         });
     });
 
-    it("should handle timeout errors correctly", function(done) {
+    it("should handle timeout errors correctly", done => {
         var output = "";
         var errors = [];
 
         var through = require("through")(function write(data) {
             output += data;
         })
-            .on("error", function(err) {
+            .on("error", err => {
                 errors.push(err);
             })
             .on("end", () => {
@@ -616,7 +616,7 @@ describe("AsyncStream", () => {
         out.end();
     });
 
-    it("should avoid writes after end (a)", function(done) {
+    it("should avoid writes after end (a)", done => {
         var output = "";
         var errors = [];
         var ended = false;
@@ -625,7 +625,7 @@ describe("AsyncStream", () => {
             expect(ended).to.equal(false);
             output += data;
         })
-            .on("error", function(err) {
+            .on("error", err => {
                 errors.push(err);
             })
             .on("end", () => {
@@ -653,7 +653,7 @@ describe("AsyncStream", () => {
         out.end();
     });
 
-    it("should avoid writes after end (b)", function(done) {
+    it("should avoid writes after end (b)", done => {
         var output = "";
         var errors = [];
         var ended = false;
@@ -662,7 +662,7 @@ describe("AsyncStream", () => {
             expect(ended).to.equal(false);
             output += data;
         })
-            .on("error", function(err) {
+            .on("error", err => {
                 errors.push(err);
             })
             .on("end", () => {
@@ -692,7 +692,7 @@ describe("AsyncStream", () => {
         out.end();
     });
 
-    it("should avoid writes after end (c)", function(done) {
+    it("should avoid writes after end (c)", done => {
         var output = "";
         var errors = [];
         var ended = false;
@@ -701,7 +701,7 @@ describe("AsyncStream", () => {
             expect(ended).to.equal(false);
             output += data;
         })
-            .on("error", function(err) {
+            .on("error", err => {
                 errors.push(err);
             })
             .on("end", () => {
@@ -732,7 +732,7 @@ describe("AsyncStream", () => {
         out.end();
     });
 
-    it("should track finished correctly", function(done) {
+    it("should track finished correctly", done => {
         var myGlobal = {};
 
         var out1 = createAsyncStream({ global: myGlobal });
@@ -769,11 +769,11 @@ describe("AsyncStream", () => {
         out2.end();
     });
 
-    it("should end correctly if top-level is ended asynchronously", function(done) {
+    it("should end correctly if top-level is ended asynchronously", done => {
         var out = new AsyncStream();
         out.name = "outer";
 
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("123");
             done();
@@ -794,11 +794,11 @@ describe("AsyncStream", () => {
         }, 10);
     });
 
-    it("should end correctly if top-level is ended asynchronously when providing custom globals", function(done) {
+    it("should end correctly if top-level is ended asynchronously when providing custom globals", done => {
         var out = createAsyncStream({ global: { foo: "bar" } });
         out.name = "outer";
 
-        out.on("finish", function(result) {
+        out.on("finish", result => {
             var output = result.getOutput();
             expect(output).to.equal("123");
             done();
@@ -819,7 +819,7 @@ describe("AsyncStream", () => {
         }, 10);
     });
 
-    it("should support out.stream for accessing the original stream", function(done) {
+    it("should support out.stream for accessing the original stream", done => {
         var through = require("through");
         var stream = through(function write() {});
 

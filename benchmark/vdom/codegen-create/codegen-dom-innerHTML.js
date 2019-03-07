@@ -4,7 +4,7 @@ module.exports = () => {
     return fragment.childNodes[0];`;
 };
 
-module.exports.generateInitCode = function(node, html) {
+module.exports.generateInitCode = (node, html) => {
     return `
 var range = document.createRange();
 range.selectNode(document.body);

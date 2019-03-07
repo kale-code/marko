@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
+module.exports = builder => {
     var templateLiteral = builder.templateLiteral(
         ["hello ", ""],
         [builder.identifier("name")]

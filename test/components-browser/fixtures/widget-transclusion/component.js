@@ -1,5 +1,5 @@
 module.exports = {
-    onInput: function(input) {
+    onInput: input => {
         var alertType = input.alertType || "success";
         var alertMessage = input.alertMessage || "Hello World!";
 
@@ -9,11 +9,11 @@ module.exports = {
         };
     },
 
-    setAlertType: function(newAlertType) {
+    setAlertType: newAlertType => {
         this.setState("alertType", newAlertType);
     },
 
-    setAlertMessage: function(newAlertMessage) {
+    setAlertMessage: newAlertMessage => {
         this.setState("alertMessage", newAlertMessage);
     }
 };

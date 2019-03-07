@@ -22,7 +22,7 @@ function render(input, out, __component, component, state) {
 
   var for__2 = 0;
 
-  marko_forEach(colors, function(color) {
+  marko_forEach(colors, (color) => {
     var keyscope__3 = "[" + ((for__2++) + "]");
 
     out.w("<li>" +

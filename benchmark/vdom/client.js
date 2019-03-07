@@ -8,14 +8,14 @@ var running = false;
 var benchmarks = {};
 
 function loadScript(path) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
         var script = document.createElement("script");
         script.src = path;
         script.onload = () => {
             resolve();
         };
 
-        script.onerror = function(e) {
+        script.onerror = e => {
             reject(e);
         };
 
@@ -25,14 +25,14 @@ function loadScript(path) {
 
 function loadScripts(paths) {
     return Promise.all(
-        paths.map(function(path) {
+        paths.map(path => {
             return loadScript(path);
         })
     );
 }
 
 function runSuite(suite) {
-    return new Promise(function(resolve, reject) {
+    return new Promise((resolve, reject) => {
         if (running) {
             return;
         }
@@ -43,7 +43,7 @@ function runSuite(suite) {
             .on("start", () => {
                 resultsEl.innerHTML += 'Running "' + suite.name + '"...\n';
             })
-            .on("cycle", function(event) {
+            .on("cycle", event => {
                 resultsEl.innerHTML += String(event.target) + "\n";
             })
             .on("complete", () => {
@@ -57,7 +57,7 @@ function runSuite(suite) {
                 suite.off("start cycle complete");
                 resolve();
             })
-            .on("error", function(e) {
+            .on("error", e => {
                 running = false;
 
                 suite.off("start cycle complete error");
@@ -71,13 +71,13 @@ function runSuite(suite) {
 var vdom = (window.MarkoVDOM = {
     virtualize: require("../../runtime/vdom/virtualize"),
 
-    createElement: function(tagName, attrs, childCount, constId) {
+    createElement: (tagName, attrs, childCount, constId) => {
         return new HTMLElement(tagName, attrs, childCount, constId);
     },
-    createText: function(value) {
+    createText: value => {
         return new Text(value);
     },
-    createComment: function(value) {
+    createComment: value => {
         return new Comment(value);
     },
     createDocumentFragment: () => {
@@ -99,7 +99,7 @@ function registerBenchmark(name, func) {
 registerBenchmark("create", require("./benchmark-create"));
 registerBenchmark("walk", require("./benchmark-walk"));
 
-document.body.addEventListener("click", function(event) {
+document.body.addEventListener("click", event => {
     if (running) {
         return;
     }
@@ -118,7 +118,7 @@ document.body.addEventListener("click", function(event) {
 
                 resultsEl.innerHTML += "\nDONE!";
             })
-            .catch(function(e) {
+            .catch(e => {
                 target.innerHTML = oldButtonLabel;
                 console.error(e);
                 resultsEl.innerHTML = e.toString();

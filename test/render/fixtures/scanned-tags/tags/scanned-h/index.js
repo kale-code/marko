@@ -1,3 +1,3 @@
-exports.renderer = function(input, out) {
+exports.renderer = (input, out) => {
     out.write("scanned-h: Hello " + input.firstName);
 };
