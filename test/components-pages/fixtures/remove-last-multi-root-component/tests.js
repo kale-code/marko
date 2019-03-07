@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should remove the child nodes", function() {
+describe(path.basename(__dirname), () => {
+    it("should remove the child nodes", () => {
         var component = window.testComponent;
         var el = component.getEl("root");
 
