@@ -2,7 +2,7 @@
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_component = {
-        test: function(e) {
+        test: e => {
           return;
         }
       },
