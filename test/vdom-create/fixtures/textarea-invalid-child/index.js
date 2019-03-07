@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var TEXTAREA_FLAGS = 2;
-    expect(function() {
+    expect(() => {
         helpers.vdom
             .createElement(
                 "textarea",
