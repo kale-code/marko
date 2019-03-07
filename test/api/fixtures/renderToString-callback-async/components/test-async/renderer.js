@@ -1,6 +1,6 @@
-module.exports = function(input, out) {
+module.exports = (input, out) => {
     var asyncOut = out.beginAsync();
-    setTimeout(function() {
+    setTimeout(() => {
         asyncOut.write("[async]");
         asyncOut.end();
     }, 10);
