@@ -29,7 +29,7 @@ SpecialElHandlers.prototype = {
         syncBooleanAttrProp(fromEl, toEl, "checked");
         syncBooleanAttrProp(fromEl, toEl, "disabled");
 
-        if (fromEl.value != toEl.___value) {
+        if (fromEl.value !== toEl.___value) {
             fromEl.value = toEl.___value;
         }
 
@@ -40,7 +40,7 @@ SpecialElHandlers.prototype = {
 
     TEXTAREA: function(fromEl, toEl) {
         var newValue = toEl.___value;
-        if (fromEl.value != newValue) {
+        if (fromEl.value !== newValue) {
             fromEl.value = newValue;
         }
 
@@ -51,8 +51,8 @@ SpecialElHandlers.prototype = {
             var oldValue = firstChild.nodeValue;
 
             if (
-                oldValue == newValue ||
-                (!newValue && oldValue == fromEl.placeholder)
+                oldValue === newValue ||
+                (!newValue && oldValue === fromEl.placeholder)
             ) {
                 return;
             }
@@ -66,7 +66,7 @@ SpecialElHandlers.prototype = {
             var selected = 0;
             var curChild = toEl.___firstChild;
             while (curChild) {
-                if (curChild.___nodeName == "OPTION") {
+                if (curChild.___nodeName === "OPTION") {
                     i++;
                     if (curChild.___hasAttribute("selected")) {
                         selected = i;
