@@ -1,13 +1,11 @@
 exports.templateData = {
-    sharedData: function() {
-        return new Promise(function(resolve) {
-            setTimeout(function() {
+    sharedData: () => new Promise(resolve => {
+            setTimeout(() => {
                 resolve({ name: "testSharedData" });
             }, 100);
-        });
-    },
-    contextData: function(args, done) {
-        setTimeout(function() {
+        }),
+    contextData: (args, done) => {
+        setTimeout(() => {
             done(null, {
                 name: "testContextData"
             });
