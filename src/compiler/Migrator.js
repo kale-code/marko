@@ -53,7 +53,7 @@ function migrateTreeHelper(node, context) {
      *       sure that this is not a problem.
      */
 
-    node.forEachChild(function(childNode) {
+    node.forEachChild(childNode => {
         migrateTreeHelper(childNode, context);
     });
 }
