@@ -1,7 +1,6 @@
 "use strict";
 
-module.exports = function(builder) {
-    return builder.htmlElement(
+module.exports = builder => builder.htmlElement(
         "div",
         [
             {
@@ -11,4 +10,3 @@ module.exports = function(builder) {
         ],
         [builder.text(builder.literal("Hello World"))]
     );
-};
