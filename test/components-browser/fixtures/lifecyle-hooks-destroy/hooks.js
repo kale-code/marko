@@ -1,15 +1,13 @@
 var hooks = [];
 
 module.exports = {
-    record: function(name) {
+    record: name => {
         hooks.push(name);
     },
 
-    reset: function() {
+    reset: () => {
         hooks.length = 0;
     },
 
-    getHookNames: function() {
-        return hooks;
-    }
+    getHookNames: () => hooks
 };
