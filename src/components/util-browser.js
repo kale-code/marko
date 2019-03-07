@@ -22,7 +22,7 @@ function getParentComponentForEl(node) {
 function getComponentForEl(el, doc) {
     if (el) {
         var node =
-            typeof el == "string"
+            typeof el === "string"
                 ? (doc || defaultDocument).getElementById(el)
                 : el;
         if (node) {
