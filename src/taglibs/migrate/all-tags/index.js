@@ -19,7 +19,7 @@ const commonMigrators = [
     require("./widget-in-attrs")
 ];
 
-module.exports = function(el, context) {
+module.exports = (el, context) => {
     if (el.detachNode) {
         return false;
     }
