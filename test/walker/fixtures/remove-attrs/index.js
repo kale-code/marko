@@ -1,6 +1,6 @@
 "use strict";
 
-module.exports = function(compiler) {
+module.exports = compiler => {
     let builder = compiler.createBuilder();
 
     let text = builder.text;
