@@ -1,7 +1,7 @@
 var expect = require("chai").expect;
 var lifecycle = require("./lifecycle-recorder");
 
-module.exports = function(helpers) {
+module.exports = helpers => {
     var widget = helpers.mount(require.resolve("./index"), {
         name: "Frank",
         messageCount: 10
