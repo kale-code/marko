@@ -507,7 +507,7 @@ class TagLoader {
      * Example:
      * - "body-function": "_handleBody(param1, param2, param3)"
      */
-    body(value) => {
+    bodyFunction(value) {
         var tag = this.tag;
         var parts = bodyFunctionRegExp.exec(value);
         if (!parts) {
@@ -543,7 +543,7 @@ class TagLoader {
             params = [];
         }
 
-        tag.setBody(functionName, params) =>;
+        tag.setBodyFunction(functionName, params);
     }
     /**
      * The "import-var" property can be used to add a property to the

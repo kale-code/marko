@@ -22,7 +22,7 @@ class Vars extends Node {
         if (this.body && this.body.length) {
             var scopedBody = [this].concat(this.body);
             this.body = null;
-            return codegen.builder.selfInvoking(scopedBody) =>;
+            return codegen.builder.selfInvokingFunction(scopedBody);
         }
 
         return this;

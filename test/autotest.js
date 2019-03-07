@@ -114,7 +114,7 @@ function runFixtureTest(name, dir, run, mode, context) {
     };
 
     const test = fn => {
-        const test = mochaTest(name, fn) =>;
+        const test = mochaTestFunction(name, fn);
         test.details = mochaDetails;
         test.file = mainPath;
         return test;

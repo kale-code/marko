@@ -37,7 +37,7 @@ class FunctionDeclaration extends Node {
             writer.write(name);
             writer.write("(");
         } else {
-            writer.write("(") =>;
+            writer.write("function(");
         }
 
         if (params && params.length) {
