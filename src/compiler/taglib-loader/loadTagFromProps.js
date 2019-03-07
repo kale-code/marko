@@ -23,9 +23,7 @@ function exists(path) {
 }
 
 function removeDashes(str) {
-    return str.replace(/-([a-z])/g, function(match, lower) {
-        return lower.toUpperCase();
-    });
+    return str.replace(/-([a-z])/g, (match, lower) => lower.toUpperCase());
 }
 
 function hasAttributes(tagProps) {
@@ -135,11 +133,11 @@ class TagLoader {
             propertyHandlers(
                 value,
                 {
-                    name: function(value) {
+                    name: value => {
                         nestedVariable.name = value;
                     },
 
-                    nameFromAttribute: function(value) {
+                    nameFromAttribute: value => {
                         nestedVariable.nameFromAttribute = value;
                     }
                 },
