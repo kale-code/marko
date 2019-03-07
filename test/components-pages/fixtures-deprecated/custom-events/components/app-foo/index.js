@@ -1,9 +1,7 @@
 module.exports = require("marko-widgets").defineComponent({
     template: require.resolve("./template.marko"),
 
-    getTemplateData: function() {
-        return {};
-    },
+    getTemplateData: () => ({}),
 
     init: function() {
         window.fooWidget = this;
