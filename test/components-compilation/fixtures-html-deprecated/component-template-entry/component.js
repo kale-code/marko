@@ -4,9 +4,7 @@ var marko_template = (module.exports = require("marko/html").t(__filename)),
     marko_registerComponent = marko_components.rw,
     marko_componentType = marko_registerComponent(
         "/marko-test$1.0.0/autotests/components-compilation-deprecated/component-template-entry/index.marko",
-        function() {
-            return module.exports;
-        }
+        () => module.exports
     ),
     marko_helpers = require("marko/runtime/html/helpers"),
     marko_attr = marko_helpers.a;
