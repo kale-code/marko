@@ -154,6 +154,4 @@ install();
 
 exports.install = install;
 
-exports.getExtensions = function() {
-    return require.extensions[MARKO_EXTENSIONS];
-};
+exports.getExtensions = () => require.extensions[MARKO_EXTENSIONS];
