@@ -1,8 +1,8 @@
 var path = require("path");
 var expect = require("chai").expect;
 
-describe(path.basename(__dirname), function() {
-    it("should allow attributes to not be updated", function() {
+describe(path.basename(__dirname), () => {
+    it("should allow attributes to not be updated", () => {
         var app = window.app;
         var helloComponent = app.getComponent("hello");
 
