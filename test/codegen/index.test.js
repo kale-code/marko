@@ -53,8 +53,8 @@ autotest("fixtures", fixture => {
     });
 });
 
-describe("codegen", function() {
-    it("should not allow a return outside a function", function() {
+describe("codegen", () => {
+    it("should not allow a return outside a function", () => {
         let builder = compiler.createBuilder();
 
         var context = new CompileContext(
@@ -66,7 +66,7 @@ describe("codegen", function() {
 
         var rootNode = builder.program([builder.returnStatement("foo")]);
 
-        expect(function() {
+        expect(() => {
             codegen.generateCode(rootNode);
         }).to.throw('"return" not allowed outside a function body');
     });
