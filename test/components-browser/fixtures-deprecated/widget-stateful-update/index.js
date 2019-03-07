@@ -1,18 +1,15 @@
 module.exports = require("marko/legacy-components").defineComponent({
     template: require.resolve("./template.marko"),
-    getInitialState: function(input) {
-        return {
+    getInitialState: input => ({
             size: input.size || "normal",
             variant: input.variant || "primary",
             className: input["class"],
             attrs: input["*"]
-        };
-    },
+        }),
 
-    getInitialBody: function(input) {
-        return input.label || input.renderBody;
-    },
-    getTemplateData: function(state) {
+    getInitialBody: input => input.label || input.renderBody,
+    
+    getTemplateData: state => {
         var rootAttrs = {};
 
         var classParts = ["app-button"];
