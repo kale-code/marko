@@ -9,7 +9,7 @@ module.exports = {
 
         var el = this.el;
 
-        this.appendHtml = function(html) {
+        this.appendHtml = html => {
             el.innerHTML += html;
         };
     }
