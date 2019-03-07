@@ -3,7 +3,7 @@
 var ATTACH_DETACH_KEY = Symbol("attach-detach");
 
 function isUpperCase(c) {
-    return c == c.toUpperCase();
+    return c === c.toUpperCase();
 }
 
 function addDelegatedEventListener(transformHelper, options) {
