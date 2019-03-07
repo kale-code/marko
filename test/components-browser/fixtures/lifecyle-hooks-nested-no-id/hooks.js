@@ -20,8 +20,6 @@ module.exports = {
     getHookNames: function(component) {
         var hooksArray = this.hooksByComponent[component];
 
-        return hooksArray.map(function(hook) {
-            return hook.name;
-        });
+        return hooksArray.map(hook => hook.name);
     }
 };
