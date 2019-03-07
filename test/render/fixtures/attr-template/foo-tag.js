@@ -1,4 +1,4 @@
-module.exports = function(input, out) {
+module.exports = (input, out) => {
     out.write("Rendered template:");
     input.template.render({}, out);
 };
