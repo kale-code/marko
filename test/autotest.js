@@ -33,7 +33,7 @@ module.exports = function autotest(fixturesName, run) {
             if (fixtureName[0] === "~") {
                 // skip the fixture directory
             } else if (modes.length > 1) {
-                describe(fixtureName, function() {
+                describe(fixtureName, () => {
                     modes.forEach(mode => {
                         runFixtureTest(
                             mode.name,
