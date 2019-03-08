@@ -10,9 +10,7 @@ const FLAG_TRANSFORMER_APPLIED = "transformerApply";
 
 function transformNode(node, context) {
     try {
-        context.taglibLookup.forEachNodeTransformer(node, function(
-            transformer
-        ) {
+        context.taglibLookup.forEachNodeTransformer(node, transformer => {
             if (node.isDetached()) {
                 return; //The node might have been removed from the tree
             }
