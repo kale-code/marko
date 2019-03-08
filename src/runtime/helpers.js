@@ -48,7 +48,7 @@ function createDeferredRenderer(handler) {
 
     // This is the initial function that will do the rendering. We replace
     // the renderer with the actual renderer func on the first render
-    deferredRenderer.renderer = function(input, out) {
+    deferredRenderer.renderer = (input, out) => {
         var rendererFunc = handler.renderer || handler._ || handler.render;
         if (!isFunction(rendererFunc)) {
             throw Error("Invalid renderer");
@@ -145,7 +145,7 @@ var helpers = {
             if (typeof tag === "string") {
                 var events =
                     customEvents &&
-                    customEvents.reduce(function(events, eventArray) {
+                    customEvents.reduce((events, eventArray) => {
                         events["on" + eventArray[0]] = componentDef.d(
                             eventArray[0],
                             eventArray[1],
@@ -188,7 +188,7 @@ var helpers = {
                 if (attrs == null) {
                     attrs = {};
                 } else if (typeof attrs === "object") {
-                    attrs = Object.keys(attrs).reduce(function(r, key) {
+                    attrs = Object.keys(attrs).reduce((r, key) => {
                         r[removeDashes(key)] = attrs[key];
                         return r;
                     }, {});
