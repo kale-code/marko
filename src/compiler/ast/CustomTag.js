@@ -308,7 +308,7 @@ class CustomTag extends HtmlElement {
         if (tagDef.forEachAttribute) {
             // Add default values for any attributes from the tag definition. These added properties may get overridden
             // by get overridden from the attributes found on the actual HTML element.
-            tagDef.forEachAttribute(function(attrDef) {
+            tagDef.forEachAttribute(attrDef => {
                 if (attrDef.hasOwnProperty("defaultValue")) {
                     handleAttr(
                         attrDef.name,
@@ -383,7 +383,7 @@ class CustomTag extends HtmlElement {
         if (tagDef.forEachImportedVariable) {
             // Imported variables are used to add input properties to a custom tag based on data/variables
             // found in the compiled template
-            tagDef.forEachImportedVariable(function(importedVariable) {
+            tagDef.forEachImportedVariable(importedVariable => {
                 let propName = importedVariable.targetProperty;
                 let propExpression = importedVariable.expression;
 
@@ -662,11 +662,7 @@ class CustomTag extends HtmlElement {
             if (tagDef.bodyFunction) {
                 let bodyFunction = tagDef.bodyFunction;
                 let bodyFunctionName = bodyFunction.name;
-                let bodyFunctionParams = bodyFunction.params.map(function(
-                    param
-                ) {
-                    return builder.identifier(param);
-                });
+                let bodyFunctionParams = bodyFunction.params.map(param => builder.identifier(param));
 
                 return builder.functionDeclaration(
                     bodyFunctionName,
