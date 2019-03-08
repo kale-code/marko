@@ -662,7 +662,9 @@ class CustomTag extends HtmlElement {
             if (tagDef.bodyFunction) {
                 let bodyFunction = tagDef.bodyFunction;
                 let bodyFunctionName = bodyFunction.name;
-                let bodyFunctionParams = bodyFunction.params.map(param => builder.identifier(param));
+                let bodyFunctionParams = bodyFunction.params.map(param =>
+                    builder.identifier(param)
+                );
 
                 return builder.functionDeclaration(
                     bodyFunctionName,

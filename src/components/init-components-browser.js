@@ -154,14 +154,19 @@ function addDOMEventListeners(
     extraArgs,
     handles
 ) {
-    var removeListener = addEventListenerHelper(el, eventType, isOnce, event => {
-        var args = [event, el];
-        if (extraArgs) {
-            args = extraArgs.concat(args);
-        }
+    var removeListener = addEventListenerHelper(
+        el,
+        eventType,
+        isOnce,
+        event => {
+            var args = [event, el];
+            if (extraArgs) {
+                args = extraArgs.concat(args);
+            }
 
-        invokeComponentEventHandler(component, targetMethodName, args);
-    });
+            invokeComponentEventHandler(component, targetMethodName, args);
+        }
+    );
     handles.push(removeListener);
 }
 

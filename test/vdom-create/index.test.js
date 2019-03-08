@@ -19,23 +19,8 @@ var VComment = vdom.___VComment;
 var VDocumentFragment = vdom.___VDocumentFragment;
 
 var vdomHelpers = {
-    createElement: (
-        tagName,
-        attrs,
-        key,
-        component,
-        childCount,
-        flags,
-        props
-    ) => new VElement(
-            tagName,
-            attrs,
-            key,
-            component,
-            childCount,
-            flags,
-            props
-        ),
+    createElement: (tagName, attrs, key, component, childCount, flags, props) =>
+        new VElement(tagName, attrs, key, component, childCount, flags, props),
     createText: value => {
         return new VText(value);
     },
