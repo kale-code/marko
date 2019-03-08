@@ -127,10 +127,10 @@ module.exports = function defineRenderer(renderingLogic) {
                 // We are going to be modifying the template data so we need to
                 // make a shallow clone of the object so that we don't
                 // mutate user provided data.
-                templateData = Object.keys(templateData).reduce(function(
+                templateData = Object.keys(templateData).reduce((
                     copy,
                     key
-                ) {
+                ) => {
                     copy[key] = templateData[key];
                     return copy;
                 },
