@@ -154,9 +154,7 @@ function addDOMEventListeners(
     extraArgs,
     handles
 ) {
-    var removeListener = addEventListenerHelper(el, eventType, isOnce, function(
-        event
-    ) {
+    var removeListener = addEventListenerHelper(el, eventType, isOnce, event => {
         var args = [event, el];
         if (extraArgs) {
             args = extraArgs.concat(args);
