@@ -273,7 +273,7 @@ defineProperty(proto, "___value", {
     }
 });
 
-VElement.___createElementDynamicTag = function(
+VElement.___createElementDynamicTag = (
     tagName,
     attrs,
     key,
@@ -281,7 +281,7 @@ VElement.___createElementDynamicTag = function(
     childCount,
     flags,
     props
-) {
+) => {
     var namespace = attrs && attrs.xmlns;
     tagName = namespace ? tagName : tagName.toUpperCase();
     var element = new VElement(
