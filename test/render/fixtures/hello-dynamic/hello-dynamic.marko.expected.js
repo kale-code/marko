@@ -1,4 +1,4 @@
-exports.create = function (__helpers) {
+exports.create = __helpers => {
   var str = __helpers.s,
       empty = __helpers.e,
       notEmpty = __helpers.ne,
